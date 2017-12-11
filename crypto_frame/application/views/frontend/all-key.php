@@ -121,68 +121,7 @@
         </tbody>
 </table>
         <div class="row">
-            <div class="col-sm-12">
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=bitcoin">
-                        <img src="<?php echo base_url();?>assets/images/bitcoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=vertcoin">
-                        <img src="<?php echo base_url();?>assets/images/vertcoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=bitcoincash">
-                        <img src="<?php echo base_url();?>assets/images/bitcoincash.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=dash">
-                        <img src="<?php echo base_url();?>assets/images/dash.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=dogecoin">
-                        <img src="<?php echo base_url();?>assets/images/dogecoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=feathercoin">
-                        <img src="<?php echo base_url();?>assets/images/feathercoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=litecoin">
-                        <img src="<?php echo base_url();?>assets/images/litecoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=monetarycoin">
-                        <img src="<?php echo base_url();?>assets/images/monetaryunit.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=peercoin">
-                        <img src="<?php echo base_url();?>assets/images/peercoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=potcoin">
-                        <img src="<?php echo base_url();?>assets/images/potcoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=reddcoin">
-                        <img src="<?php echo base_url();?>assets/images/reddcoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=speedcoin">
-                        <img src="<?php echo base_url();?>assets/images/speedcoin.png" width="100" height="100">
-                    </a>
-                </div>
-            </div>
+            
             <div class="col-sm-12">
                  <div class="col-sm-3"></div>
                 <div class="col-sm-6">
@@ -196,9 +135,7 @@
                     <div class="panel-body">
                         <div class="col-sm-12">
                             <div class="col-sm-3">
-                               <a href="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $address?>">
-                                <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $address?>" 
-                                alt="QR Code" style="width:60px;border:0;">
+                                dasfdsfdsfdsf
                             </div>
                             <div class="col-sm-8">
                                  1. Get BitcoinCash (BCH) at bittrex.com if you don't already have any.<br>
@@ -207,7 +144,7 @@
                                 <b>end 0.00087383 BCH (in ONE payment) to:</b>
                             </div>
                         </div>
-                        <form action="<?php echo base_url();?>index.php/payment/key-secrat">
+                        <form action="<?php echo base_url();?>index.php/account/key-secrat">
                         <div align="center" > 
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Copy</button>
                                 <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?php echo $address;?>">
@@ -220,23 +157,4 @@
             </div>
         </div>
     </div>
-</div>
-            
-
-<!-- The Modal -->
-<div class="modal fade" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h4 class="modal-title">Address:</h4>
-      </div>
-      <div class="modal-body">
-            <input type="text" style="margin-top: 20px; width:100%;" name="copy" id="copy" value="<?php echo $address;?>">
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      </div>
-
-    </div>
-  </div>
 </div>

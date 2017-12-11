@@ -3,7 +3,8 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 include_once APPPATH.'third_party/jsonRPCClient.php';
 include_once APPPATH.'third_party/Client.php';
-
+include_once APPPATH.'third_party/cryptobox_config.php';
+include_once APPPATH.'third_party/cryptobox.php';
 
 class Account extends CI_Controller 
 {
