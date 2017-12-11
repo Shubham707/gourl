@@ -1,6 +1,9 @@
-             <style type="text/css">
-                    .error{ color: red; }
-                </style> 
+     
+                <style type="text/css"> 
+                    select{ width: 80% !important; margin-top: 20px; } 
+                    input{ width: 80% !important; margin-top: 20px; }
+                    .error{color: red;}
+                </style>
                 <!-- page content wrapper -->
                 <div class="page-content-wrap bg-light">
                     <!-- page content holder -->
@@ -47,8 +50,8 @@
                                 </div><br>
                             </div>
                             <div class="form-group">
-                                <div class="col-sm-9 col-sm-offset-4">
-                                   <input class="submit" type="submit" value="Submit">
+                                <div class="col-sm-4 col-sm-offset-4">
+                                   <input class="btn btn-info" type="submit" value="Submit">
                                 </div>
                             </div>
                                

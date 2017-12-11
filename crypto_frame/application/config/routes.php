@@ -50,7 +50,15 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
-$route['user/save-data-key'] = 'user/security_key';
+$route['user/save-data-key'] = 'account/security_key';
+$route['user/update-security-coin'] = 'account/security_update';
+$route['account/my-account'] = 'account/my_account';
+$route['account/my-affiliated-online'] = 'account/affiliated';
+$route['account/my-monitiser-online'] = 'account/monitiser';
+$route['welcome/pay-product-online'] = 'welcome/pay_per_product';
+$route['product/add-product']='product/add_product';
+$route['product/add-per-product']='product/add_pay_product';
+$route['payment/add-payment']='payment';
 //$route['method/(:any)'] = 'controller/method/index/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

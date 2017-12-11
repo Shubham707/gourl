@@ -9,7 +9,11 @@ class Membership extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->database();
-        //$this->load->library(array('session'));
+       $this->load->library('session','Rpc');
+        if($this->session->userdata('user_id')=='')
+        {
+            redirect('user/login');
+        }
 	}
 	
 

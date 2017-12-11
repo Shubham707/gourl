@@ -2,6 +2,8 @@
     select{ width: 80% !important; margin-top: 20px; } 
     input{ width: 80% !important; margin-top: 20px; }
     .error{color: red;}
+    label{  margin-top: 20px; }
+    .error{color: red;}
 </style>
     <!-- page content wrapper -->
     <div class="page-content-wrap bg-light">
@@ -38,19 +40,20 @@
                 </div>
 
                 <div class="block-heading-text">
+                    <?php foreach($allKey as $value){ ?>
 
-                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>/index.php/user/save-data-key">
+                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>index.php/user/update-security-coin">
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username"> Box Id:</label>
                     <div class="col-sm-5">
-                        <input id="boxID" name="boxID"  type="text" required placeholder="Box Id"><br>
+                        <input id="boxID" name="boxID"  type="text" required placeholder="Box Id" value="<?php echo  $value->boxID;?>"><br>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username"> Payment Box Name:</label>
                     <div class="col-sm-5">
-                        <input id="boxName" name="boxName"  type="text" required placeholder="Box Name"><br>
+                        <input id="boxName" name="boxName"  type="text" required placeholder="Box Name" value="<?php echo  $value->boxName;?>"><br>
                     </div>
                 </div>
 
@@ -58,14 +61,14 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="public">Public Key</label>
                     <div class="col-sm-5">
-                       <input id="publicKey" type="text" name="publicKey" placeholder="Public Key" required disabled>
+                       <input id="publicKey" type="text" name="publicKey" placeholder="Public Key" required value="<?php echo  $value->publicKey;?>">
                     </div><br>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="private">Private Key</label>
                     <div class="col-sm-5">
-                       <input id="privateKey" type="text" name="privateKey" placeholder="Private Key" required disabled>
+                       <input id="privateKey" type="text" name="privateKey" placeholder="Private Key" required value="<?php echo  $value->privateKey;?>">
                     </div><br>
                 </div>
 
@@ -73,7 +76,8 @@
                     <label class="col-sm-4 control-label" for="coin">Coin Name</label>
                     <div class="col-sm-5">
                        <select id="coinName" name="coinName" placeholder="Coin Name" required>
-                        <option value=''> - Select One - </option>
+                            <
+                            <option value='<?php echo  $value->coinName;?>><?php echo  $value->coinName;?> </option>
                             <option  value='bitcoin'> bitcoin</option>
                             <option  value='bitcoincash'> bitcoincash</option>
                             <option  value='litecoin'> litecoin</option>
@@ -94,7 +98,7 @@
                     <label class="col-sm-4 control-label" for="boxType">Type of Payment Box:</label>
                     <div class="col-sm-5">
                        <select id="boxType" type="text" name="boxType" placeholder="Box Type" required>
-                        <option value=''> - Select One - </option>
+                        <option value="<?php echo  $value->boxType;?>"> <?php echo  $value->boxType;?></option>
                         <option  value='paymentbox'> paymentbox</option>
                         <option  value='captchabox'> captchabox</option>
                     </select>
@@ -103,7 +107,7 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="password">Your External Wallet Address: </label>
                     <div class="col-sm-5">
-                       <input id="isLockAddr" type="text" name="isLockAddr" placeholder="Your External Wallet Address" required><br>
+                       <input id="isLockAddr" type="text" name="isLockAddr" placeholder="Your External Wallet Address" required value="<?php echo  $value->isLockAddr;?>"><br>
                     </div>
                 </div>
 
@@ -111,31 +115,38 @@
                  <div class="form-group">
                     <label class="col-sm-4 control-label" for="password">Lock External Address Forever: </label>
                     <div class="col-sm-5">
-                       <input id="isLockAddr" type="text" name="isLockAddr" placeholder="Lock External Address Forever" required><br>
+                       <input id="isLockAddr" type="text" name="isLockAddr" placeholder="Lock External Address Forever" required value="<?php echo  $value->isLockAddr;?>"><br>
                     </div>
                 </div>
 
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="password">Notification By Email:</label>
                     <div class="col-sm-5">
-                       <input id="email" type="email" name="email" placeholder="Notification By Email:" required><br>
+                       <input id="email" type="email" name="email" placeholder="Notification By Email:" required value="<?php echo  $value->email;?>"><br>
                     </div>
                 </div>
                
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="password">Callback URL: </label>
                     <div class="col-sm-5">
-                       <input id="callbackUrl" type="text" name="callbackUrl" placeholder="Callback URL" required><br>
+                       <input id="callbackUrl" type="text" name="callbackUrl" placeholder="Callback URL" required value="<?php echo  $value->callbackUrl;?>"><br>
                     </div><br>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="password">Use on Adult/Gambling Website ? </label>
                     <div class="col-sm-5">
-                       <input id="isAdult" style="margin-left: 0px; max-width: 0%;" type="radio" name="isAdult" value="1">No
-                       <input id="isAdult" style="margin-left: 0px; max-width: 0%;" type="radio" name="isAdult" value="-1">Yes
-                       <input type='hidden' id='isAdult_exst' name='isAdult_exst' value=''>
-                       <input type='hidden' id='start_time' name='start_time'>
-                       <input type='hidden' id='user_id' name='user_id' value="1">
+                        <?php if($value->isAdult){ ?>
+                       <input id="isAdult" style="margin-left: 0px; max-width: 0%;" type="radio" name="isAdult" value="<?php echo  $value->isAdult;?>">No
+                      
+                       <?php } else { ?>
+                        <input id="isAdult" style="margin-left: 0px; max-width: 0%;" type="radio" name="isAdult" value="<?php echo  $value->boxID;?>">Yes
+                       <?php } ?>
+
+                       <!-- hidden fields -->
+                       <input type='hidden' id='isAdult_exst' name='isAdult_exst' value="<?php echo  $value->isAdult;?>">
+                       <input type='hidden' id='start_time' name='start_time' value="<?php echo  $value->start_time;?>">
+                       <input type='hidden' id='user_id' name='user_id' value="<?php echo  $value->user_id;?>">
+                       <input type='hidden' id='key_id' name='key_id' value="<?php echo  $value->key_id;?>">
                     </div><br>
 
                 </div>
@@ -144,7 +155,7 @@
                        <input class="btn btn-info" type="submit" value="Submit">
                     </div>
                 </div>
-                   
+                   <?php }?>
                     </form>
                 </div>
             </div>

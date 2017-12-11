@@ -21,9 +21,12 @@ class User_model extends CI_Model {
 		$this->db->limit(1);
 		$query = $this->db->get();
 		if ($query->num_rows() == 1) {
-		return true;
+			
+			return true;
+
 		} else {
-		return false;
+
+			return false;
 		}
 	}
 
@@ -50,12 +53,13 @@ class User_model extends CI_Model {
 		$this->db->insert('security_key',$value);
 
 	}
-	public function update_sec($value)
+	public function securities_update($value,$id)
 	{
 		
-		 $data=$this->db->query($sql)->result();
-		 die();
+		return $this->db->update('security_key',$value);
+		
 	}
+	
 
 		
 

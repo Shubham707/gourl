@@ -5,7 +5,7 @@
                     <div class="page-content-holder no-padding">
                         <!-- page title -->
                         <div class="page-title">                            
-                            <h1>User Account Update</h1>
+                            <h1>User Account Update<?php //echo $user_id;?></h1>
                             <!-- breadcrumbs -->
                             <ul class="breadcrumb">
                                 <li><a href="index.html">Home</a></li>
@@ -19,7 +19,8 @@
                     <!-- ./page content holder -->
                 </div>
                 <!-- ./page content wrapper -->
-                
+
+                <?php //if($firstname) echo $firstname; else echo "afaf"; ?>
                                
                 <!-- page content wrapper -->
                 <div class="page-content-wrap">
