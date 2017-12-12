@@ -59,6 +59,13 @@ class User_model extends CI_Model {
 		return $this->db->update('security_key',$value);
 		
 	}
+	public function listing()
+	{
+		
+		echo $this->db->get('users');
+		die();
+		
+	}
 	
 
 		

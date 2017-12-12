@@ -1,8 +1,7 @@
 <?php 
 /* 
-Author : SKumar
-Version: 14.4.0
-Email  : sunnyrajkum@gmail.com
+Author : Shubhamsahu
+Version: 1.0.1
 */
 
 if (!defined('BASEPATH')) exit('No direct script access allowed');

@@ -16,9 +16,7 @@ class Payment extends CI_Controller
         $this->load->helper('form');
         $this->load->database();
         $this->load->library('session','Rpc');
-
-        
-
+        $this->load->model('Product_model');
          if($this->session->userdata('user_id')=='')
         {
             redirect('user/login');
@@ -30,10 +28,15 @@ class Payment extends CI_Controller
         $rpc_user="EBTC147";
         $rpc_pass="33Mj169rVg9d55Ef1QPt";
         $rpc_port="8116";
-        $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
-         $address=$new->getAddress('shubhamsahu707@gmail.com'); 
+        $email="shubhamsahu707@gmail.com";
+         $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+         $balance=$new->getAddress($email); 
+         $address=$new->getBalance($email);
         $data=array(
             'address'=>$address,
+            'balance'=>$balance,
+            'email'=> $email,
+            'coin'=> $coin,
         );
         $this->load->view('frontend/headerfront');
         $this->load->view('frontend/add-payment', $data);
@@ -43,6 +46,7 @@ class Payment extends CI_Controller
 
     public function payment_add()
     {
+        $coin=$_REQUEST['multiCurrency'];
       
                 if(!defined("CRYPTOBOX_WORDPRESS")) define("CRYPTOBOX_WORDPRESS", false);
 
@@ -232,6 +236,34 @@ class Payment extends CI_Controller
             // $email = "....your email address....";
              mail($email, "Payment - " . $paymentID . " - " . $box_status, " \n Payment ID: " . $paymentID . " \n\n Status: " . $box_status . " \n\n Details: " . print_r($payment_details, true));
             return true;      
+    }
+    public function secret_key()
+    {
+        $this->load->view('frontend/headerfront');
+        $this->load->view('frontend/all-key');
+        $this->load->view('frontend/footerfront');
+    }
+    public function unrecognised_received_payments()
+    {
+        $data['country']=$this->Product_model->country();
+        $this->load->view('frontend/headerfront');
+        $this->load->view('frontend/Payments_notconfirm',$data);
+        $this->load->view('frontend/footerfront');
+    }
+    public function auto_payments_external_wallet()
+    {
+        $data['country']=$this->Product_model->country();
+       
+        $this->load->view('frontend/headerfront');
+        $this->load->view('frontend/Payments_confirm',$data);
+        $this->load->view('frontend/footerfront');
+    }
+    public function payment_successfull()
+    {
+        $data['country']=$this->Product_model->country();
+        $this->load->view('frontend/headerfront');
+        $this->load->view('frontend/Payments_Successfully',$data);
+        $this->load->view('frontend/footerfront');
     }
 
 

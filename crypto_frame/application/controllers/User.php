@@ -44,7 +44,7 @@ class User extends CI_Controller
     }
     public function user_save()
     {
-
+        $rand=
     	$data = array(
     		'title' => 		$this->input->post('title'),
     		'firstname'=>	$this->input->post('firstname'),

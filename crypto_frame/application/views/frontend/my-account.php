@@ -127,7 +127,7 @@
                                             <td><?= $bitcoin->unrecognised;?></td>
                                             <td><?= $bitcoin->processed;?></td>
                                            
-                                            <td>Edit</td>
+                                            <td><a href="<?php echo base_url();?>index.php/account/coinbox/<?= $bitcoin->processed;?>">Edit</a></td>
                                           </tr>      
                                          <?php }?>     
                                          
@@ -137,7 +137,17 @@
                                   <div class="page-content-holder no-padding">
                                     <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/user/public_key">Create New Payment Box fro Your Website</a></div>
                                 </div>
-                            <!-- ./page content holder -->
+                                <div class="page-content-holder">
+                                    <div class="pull-left">
+                                      <h1>Common Statistics for All Your Payment Boxes</h1>
+                                    </div>
+                                    <div class="col-sm-12">
+                                        <a class="btn btn-info" href="<?php echo base_url();?>index.php/payment/payment-successfull">Payments Successfully Received & Processed</a>
+                                        <a class="btn btn-info" href="<?php echo base_url();?>index.php/payment/Unrecognised-Received-Payments">Unrecognised Received Payments</a>
+                                        <a class="btn btn-info" href="<?php echo base_url();?>index.php/payment/auto-payments-external-wallet">Auto Payments to Your Wallet</a>
+                                    </div>
+                                </div>
+                             
                              </div>
                         </div>
                         

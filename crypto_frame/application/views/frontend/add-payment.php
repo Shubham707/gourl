@@ -20,106 +20,118 @@
   </div>
   </div>
 <div class="row">
-  <div class="col-md-6 pull-left">
+     <div class="col-sm-12">
+          <div style="padding-left: 25%;" class="offset-3 col-md-6 pull-left">
 
-    <h3>Company Name</h3>
-    <p>1433 17th St.<br>Denver CO 567875<br>Phone: (123) 4124324321<br>example@gmail.com</p><br><br>
-  </div>
-  <div class="col-md-6 ">
-    <div class="offset-col-md-2 col-md-10 right">
-    <br>
-    <p ><b>Invoice</b>&nbsp; #45762</p>
-    <p  ><b> Date.</b>&nbsp; 21/2/2017</p>
-  </div>
-</div>
-<div class="offset-md-6 col-md-6 right">
-         <h5 align="right">Company Name</h5>
-    <p align="right">1433 17th St.<br>Denver CO 567875<br>Phone: (123) 4124324321<br>example@gmail.com</p><br><br>
-</div>
-  
-  <table class="table table-bordered">
-<thead style="background-color: #142929;color: white;">
-  <tr>
-    <th>Item</th>
-    <th>Description</th>
-    <th>Qty</th>
-     <th>Price</th>
-    <th>Amount</th>
-  </tr>
-    </thead>
-        <tbody>
-          <tr>
-            <td><b> Product</b></td>
-            <td>One Kind of Product Description</td>
-            <td>1.00</td>
-            <td>$1.15</td>
-            <td>$1.15</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td><b> Product</b></td>
-            <td>One Kind of Product another Description</td>
-            <td>1.00</td>
-            <td>$1.30</td>
-            <td>$1.30</td>
-          </tr>
-        </tbody>
-        <tbody >
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-        <tbody >
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-        <tbody >
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td></td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><b>Subtotle:</b></td>
-            <td>$2.45</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><b>Discount(10%):</b></td>
-            <td>($0.24)</td>
-          </tr>
-        </tbody>
-        <tbody>
-          <tr>
-            <td></td>
-            <td></td>
-            <td></td>
-            <td><b>TOTAL DUE:</b> </td>
-            <td>$2.21</td>
-          </tr>
-        </tbody>
-</table>
+            <h3>Company Name</h3>
+            <p>1433 17th St.<br>Denver CO 567875<br>Phone: (123) 4124324321<br>example@gmail.com</p>    <br><br>
+          </div>
+         <!--  <div class="col-md-6 pull-right">
+            <div class="offset-col-md-2 col-md-10 pull-left">
+            
+          </div>
+        </div> -->
+        <div class="offset-md-6 col-md-6 pull-left">
+            <br>
+            <p ><b>Invoice</b>&nbsp; #45762</p>
+            <p ><b>Email :</b><?php echo $email;?></p>
+            <p  ><b> Date.</b>&nbsp; <?php echo date("l jS \of F Y h:i:s A");?></p>
+            <h5>Company Name</h5>
+            <p>1433 17th St.<br>
+                Denver CO 567875<br>
+                Phone: (123) 4124324321<br>
+            example@gmail.com</p>
+            <br><br>
+        </div>
+    </div>
+  <div class="col-sm-12">
+    <!-- <div class="col-md-3"></div> -->
+    <div style="padding-left: 25%; padding-right: 25%;">
+                <table class="table table-bordered">
+                <thead style="background-color: #142929;color: white;">
+                  <tr>
+                    <th>Item</th>
+                    <th>Description</th>
+                    <th>Qty</th>
+                     <th>Price</th>
+                    <th>Amount</th>
+                  </tr>
+                    </thead>
+                        <tbody>
+                          <tr>
+                            <td><b> Product</b></td>
+                            <td>One Kind of Product Description</td>
+                            <td>1.00</td>
+                            <td>$1.15</td>
+                            <td>$1.15</td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <td><b> Product</b></td>
+                            <td>One Kind of Product another Description</td>
+                            <td>1.00</td>
+                            <td>$1.30</td>
+                            <td>$1.30</td>
+                          </tr>
+                        </tbody>
+                        <tbody >
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                        <tbody >
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                        <tbody >
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><b>Subtotle:</b></td>
+                            <td>$2.45</td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><b>Discount(10%):</b></td>
+                            <td>($0.24)</td>
+                          </tr>
+                        </tbody>
+                        <tbody>
+                          <tr>
+                            <td></td>
+                            <td></td>
+                            <td></td>
+                            <td><b>TOTAL DUE:</b> </td>
+                            <td>$2.21</td>
+                          </tr>
+                        </tbody>
+                </table>
+            </div>
+            <!-- <div col-md-3></div> -->
         <div class="row">
             <div class="col-sm-12">
                 <div class="col-sm-1">
@@ -199,10 +211,11 @@
                                <a href="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $address?>">
                                 <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?php echo $address?>" 
                                 alt="QR Code" style="width:60px;border:0;">
+                            </a>
                             </div>
                             <div class="col-sm-8">
-                                 1. Get BitcoinCash (BCH) at bittrex.com if you don't already have any.<br>
-                                2. <b>Send </b>0.00087383 BCH (don't include transaction fee in this amount!).
+                                 1. Get <?php echo $coin;?> at bittrex.com if you don't already have any.<br>
+                                2. <b>Send </b><?php echo $balance.' '.$coin;?> (don't include transaction fee in this amount!).
                                     If you send <b>any other bitcoincash amount</b>, payment system will <b>ignore it </b>!
                                 <b>end 0.00087383 BCH (in ONE payment) to:</b>
                             </div>
@@ -212,7 +225,8 @@
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Copy</button>
                                 <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?php echo $address;?>">
                         </div>
-                        <div align="center"><input type="submit" style="margin-top: 20px; width:60%;" name="submit" value="Click Here if you have already sent Bitcoincash »  "></div>
+                        <div align="center"><input type="submit" style="margin-top: 20px; width:60%;" name="submit" value="Click Here if you have already sent <?php echo $coin;?> »  ">
+                        </div>
                     </div>
                     </div>
                 </div>

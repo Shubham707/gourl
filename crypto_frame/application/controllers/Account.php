@@ -54,16 +54,23 @@ class Account extends CI_Controller
         $coin=$_REQUEST['multiCurrency'];
         $getData=$this->Account_model->invoice($coin);
         $email="shubhamsahu707@gmail.com";
-        $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
-         $address=$new->getAddress('shubhamsahu707@gmail.com'); 
+         $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+         $balance=$new->getBalance($email); 
+         $address=$new->getAddress($email);
         $data=array(
-            'address'=>$address,
+            'address'=> $address,
+            'balance'=> $balance,
+            'coin'=> $coin,
+            'email'=> $email,
         );
         $this->load->view('frontend/headerfront');
         $this->load->view('frontend/add-payment', $data);
         $this->load->view('frontend/footerfront');
-
     }
-    
+   /* public function ($boxid)
+    {
+       echo  $boxid;
+    }
+    */
 
 }
