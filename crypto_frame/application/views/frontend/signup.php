@@ -1,29 +1,28 @@
 
-                <!-- page content wrapper -->
                 <div class="page-content-wrap bg-light">
-                    <!-- page content holder -->
+            
                     <div class="page-content-holder no-padding">
-                        <!-- page title -->
+                  
                         <div class="page-title">                            
                             <h1>Sign Up User</h1>
-                            <!-- breadcrumbs -->
+                         
                             <ul class="breadcrumb">
                                 <li><a href="index.html">Home</a></li>
                                 <li class="active"><a href="#">Signup</a></li>
                                
                             </ul>               
-                            <!-- ./breadcrumbs -->
+                         
                         </div>
-                        <!-- ./page title -->
+                      
                     </div>
-                    <!-- ./page content holder -->
+                   
                 </div>
-                <!-- ./page content wrapper -->
+              
                 
                                
-                <!-- page content wrapper -->
+           
                 <div class="page-content-wrap">                    
-                    <!-- page content holder -->
+                 
                     <div class="page-content-holder">
                         
                         <div class="block-heading this-animate" data-animate="fadeIn">

@@ -10,7 +10,7 @@
                 <div class="page-content-wrap bg-light">
                     <div class="page-content-holder no-padding">
                         <div class="page-title">                            
-                            <a class="btn btn-info" href="<?php echo base_url();?>index.php/welcome/account">Your Persional Detail</a> 
+                            <a class="btn btn-info" href="<?php echo base_url();?>index.php/welcome/account">Your Persional Details</a> 
                             <ul class="breadcrumb">
                                 <li><a href="index.php">Image</a></li>
                                 
@@ -117,9 +117,31 @@
                                             ?>
                                           <tr>
                                             <td><?= $i++;?></td>
-                                            <td><?= $bitcoin->paymentID;?></td>
-                                            <td><?= $bitcoin->coinLabel;?></td>
-                                             <td><?= $bitcoin->boxType;?></td>
+                                            <td><?= $bitcoin->key_id;?></td>
+                                            <td><?= $bitcoin->boxName;?></td>
+                                            <?php if($bitcoin->boxName=='bitcoin'){?>
+                                             <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
+                                             <?php } else if($bitcoin->boxName=='litecoin'){?>
+                                              <td><img src="<?= base_url();?>assets/images/litecoin2.png"" height="60" width="60"></td>
+                                             <?php } else if($bitcoin->boxName=='bitcoincash'){?>
+                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
+                                             <?php } else if($bitcoin->boxName=='dash'){?>
+                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
+                                             <?php } else if($bitcoin->boxName=='dogecoin'){?>
+                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
+                                             <?php } else if($bitcoin->boxName=='speedcoin'){?>
+                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
+                                             <?php } else if($bitcoin->boxName=='reddcoin'){?>
+                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
+                                             <?php } else if($bitcoin->boxName=='potcoin'){?>
+                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
+                                             <?php } else if($bitcoin->boxName=='feathercoin'){?>
+                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
+                                             <?php } else if($bitcoin->boxName=='vertcoin'){?>
+                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
+                                             <?php } else if($bitcoin->boxName=='peercoin'){?>
+                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
+                                             <?php } else { echo "" ;}?>
                                             <td><?= $bitcoin->amountUSD;?></td>
                                             <td><?= $bitcoin->amount;?></td>
                                             <td><?= $bitcoin->txConfirmed;?></td>
@@ -127,7 +149,8 @@
                                             <td><?= $bitcoin->unrecognised;?></td>
                                             <td><?= $bitcoin->processed;?></td>
                                            
-                                            <td><a href="<?php echo base_url();?>index.php/account/coinbox/<?= $bitcoin->processed;?>">Edit</a></td>
+                                            <td width="200"><a class="btn btn-info" href="<?php echo base_url();?>index.php/account/coinbox/<?= $bitcoin->multicurrencyID.'/'.$bitcoin->boxID;?>">Edit</a> 
+                                              <a class="btn btn-info" href="<?php echo base_url();?>index.php/account/coinbox/<?= $bitcoin->multicurrencyID;?>">Start</a></td>
                                           </tr>      
                                          <?php }?>     
                                          
@@ -135,7 +158,7 @@
                                       </table>
                                 </div>
                                   <div class="page-content-holder no-padding">
-                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/user/public_key">Create New Payment Box fro Your Website</a></div>
+                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/account/public_key">Create New Payment Box fro Your Website</a></div>
                                 </div>
                                 <div class="page-content-holder">
                                     <div class="pull-left">

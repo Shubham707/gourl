@@ -10,12 +10,13 @@ class Account_model extends CI_Model
     {
         parent::__construct();
         $this->load->database();
+        $this->load->library('parser');
     }
 
-	public function view_account($data) 
+	public function view_account() 
 	{
 		
-		$sql="SELECT * FROM crypto_payments where userID='$data'";
+		$sql="SELECT * FROM security_key,crypto_payments";
 		return $val=$this->db->query($sql)->result();
 		 
 	}
@@ -24,6 +25,11 @@ class Account_model extends CI_Model
 		$sql="SELECT * FROM crypto_products WHERE productTitle ='$coin'";
 		return $value= $this->db->query($sql)->result();
 		 
+	}
+	public function multicurrency($mutiid,$boxid)
+	{
+		 $sql = "SELECT * FROM security_key WHERE multicurrencyID = '$mutiid' AND boxID ='$boxid'";
+           return $this->db->query($sql)->result();
 	}
 
 }

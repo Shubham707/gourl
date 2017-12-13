@@ -50,8 +50,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
-$route['user/save-data-key'] = 'account/security_key';
-$route['user/update-security-coin'] = 'account/security_update';
+$route['account/save-data-key'] = 'account/security_key';
+$route['account/update-security-coin'] = 'account/security_update';
 $route['account/my-account'] = 'account/my_account';
 $route['account/my-affiliated-online'] = 'account/affiliated';
 $route['account/my-monitiser-online'] = 'account/monitiser';

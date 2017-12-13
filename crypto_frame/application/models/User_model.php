@@ -61,10 +61,12 @@ class User_model extends CI_Model {
 	}
 	public function listing()
 	{
+		$data= $this->db->query('select * from users')->result();
+		foreach ($data as $key => $row) {
+			return $row->box_id;
+		}
 		
-		echo $this->db->get('users');
-		die();
-		
+
 	}
 	
 

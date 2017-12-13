@@ -3,28 +3,16 @@
     input{ width: 80% !important; margin-top: 20px; }
     .error{color: red;}
 </style>
-    <!-- page content wrapper -->
     <div class="page-content-wrap bg-light">
-        <!-- page content holder -->
         <div class="page-content-holder no-padding">
-            <!-- page title -->
             <div class="page-title">                            
-                <a class="btn btn-info" href="<?php echo base_url();?>/index.php/user/public_key">Create Public and Private key</a>
-                <a class="btn btn-info pull-right" href="<?php echo base_url();?>index.php/user/update_key?id=1">Edit Key</a>
-                <!-- breadcrumbs -->
-                               
-                <!-- ./breadcrumbs -->
+                <a class="btn btn-info" href="<?php echo base_url();?>/index.php/account/public_key">Create Public and Private key</a>
+                <!-- <a class="btn btn-info pull-right" href="<?php echo base_url();?>index.php/account/update_key?key_id=<?php echo $security;?>">Edit Key</a> -->
+              
             </div>
-            <!-- ./page title -->
         </div>
-        <!-- ./page content holder -->
     </div>
-    <!-- ./page content wrapper -->
-   
-                   
-    <!-- page content wrapper -->
    <div class="page-content-wrap">                    
-        <!-- page content holder -->
         <div class="page-content-holder">
             
             <div class="block-heading this-animate" data-animate="fadeIn">
@@ -38,11 +26,11 @@
                 </div>
 
                 <div class="block-heading-text">
-                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>/index.php/user/save-data-key">
+                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>/index.php/account/save-data-key">
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username"> Box Id:</label>
                     <div class="col-sm-5">
-                        <input id="boxID" name="boxID"  type="text" required placeholder="Box Id"><br>
+                        <input id="boxID"  type="text" required placeholder="Box Id" disabled><br>
                     </div>
                 </div>
 

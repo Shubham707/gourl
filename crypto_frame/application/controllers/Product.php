@@ -19,9 +19,9 @@ class Product extends CI_Controller
     }
     public function add_product()
     {
-        $this->load->view('frontend/headerfront');
+        $this->load->view('frontend/header');
         $this->load->view('frontend/add-product');
-        $this->load->view('frontend/footerfront');
+        $this->load->view('frontend/footer');
     }
     public function add_pay_product()
     {
@@ -48,9 +48,9 @@ class Product extends CI_Controller
     	$get['getProduct']=$this->db->query($sql)->result();
     	
    		//echo $get['productID'];die();
-        $this->load->view('frontend/headerfront');
+        $this->load->view('frontend/header');
         $this->load->view('frontend/pay-per-product',$get);
-        $this->load->view('frontend/footerfront');
+        $this->load->view('frontend/footer');
     }
    
     
