@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <!-- META SECTION -->
-        <title>Atlant - Front-End Template</title>
+        <title>Gourl.io</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -68,7 +68,7 @@
                                 <li><a href="<?php echo site_url();?>/welcome/pay_per_post">Pay Per Post</a></li>
                                 <li><a href="<?php echo site_url();?>/welcome/pay-product-online">Pay Per Product</a></li>
                                 <li><a href="<?php echo site_url();?>/membership/pay_per_membership">Pay per Membership</a></li>
-                                <li><a href="<?php echo site_url();?>/user/public_key">Account Key</a></li>
+                                <li><a href="<?php echo site_url();?>/account/public_key">Account Key</a></li>
                                 <li><a href="<?php echo site_url();?>/account/my-account">my account</a></li>
                                <li><a href="<?php echo site_url();?>/payment/add-payment">Payment</a></li>
                                 <li><a href="<?php echo site_url();?>/welcome/pay_multi_post">Pay Multi Post</a></li>

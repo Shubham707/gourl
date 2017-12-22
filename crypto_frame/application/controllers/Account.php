@@ -7,9 +7,7 @@ include_once APPPATH.'third_party/cryptobox_config.php';
 include_once APPPATH.'third_party/cryptobox.php';
 
 class Account extends CI_Controller 
-{
-
-    
+{   
 	public function __construct() 
     {
         parent::__construct();
@@ -19,11 +17,11 @@ class Account extends CI_Controller
         $this->load->model('User_model');
         $this->load->database();
         $this->load->library('parser');
+        $email=$this->session->userdata('email');
         if($this->session->userdata('is_logged_in')==false)
         {
             redirect('user/login');
         }
-
 
     }
     public function my_account()
@@ -54,15 +52,17 @@ class Account extends CI_Controller
 
         $coin=$_REQUEST['multiCurrency'];
         $getData=$this->Account_model->invoice($coin);
-        $email="shubhamsahu707@gmail.com";
+        $email=$this->session->userdata('email');
          $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
          $balance=$new->getBalance($email); 
          $address=$new->getAddress($email);
+        $keyValue=$this->Account_model->view_account();
         $data=array(
             'address'=> $address,
             'balance'=> $balance,
             'coin'=> $coin,
             'email'=> $email,
+            'txAddress'=>$keyValue,
         );
         $this->load->view('frontend/header');
         $this->load->view('frontend/add-payment', $data);
@@ -148,7 +148,6 @@ class Account extends CI_Controller
             );
              $this->User_model->securities_update($data,$id);
         }
-           /* print_r($data); die();*/
        
         $sql="select * from security_key where key_id='$id'";
         $getValue=$this->db->query($sql)->result();
@@ -201,6 +200,18 @@ class Account extends CI_Controller
         $this->load->view('frontend/header');
         $this->load->view('frontend/update-security',$query);
         $this->load->view('frontend/footer');
+    }
+    public function coin_boxes($id,$value)
+    {  
+        $query=$this->Account_model->coinboxs_payment($value,$id);
+        $data = array(
+            'payment_details' => $query,
+            'coin' => $value,
+        );
+        $this->load->view('frontend/header');
+        $this->load->view('frontend/coinbox-payment',$data);
+        $this->load->view('frontend/footer');
+        
     }
 
 }

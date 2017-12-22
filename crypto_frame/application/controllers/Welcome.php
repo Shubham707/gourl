@@ -9,10 +9,10 @@ class Welcome extends CI_Controller
         //$this->load->model('Product_model');
         $this->load->database();
         $this->load->library('session','Rpc');
-         if($this->session->userdata('user_id')=='')
+         /*if($this->session->userdata('user_id')=='')
         {
             redirect('user/login');
-        }
+        }*/
     }
 	
 

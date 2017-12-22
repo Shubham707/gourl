@@ -10,10 +10,10 @@ class User extends CI_Controller
         $this->load->library('session','Rpc');
         $this->load->model('User_model');
         $this->load->database();
-         if($this->session->userdata('user_id')=='')
+        /* if($this->session->userdata('user_id')=='')
         {
             redirect('user/login');
-        }
+        }*/
     }
     public function login()
 	{

@@ -31,6 +31,12 @@ class Account_model extends CI_Model
 		 $sql = "SELECT * FROM security_key WHERE multicurrencyID = '$mutiid' AND boxID ='$boxid'";
            return $this->db->query($sql)->result();
 	}
+	public function coinboxs_payment($value,$id)
+	{
+		$sql="SELECT * FROM crypto_payments, security_key WHERE crypto_payments.boxID='$id' AND security_key.boxID='$id' AND crypto_payments.coinLabel='$value' AND security_key.boxName='$value'";
+		 return $query = $this->db->query($sql)->result();
+
+	}
 
 }
 

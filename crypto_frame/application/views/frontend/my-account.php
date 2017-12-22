@@ -150,7 +150,7 @@
                                             <td><?= $bitcoin->processed;?></td>
                                            
                                             <td width="200"><a class="btn btn-info" href="<?php echo base_url();?>index.php/account/coinbox/<?= $bitcoin->multicurrencyID.'/'.$bitcoin->boxID;?>">Edit</a> 
-                                              <a class="btn btn-info" href="<?php echo base_url();?>index.php/account/coinbox/<?= $bitcoin->multicurrencyID;?>">Start</a></td>
+                                              <a class="btn btn-info" href="<?php echo base_url();?>index.php/account/coin_boxes/<?= $bitcoin->boxID;?>/<?= $bitcoin->boxName;?>">Start</a></td>
                                           </tr>      
                                          <?php }?>     
                                          
