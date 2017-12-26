@@ -134,6 +134,9 @@
             <!-- <div col-md-3></div> -->
         <div class="row">
             <div class="col-sm-12">
+                <?php foreach ($allData as $key => $value) { ?>
+                 
+             
                 <div class="col-sm-1">
                     <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=bitcoin">
                         <img src="<?php echo base_url();?>assets/images/bitcoin.png" width="100" height="100">
@@ -165,7 +168,7 @@
                     </a>
                 </div>
                 <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=litecoin">
+                    <a href="<?php echo base_url();?>index.php/account/cryptocoin/multiCurrency=litecoin">
                         <img src="<?php echo base_url();?>assets/images/litecoin.png" width="100" height="100">
                     </a>
                 </div>
@@ -194,6 +197,7 @@
                         <img src="<?php echo base_url();?>assets/images/speedcoin.png" width="100" height="100">
                     </a>
                 </div>
+                <?php    } ?>
             </div>
             <div class="col-sm-12">
                  <div class="col-sm-3"></div>
@@ -223,7 +227,7 @@
                         <form action="<?php echo base_url();?>index.php/payment/key-secrat">
                         <div align="center" > 
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Copy</button>
-                                <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?php echo $address;?>">
+                                <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?php echo $txAddress[0]->isLockAddr;?>">
                         </div>
                         <div align="center"><input type="submit" style="margin-top: 20px; width:60%;" name="submit" value="Click Here if you have already sent <?php echo $coin;?> »  ">
                         </div>

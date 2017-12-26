@@ -14,6 +14,7 @@ class Payment extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('form');
+         $this->load->model('Account_model');
         $this->load->database();
         $this->load->library('session','Rpc');
         $this->load->model('Product_model');
@@ -28,16 +29,17 @@ class Payment extends CI_Controller
         $rpc_user="EBTC147";
         $rpc_pass="33Mj169rVg9d55Ef1QPt";
         $rpc_port="8116";
-        $email="shubhamsahu707@gmail.com";
-        
+        $email=$this->session->userdata('email');
+        $keyValue=$this->Account_model->view_account();
          $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
          $balance=$new->getAddress($email); 
          $address=$new->getBalance($email);
-        $data=array(
+         $data=array(
             'address'=>$address,
             'balance'=>$balance,
             'email'=> $email,
             'coin'=> 'Bitcoin',
+            'allData'=>$keyValue,
         );
         $this->load->view('frontend/header');
         $this->load->view('frontend/add-payment', $data);

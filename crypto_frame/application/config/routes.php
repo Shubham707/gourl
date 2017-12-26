@@ -64,6 +64,21 @@ $route['payment/payment-successfull']='payment/payment_successfull';
 $route['payment/auto-payments-external-wallet']='payment/auto_payments_external_wallet';
 $route['payment/Unrecognised-Received-Payments']='payment/unrecognised_received_payments';
 
+
+
+
+
+
+/* admin Create Controller */
+
+
+
+
+
+
+
+
+/* Admin close */
 //$route['method/(:any)'] = 'controller/method/index/$1';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

@@ -43,15 +43,14 @@ class Account extends CI_Controller
         $this->load->view('frontend/cryptocoin-monetiser');
         $this->load->view('frontend/footer');
     }
-    public function cryptocoin()
+    public function cryptocoin($value,$id)
     {
+        $getData=$this->Account_model->coinboxs_payment($value,$id);
         $rpc_host = "104.219.251.147";
         $rpc_user="EBTC147";
         $rpc_pass="33Mj169rVg9d55Ef1QPt";
         $rpc_port="8116";
-
-        $coin=$_REQUEST['multiCurrency'];
-        $getData=$this->Account_model->invoice($coin);
+       /* $getData=$this->Account_model->invoice($coin);*/
         $email=$this->session->userdata('email');
          $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
          $balance=$new->getBalance($email); 
@@ -63,6 +62,7 @@ class Account extends CI_Controller
             'coin'=> $coin,
             'email'=> $email,
             'txAddress'=>$keyValue,
+            'allData'=>$getData,
         );
         $this->load->view('frontend/header');
         $this->load->view('frontend/add-payment', $data);
