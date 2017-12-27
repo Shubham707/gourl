@@ -1,3 +1,4 @@
+<?php $this->load->view('frontend/header');?>  
 <style type="text/css">
     img{ margin-top: 20px; margin-left: 3px;}
     .panel{ margin-top: 30px; }
@@ -136,65 +137,9 @@
             <div class="col-sm-12">
                 <?php foreach ($allData as $key => $value) { ?>
                  
-             
                 <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=bitcoin">
-                        <img src="<?php echo base_url();?>assets/images/bitcoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=vertcoin">
-                        <img src="<?php echo base_url();?>assets/images/vertcoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=bitcoincash">
-                        <img src="<?php echo base_url();?>assets/images/bitcoincash.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=dash">
-                        <img src="<?php echo base_url();?>assets/images/dash.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=dogecoin">
-                        <img src="<?php echo base_url();?>assets/images/dogecoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=feathercoin">
-                        <img src="<?php echo base_url();?>assets/images/feathercoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin/multiCurrency=litecoin">
-                        <img src="<?php echo base_url();?>assets/images/litecoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=monetarycoin">
-                        <img src="<?php echo base_url();?>assets/images/monetaryunit.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=peercoin">
-                        <img src="<?php echo base_url();?>assets/images/peercoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=potcoin">
-                        <img src="<?php echo base_url();?>assets/images/potcoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=reddcoin">
-                        <img src="<?php echo base_url();?>assets/images/reddcoin.png" width="100" height="100">
-                    </a>
-                </div>
-                <div class="col-sm-1">
-                    <a href="<?php echo base_url();?>index.php/account/cryptocoin?multiCurrency=speedcoin">
-                        <img src="<?php echo base_url();?>assets/images/speedcoin.png" width="100" height="100">
+                    <a href="<?php echo base_url();?>index.php/account/cryptocoin/<?= $value->coin_name;?>/<?= $this->session->userdata('box_id');?>">
+                        <img src="<?php echo base_url();?>uploads/<?= $value->coin_image;?>" width="100" height="100">
                     </a>
                 </div>
                 <?php    } ?>
@@ -205,7 +150,7 @@
                     
 
                 <div class="panel panel-default">
-                    <div class="panel-heading">Total: 0.00087383 BCH (BCC) 
+                    <div class="panel-heading">Total: 0.00087383 BCH (BCC)
                         <div class="pull-right"><img style="margin-top: -10px;" src="<?php echo base_url();?>assets/images/payment.png" width="200" height="30">
                         </div>
                     </div>
@@ -227,7 +172,7 @@
                         <form action="<?php echo base_url();?>index.php/payment/key-secrat">
                         <div align="center" > 
                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Copy</button>
-                                <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?php echo $txAddress[0]->isLockAddr;?>">
+                                <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?php echo @$txAddress[0]->isLockAddr;?>">
                         </div>
                         <div align="center"><input type="submit" style="margin-top: 20px; width:60%;" name="submit" value="Click Here if you have already sent <?php echo $coin;?> »  ">
                         </div>
@@ -258,3 +203,4 @@
     </div>
   </div>
 </div>
+<?php $this->load->view('frontend/footer');?>  

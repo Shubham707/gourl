@@ -15,9 +15,11 @@ class Account extends CI_Controller
         $this->load->library('session','Rpc');
         $this->load->model('Account_model');
         $this->load->model('User_model');
+        $this->load->model('Coin_model');
         $this->load->database();
         $this->load->library('parser');
         $email=$this->session->userdata('email');
+        $boxid=$this->session->userdata('box_id');
         if($this->session->userdata('is_logged_in')==false)
         {
             redirect('user/login');
@@ -26,22 +28,23 @@ class Account extends CI_Controller
     }
     public function my_account()
     {
+        $boxid=$this->session->userdata('box_id');
         $keyValue['getKey']=$this->Account_model->view_account();
-        $this->load->view('frontend/header');
+    
         $this->load->view('frontend/my-account',$keyValue);
-        $this->load->view('frontend/footer');
+       
     }
     public function affiliated()
     {
-        $this->load->view('frontend/header');
+      
         $this->load->view('frontend/cryptocoin-affiliated');
-        $this->load->view('frontend/footer');
+     
     }
     public function monitiser()
     {
-        $this->load->view('frontend/header');
+      
         $this->load->view('frontend/cryptocoin-monetiser');
-        $this->load->view('frontend/footer');
+      
     }
     public function cryptocoin($value,$id)
     {
@@ -52,21 +55,27 @@ class Account extends CI_Controller
         $rpc_port="8116";
        /* $getData=$this->Account_model->invoice($coin);*/
         $email=$this->session->userdata('email');
+        $id=$this->session->userdata('user_id');
+        $boxid=$this->session->userdata('box_id');
+
+        $security=$this->Account_model->security_key_listing($id,$boxid);
+         $keyValue=$this->Account_model->paymentCoin();
+         
          $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
          $balance=$new->getBalance($email); 
          $address=$new->getAddress($email);
         $keyValue=$this->Account_model->view_account();
         $data=array(
-            'address'=> $address,
-            'balance'=> $balance,
-            'coin'=> $coin,
+            'address'=>$address,
+            'balance'=>$balance,
             'email'=> $email,
-            'txAddress'=>$keyValue,
-            'allData'=>$getData,
+            'coin'=> 'Bitcoin',
+            'allData'=>$keyValue,
+            'security'=>$security,
         );
-        $this->load->view('frontend/header');
+     
         $this->load->view('frontend/add-payment', $data);
-        $this->load->view('frontend/footer');
+        
     }
    public function security_key()
     {
@@ -99,7 +108,7 @@ class Account extends CI_Controller
             'isAdult_exst'=> $this->input->post('isAdult_exst'),
             'start_time'=>   $this->input->post('start_time'),
         );
-        $keyID=$this->User_model->securities_key($data);
+        $keyID=$this->Account_model->securities_key($data);
 
         $sql="select * from security_key where user_id='$id'";
         $getValue=$this->db->query($sql)->result();
@@ -111,9 +120,9 @@ class Account extends CI_Controller
         );
         //echo var_dump($keyData);
         //die();
-        $this->load->view('frontend/header');
+       
         $this->load->view('frontend/public_key',$keyData);
-        $this->load->view('frontend/footer');
+ 
 
       
     }
@@ -146,7 +155,7 @@ class Account extends CI_Controller
                 'isAdult_exst'=> $this->input->post('isAdult_exst'),
                 'start_time'=>   $this->input->post('start_time'),
             );
-             $this->User_model->securities_update($data,$id);
+             $this->User_model->Account_model($data,$id);
         }
        
         $sql="select * from security_key where key_id='$id'";
@@ -156,9 +165,9 @@ class Account extends CI_Controller
         'msg'=>'Create Public and Private key ',
         'allKey'=> $getValue,
         );
-        $this->load->view('frontend/header');
+
         $this->load->view('frontend/update-security',$keyData);
-        $this->load->view('frontend/footer');
+
     }
 
     function public_key_pass($chars = 10) 
@@ -173,33 +182,34 @@ class Account extends CI_Controller
     }
     public function public_key()
     {
-        $sql="SELECT * FROM security_key where key_id='48'";
+        $coin=$this->Coin_model->listing();
+       /* $sql="SELECT * FROM security_key where key_id='48'";
         $security_key= $this->db->query($sql)->result();
         foreach ($security_key as $key => $value) {
             $val=$value->key_id;
-        }
+        }*/
+        
         $data= array(
-            'security' => $val,
+            'allCoin' => $coin,
          );
-        $this->load->view('frontend/header');
+  
         $this->load->view('frontend/public_key',$data);
-        $this->load->view('frontend/footer');
-    }
+   }
     public function update_key()
     {
         $id=$_REQUEST['key_id']; //die();
         $sql="SELECT * FROM `security_key` WHERE key_id='$id'";
         $data['allKey']= $this->db->query($sql)->result();
-        $this->load->view('frontend/header');
+    
         $this->load->view('frontend/update-security',$data);
-        $this->load->view('frontend/footer');
+   
     }
     public function coinbox($multiId, $boxid)
     {
         $query['allKey']=$this->Account_model->multicurrency($multiId, $boxid);
-        $this->load->view('frontend/header');
+   
         $this->load->view('frontend/update-security',$query);
-        $this->load->view('frontend/footer');
+     
     }
     public function coin_boxes($id,$value)
     {  
@@ -208,9 +218,9 @@ class Account extends CI_Controller
             'payment_details' => $query,
             'coin' => $value,
         );
-        $this->load->view('frontend/header');
+      
         $this->load->view('frontend/coinbox-payment',$data);
-        $this->load->view('frontend/footer');
+      
         
     }
 

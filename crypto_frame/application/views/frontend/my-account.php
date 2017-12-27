@@ -1,4 +1,4 @@
-
+<?php $this->load->view('frontend/header');?>  
                
                  <div class="page-content-wrap bg-light">
                     <div class="page-content-holder no-padding">    
@@ -119,29 +119,9 @@
                                             <td><?= $i++;?></td>
                                             <td><?= $bitcoin->key_id;?></td>
                                             <td><?= $bitcoin->boxName;?></td>
-                                            <?php if($bitcoin->boxName=='bitcoin'){?>
-                                             <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
-                                             <?php } else if($bitcoin->boxName=='litecoin'){?>
-                                              <td><img src="<?= base_url();?>assets/images/litecoin2.png"" height="60" width="60"></td>
-                                             <?php } else if($bitcoin->boxName=='bitcoincash'){?>
-                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
-                                             <?php } else if($bitcoin->boxName=='dash'){?>
-                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
-                                             <?php } else if($bitcoin->boxName=='dogecoin'){?>
-                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
-                                             <?php } else if($bitcoin->boxName=='speedcoin'){?>
-                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
-                                             <?php } else if($bitcoin->boxName=='reddcoin'){?>
-                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
-                                             <?php } else if($bitcoin->boxName=='potcoin'){?>
-                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
-                                             <?php } else if($bitcoin->boxName=='feathercoin'){?>
-                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
-                                             <?php } else if($bitcoin->boxName=='vertcoin'){?>
-                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
-                                             <?php } else if($bitcoin->boxName=='peercoin'){?>
-                                              <td><img src="<?= base_url();?>assets/images/bitcoin2.png"" height="60" width="60"></td>
-                                             <?php } else { echo "" ;}?>
+                                           
+                                             <td><img src="<?= base_url();?>uploads/<?= $bitcoin->coin_image;?>" height="60" width="60"></td>
+                                            
                                             <td><?= $bitcoin->amountUSD;?></td>
                                             <td><?= $bitcoin->amount;?></td>
                                             <td><?= $bitcoin->txConfirmed;?></td>
@@ -150,7 +130,7 @@
                                             <td><?= $bitcoin->processed;?></td>
                                            
                                             <td width="200"><a class="btn btn-info" href="<?php echo base_url();?>index.php/account/coinbox/<?= $bitcoin->multicurrencyID.'/'.$bitcoin->boxID;?>">Edit</a> 
-                                              <a class="btn btn-info" href="<?php echo base_url();?>index.php/account/coin_boxes/<?= $bitcoin->boxID;?>/<?= $bitcoin->boxName;?>">Start</a></td>
+                                              <a class="btn btn-info" href="<?php echo base_url();?>index.php/account/coin_boxes/<?= $this->session->userdata('box_id');?>/<?= $bitcoin->boxName;?>">Start</a></td>
                                           </tr>      
                                          <?php }?>     
                                          
@@ -309,4 +289,4 @@
             </div>
             <!-- ./page content -->
             
-           
+           <?php $this->load->view('frontend/footer');?>  

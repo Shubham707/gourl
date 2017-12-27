@@ -1,3 +1,4 @@
+<?php $this->load->view('frontend/header');?>  
 <style type="text/css"> 
     label{ margin-top: 20px; }
     select{ width: 80% !important; margin-top: 20px; } 
@@ -210,4 +211,4 @@
         </div> -->
     </div>
 </div>
-            
+            <?php $this->load->view('frontend/footer');?>  

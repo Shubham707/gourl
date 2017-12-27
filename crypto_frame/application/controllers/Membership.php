@@ -19,9 +19,9 @@ class Membership extends CI_Controller
 
 	public function pay_per_membership()
 	{
-		$this->load->view('frontend/header');
+	
 		$this->load->view('frontend/pay-per-membership');
-		$this->load->view('frontend/footer');
+
 	}
 	
 }

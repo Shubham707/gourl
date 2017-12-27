@@ -71,7 +71,7 @@ $route['payment/Unrecognised-Received-Payments']='payment/unrecognised_received_
 
 /* admin Create Controller */
 
-
+$route['admin']='admin/dashboard';
 
 
 

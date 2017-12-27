@@ -17,11 +17,22 @@ class Coin_model extends CI_Model
 		return $val= $this->db->get('coin')->result();
 
 	}
+	public function edit($id)
+	{
+		 $sql="select * from coin where coin_id='$id'";
+		return $query=$this->db->query($sql)->result();
+
+	}
 
 	public function addCoin($value)
 	{
 		return $val= $this->db->Insert('coin',$value);
 
+	}
+	public function updateCoin($id,$data)
+	{
+		$this->db->where('coin_id', $id);
+		return $exe=$this->db->update('coin', $data);
 	}
 
 }

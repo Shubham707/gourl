@@ -1,3 +1,4 @@
+<?php $this->load->view('frontend/header');?>  
 <style type="text/css"> 
     select{ width: 80% !important; margin-top: 20px; } 
     input{ width: 80% !important; margin-top: 20px; }
@@ -176,3 +177,4 @@ window.setTimeout(function() {
 }, 4000);
 </script>
 
+<?php $this->load->view('frontend/footer');?>  

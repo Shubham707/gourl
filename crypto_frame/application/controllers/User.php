@@ -17,15 +17,11 @@ class User extends CI_Controller
     }
     public function login()
 	{
-		$this->load->view('frontend/header');
 		$this->load->view('frontend/login');
-		$this->load->view('frontend/footer');
 	}
 	public function signup()
 	{
-		$this->load->view('frontend/header');
 		$this->load->view('frontend/signup');
-		$this->load->view('frontend/footer');
 	}
     
     public function user_save()
@@ -47,9 +43,7 @@ class User extends CI_Controller
     	
     	$this->User_model->dataSave($data);
         $value['message']="Registration Successfull!";
-        $this->load->view('frontend/header', $value);
         $this->load->view('frontend/login', $value);
-        $this->load->view('frontend/footer', $value);
 
     }
     

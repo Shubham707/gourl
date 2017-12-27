@@ -19,8 +19,8 @@ public function __construct()
 public function login_user() 
 {
 	
-		 $email = $this->input->post('username');
-         $pass = hash('sha256', strtolower($this->input->post('password')));
+		$email = $this->input->post('username');
+        $pass = hash('sha256', strtolower($this->input->post('password')));
 
             $this->form_validation->set_rules('username', 'Email', 'required');
             $this->form_validation->set_rules('password', 'Password', 'required');
@@ -45,6 +45,7 @@ public function login_user()
 							'username' => $value['username'],
 							'email' => $value['email'],
 							'user_id' => $value['user_id'],
+							'box_id' => $value['box_id'],
 							'is_logged_in' => TRUE,
 							)); 
 						 }
@@ -66,9 +67,7 @@ public function logout()
 		);
 		$this->session->unset_userdata('logged_in', $sess_array);
 		$data['message_display'] = 'Successfully Logout';
-		$this->load->view('frontend/header');
         $this->load->view('frontend/login',$data);
-        $this->load->view('frontend/footer');
 		}
 
 }

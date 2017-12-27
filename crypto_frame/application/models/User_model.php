@@ -48,17 +48,7 @@ class User_model extends CI_Model {
 		}
 	}
 
-	public function securities_key($value)
-	{
-		$this->db->insert('security_key',$value);
-
-	}
-	public function securities_update($value,$id)
-	{
-		
-		return $this->db->update('security_key',$value);
-		
-	}
+	
 	public function listing()
 	{
 		$data= $this->db->query('select * from users')->result();

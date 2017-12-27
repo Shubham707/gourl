@@ -1,3 +1,4 @@
+<?php $this->load->view('frontend/header');?>  
 <style type="text/css">
     img{ margin-top: 20px; margin-left: 3px;}
     .panel{ margin-top: 30px; }
@@ -122,3 +123,4 @@
             </table>
     </div>
 </div>
+<?php $this->load->view('frontend/footer');?>  

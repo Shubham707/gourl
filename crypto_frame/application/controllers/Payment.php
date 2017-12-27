@@ -30,21 +30,24 @@ class Payment extends CI_Controller
         $rpc_pass="33Mj169rVg9d55Ef1QPt";
         $rpc_port="8116";
         $email=$this->session->userdata('email');
-        $keyValue=$this->Account_model->view_account();
+        $id=$this->session->userdata('user_id');
+        $boxid=$this->session->userdata('box_id');
+        $security=$this->Account_model->security_key_listing($id,$boxid);
+         $keyValue=$this->Account_model->paymentCoin();
          $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
          $balance=$new->getAddress($email); 
+
          $address=$new->getBalance($email);
+
          $data=array(
             'address'=>$address,
             'balance'=>$balance,
             'email'=> $email,
             'coin'=> 'Bitcoin',
             'allData'=>$keyValue,
+            'security'=>$security,
         );
-        $this->load->view('frontend/header');
         $this->load->view('frontend/add-payment', $data);
-        $this->load->view('frontend/footer');
-
     }
 
     public function payment_add()
@@ -60,31 +63,31 @@ class Payment extends CI_Controller
     }*/
     public function secret_key()
     {
-        $this->load->view('frontend/header');
+ 
         $this->load->view('frontend/all-key');
-        $this->load->view('frontend/footer');
+   
     }
     public function unrecognised_received_payments()
     {
         $data['country']=$this->Product_model->country();
-        $this->load->view('frontend/header');
+ 
         $this->load->view('frontend/Payments_notconfirm',$data);
-        $this->load->view('frontend/footer');
+
     }
     public function auto_payments_external_wallet()
     {
         $data['country']=$this->Product_model->country();
        
-        $this->load->view('frontend/header');
+ 
         $this->load->view('frontend/Payments_confirm',$data);
-        $this->load->view('frontend/footer');
+    
     }
     public function payment_successfull()
     {
         $data['country']=$this->Product_model->country();
-        $this->load->view('frontend/header');
+      
         $this->load->view('frontend/Payments_Successfully',$data);
-        $this->load->view('frontend/footer');
+      
     }
 
 

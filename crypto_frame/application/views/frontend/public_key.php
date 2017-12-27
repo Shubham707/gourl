@@ -1,3 +1,4 @@
+<?php $this->load->view('frontend/header');?>  
 <style type="text/css"> 
     select{ width: 80% !important; margin-top: 20px; } 
     input{ width: 80% !important; margin-top: 20px; }
@@ -61,18 +62,12 @@
                     <div class="col-sm-5">
                        <select id="coinName" name="coinName" placeholder="Coin Name" required>
                         <option value=''> - Select One - </option>
-                            <option  value='bitcoin'> bitcoin</option>
-                            <option  value='bitcoincash'> bitcoincash</option>
-                            <option  value='litecoin'> litecoin</option>
-                            <option  value='dash'> dash</option>
-                            <option  value='dogecoin'> dogecoin</option>
-                            <option  value='speedcoin'> speedcoin</option>
-                            <option  value='reddcoin'> reddcoin</option>
-                            <option  value='potcoin'> potcoin</option>
-                            <option  value='feathercoin'> feathercoin</option>
-                            <option  value='vertcoin'> vertcoin</option>
-                            <option  value='peercoin'> peercoin</option>
-                            <option  value='monetaryunit'> monetaryunit</option>
+                        <?php foreach($allCoin as $coin){ ?>
+                         <option value='<?= $coin->coin_name;?>'><?= $coin->coin_name;?>
+                             
+                         </option>
+                        <?php } ?>
+                            
                        </select>
                     </div><br>
                 </div>
@@ -151,3 +146,4 @@ window.setTimeout(function() {
     });
 }, 4000);
 </script>
+<?php $this->load->view('frontend/footer');?>  

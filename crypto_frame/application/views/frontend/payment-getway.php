@@ -1,4 +1,4 @@
-
+<?php $this->load->view('frontend/header');?>  
                 <div class="page-content-wrap bg-light">
                     <div class="page-content-holder no-padding">
                         <div class="page-title">                            
@@ -70,4 +70,4 @@
              
             </div>
             
-           
+           <?php $this->load->view('frontend/footer');?>  

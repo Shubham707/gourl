@@ -1,4 +1,4 @@
-
+<?php $this->load->view('frontend/header');?>  
 <style>
 .dataTable tbody tr:nth-child(odd) { background-color:#fff !important; } 
 .dataTable tbody tr:nth-child(even) { background-color:#f8f8f8; }
@@ -133,3 +133,4 @@
     </div>
   </div>
 </div>
+<?php $this->load->view('frontend/footer');?>  
