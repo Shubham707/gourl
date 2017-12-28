@@ -32,18 +32,21 @@ class Payment extends CI_Controller
         $email=$this->session->userdata('email');
         $id=$this->session->userdata('user_id');
         $boxid=$this->session->userdata('box_id');
+
         $security=$this->Account_model->security_key_listing($id,$boxid);
          $keyValue=$this->Account_model->paymentCoin();
-         $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
-         $balance=$new->getAddress($email); 
 
-         $address=$new->getBalance($email);
+         $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+         $balance=$client->getBalance($email); 
+         $newaddress=$client->getNewAddress($email);
+         $address=$client->getAddress($email);
 
          $data=array(
             'address'=>$address,
             'balance'=>$balance,
             'email'=> $email,
             'coin'=> 'Bitcoin',
+            'newAddress'=>$newaddress,
             'allData'=>$keyValue,
             'security'=>$security,
         );

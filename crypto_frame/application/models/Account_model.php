@@ -57,8 +57,13 @@ class Account_model extends CI_Model
 	{
 		$options=array('user_id'=>$id, 'boxID'=> $boxid,);
 		return $query =  $this->db->get_where('security_key', $options)->result();
-		/*print_r($query);
-		die();*/
+		
+	}
+	public function affiliatedSave($data)
+	{
+		
+		return $query =  $this->db->Insert('affiliated',$data);
+		
 	}
 
 }

@@ -28,6 +28,7 @@ class User extends CI_Controller
     {
         $boxID=$this->User_model->listing();
         $total=$boxID + 1;
+        $ip= $_SERVER['REMOTE_ADDR'];
     	$data = array(
     		'title' => 		$this->input->post('title'),
     		'firstname'=>	$this->input->post('firstname'),
@@ -38,6 +39,7 @@ class User extends CI_Controller
     		'city'=>		$this->input->post('city'),
     		'username'=>	$this->input->post('username'),
             'box_id'=>    $total,
+            'ipAddress'=>    $ip,
             'password'=>    hash('sha256', strtolower($this->input->post('password'))),
     	);
     	

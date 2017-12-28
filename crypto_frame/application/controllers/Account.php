@@ -34,12 +34,7 @@ class Account extends CI_Controller
         $this->load->view('frontend/my-account',$keyValue);
        
     }
-    public function affiliated()
-    {
-      
-        $this->load->view('frontend/cryptocoin-affiliated');
-     
-    }
+    
     public function monitiser()
     {
       
@@ -61,18 +56,24 @@ class Account extends CI_Controller
         $security=$this->Account_model->security_key_listing($id,$boxid);
          $keyValue=$this->Account_model->paymentCoin();
          
-         $new= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
-         $balance=$new->getBalance($email); 
-         $address=$new->getAddress($email);
-        $keyValue=$this->Account_model->view_account();
-        $data=array(
-            'address'=>$address,
-            'balance'=>$balance,
-            'email'=> $email,
-            'coin'=> 'Bitcoin',
-            'allData'=>$keyValue,
-            'security'=>$security,
-        );
+         $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+         $balance=$client->getBalance($email); 
+         $address=$client->getAddress($email);
+         $newaddress=$client->getNewAddress($email);
+         $keyValue=$this->Account_model->view_account();
+            $data=array(
+                'address'=>$address,
+                'balance'=>$balance,
+                'email'=> $email,
+                'newAddress'=>$newaddress,
+                'coin'=> 'Bitcoin',
+                'allData'=>$keyValue,
+                'security'=>$security,
+            );
+            /*echo "<pre>";
+            print_r($data);die();
+            echo "</pre>";*/
+         
      
         $this->load->view('frontend/add-payment', $data);
         

@@ -53,7 +53,7 @@ $route['default_controller'] = 'welcome';
 $route['account/save-data-key'] = 'account/security_key';
 $route['account/update-security-coin'] = 'account/security_update';
 $route['account/my-account'] = 'account/my_account';
-$route['account/my-affiliated-online'] = 'account/affiliated';
+$route['affiliated'] = 'affiliated';
 $route['account/my-monitiser-online'] = 'account/monitiser';
 $route['welcome/pay-product-online'] = 'welcome/pay_per_product';
 $route['product/add-product']='product/add_product';
@@ -63,7 +63,7 @@ $route['payment/secret-key']='payment/secret_key';
 $route['payment/payment-successfull']='payment/payment_successfull';
 $route['payment/auto-payments-external-wallet']='payment/auto_payments_external_wallet';
 $route['payment/Unrecognised-Received-Payments']='payment/unrecognised_received_payments';
-
+$route['affiliated/add-affiliated']='affiliated/saveAffiliated';
 
 
 

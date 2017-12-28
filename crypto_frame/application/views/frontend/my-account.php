@@ -220,7 +220,7 @@
                                           </table>
                                     </div>
                                     <div class="page-content-holder no-padding">
-                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/account/my-affiliated-online">Get New Additional Affilate Key</a></div>
+                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/affiliated">Get New Additional Affilate Key</a></div>
                                 </div>
                             <!-- ./page content holder -->
                              </div>
