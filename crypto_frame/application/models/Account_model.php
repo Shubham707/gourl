@@ -65,6 +65,12 @@ class Account_model extends CI_Model
 		return $query =  $this->db->Insert('affiliated',$data);
 		
 	}
+	public function monetiserSave($data)
+	{
+		
+		return $query =  $this->db->Insert('monetiser',$data);
+		
+	}
 
 }
 

@@ -50,7 +50,7 @@
                                             <tr>
                                                 <td><?= $i++;?></td>
                                                 <td><?= $coin->coin_name;?></td>
-                                                <td><?= $coin->coin_image;?></td>
+                                                <td><img src="<?= base_url().'uploads/'.$coin->coin_image;?>" height="60" width="60"></td>
                                                 <td><?= $coin->coin_date;?></td>
                                                 <td>
                                                     <a class="btn btn-info" href="coin/edit_coin/<?= $coin->coin_id;?>">Edit</a>

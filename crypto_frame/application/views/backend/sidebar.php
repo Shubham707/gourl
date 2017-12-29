@@ -26,11 +26,20 @@
                     <li class="xn-title">Navigation</li>
                     <li class="active">
                         <a href="<?php echo base_url('index.php/admin/dashboard');?>"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>                        
-                    </li>                    
+                    </li>  
+                    <li>
+                        <a href="<?php echo base_url();?>index.php/admin/user"><span class="fa fa-usd"></span> Add Coin</a>
+                    </li>  
+                    <li>
+                        <a href="<?php echo base_url();?>index.php/admin/coin"><span class="fa fa-users"></span> Users</a>
+                    </li>
+                    <li>
+                        <a href="<?php echo base_url();?>index.php/admin/Payment"><span class="fa fa-users"></span> Payment</a>
+                    </li>                
                     <li class="xn-openable">
                         <a href="#"><span class="fa fa-files-o"></span> <span class="xn-text">Pages</span></a>
                         <ul>
-                            <li><a href="<?php echo base_url();?>index.php/admin/coin"><span class="fa fa-image"></span> Add Coin</a></li>
+                            
                             <li><a href="pages-profile.html"><span class="fa fa-user"></span> Profile</a></li>
                             <li><a href="pages-address-book.html"><span class="fa fa-users"></span> Address Book</a></li>
                             <li class="xn-openable">

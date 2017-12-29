@@ -73,7 +73,7 @@
 
                               <!-- page content holder -->
                                 <div class="page-content-holder no-padding">
-                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/account/my-monitiser-online">Create New Payment Url Online</a></div>
+                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/monetiser/my-monitiser-online">Create New Payment Url Online</a></div>
                                 </div>
                             </div>
                       

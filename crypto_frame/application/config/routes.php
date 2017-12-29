@@ -64,7 +64,8 @@ $route['payment/payment-successfull']='payment/payment_successfull';
 $route['payment/auto-payments-external-wallet']='payment/auto_payments_external_wallet';
 $route['payment/Unrecognised-Received-Payments']='payment/unrecognised_received_payments';
 $route['affiliated/add-affiliated']='affiliated/saveAffiliated';
-
+$route['monetiser/my-monitiser-online']='Monetiser';
+$route['monitiser/add-monitiser']='monetiser/saveMonetiser';
 
 
 

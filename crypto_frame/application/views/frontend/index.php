@@ -1,4 +1,4 @@
-
+ <?php $this->load->view('frontend/header');?>
                 
                 <!-- revolution slider -->
                 <div class="banner-container">
@@ -341,4 +341,4 @@
             </div>
             <!-- ./page content -->
  
-            
+             <?php $this->load->view('frontend/footer');?>
