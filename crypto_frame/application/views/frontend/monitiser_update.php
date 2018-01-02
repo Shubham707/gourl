@@ -10,6 +10,7 @@
     label{ margin-top: 20px; }
  ul.nav a { cursor: pointer; float: left; list-style: none; display: inline-block;}
 .active { background-color:#4e4975 !important;font-weight:bolder; }
+.realperson-challenge { display: inline-block }
 </style>
 
  <div class="page-content-wrap bg-light">
@@ -32,119 +33,89 @@
     <div class="page-content-holder">
         <div id="hide" style="color: green; text-align: center;"> <?php echo @$success;?></div>
         <div class="block-heading block-heading-centralized this-animate" data-animate="fadeInDown">
-            <h2 class="heading-underline">1. Gourl.io Affiliated Online</h2>
+            <h2 class="heading-underline">1. Gourl.io Monetiser Online</h2>
             <div class="block-heading-text">
             Use our GoUrl Monetiser Online if you don't have your own website -
             Monetise/sell your Files & Music & Texts & Images & Video online for cryptocoins - Bitcoin, Bitcoin Cash, Litecoin, Dash, etc. Create Your Free GoUrl Payment Urls below (it will protect your information from visitors directly proceeding and monetise it) and after share them on the web - twitter / forums / websites / etc. Make Cryptocoins Money/USD Online   
             </div>
             <div class="page-content-wrap bg-light">
             <!-- page content holder -->
-            <form id="saveAffifiliated" class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>index.php/affiliated/add-affiliated">
-            <div class="page-content-holder no-padding">   
+            <form id="saveAffifiliated" class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>index.php/monitiser/update_monitiser">
+                <?php foreach($details as $detail):?>
+            <div class="page-content-holder no-padding">
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Affiliate Title:</label>
+                    <label class="col-sm-3 control-label" for="username"> Select Currency:</label>
+                    <div class="col-sm-8">
+                    <ul class="nav">
+                        <?php foreach ($coins as $value) { ?>
+                         <li class="active"><a onclick="getCoinLabel('<?= $value->coin_name;?>');"> <img src="<?php echo base_url();?>uploads/<?= $value->coin_image;?>" width="100" height="100"></a></li>
+                         <?php } ?>
+                    </ul>
+                    </div>
+                </div>
+                       
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="username"> Private URL:</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="title" required placeholder="Affiliate Title">
+                        <input class="form-control" id="privateURL" name="privateURL" required placeholder="Private URL" value="<?= $detail->privateURL;?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your Affiliate Key:</label>
+                    <label class="col-sm-4 control-label" for="password">Private Text (optional)</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="affiPrivateKey" required placeholder="Affiliate Key">
+                      <textarea class="form-control" id="privateText" name="privateText" required placeholder="Private Text (optional)"><?= $detail->privateText;?></textarea>
+                    </div><br>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label" for="username">Your Public Title:</label>
+                    <div class="col-sm-5">
+                        <input id="publicTitle" class="form-control" name="publicTitle" required placeholder="Private URL" value="<?= $detail->publicTitle;?>">
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your Bitcoin Wallet Address:</label>
+                    <label class="col-sm-4 control-label" for="username">Amount in Box:</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="bitcoinAddress" required placeholder="Bitcoin Wallet Address">
+                        <div class="col-sm-5">
+                            <input  id="coinRate" name="coinRate" required placeholder="Price" onkeyup="checkDec(this);" value="<?= $detail->coinRate;?>">
+                        </div>
+                        <div class="col-sm-2" id="or" style="margin-top: 25px;"></div>
+                        <div class="col-sm-5">
+                        OR <input  id="affiUSD" name="affiUSD" required placeholder="USD" onkeyup="checkDec(this);" value="<?= $detail->monUSD;?>">
+                        </div> 
+                        
                     </div>
                 </div>
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your BitcoinCash Wallet Address:</label>
+                    <label class="col-sm-4 control-label" for="username">Your Wallet Address:</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="bitcoinCashAddress" required placeholder="Your BitcoinCash Wallet Address">
-                    </div>
+                        <input id="walletAddress" class="form-control" name="walletAddress" required placeholder="Private URL" value="<?= $detail->walletAddress;?>">
+                    </div><br>
                 </div>
+                
                 <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your Litecoin Wallet Address:</label>
+                     <label class="col-sm-4 control-label" for="username">Url Expiry Date (GMT):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="litecoinAddress" required placeholder="Your Litecoin Wallet Address">
+                        <input type="text" class="form-control" name="expiryDate" id="expiryDate" data-select="datepicker" data-toggle="datepicker" data-locked="25/12/2014;1/1/2015" required value="<?= $detail->expiryDate;?>"><br>
+                        
                     </div>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your Dash Wallet Address:</label>
+                 <!-- <div class="form-group">
+                     <label class="col-sm-4 control-label" for="username">Captcha:</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="dashcoinAddress" required placeholder="Your Dash Wallet Address">
+                        <input type="text" class="form-control" name="expiryDate" id="expiryDate" data-select="datepicker" data-toggle="datepicker" data-locked="25/12/2014;1/1/2015" required><br>
+                        
                     </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your Dogecoin Wallet Address:</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="dogecoinAddress" required placeholder="Your Dogecoin Wallet Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your Speedcoin Wallet Address: </label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="speedcoinAddress" required placeholder="Your Speedcoin Wallet Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your UniversalCurrency Wallet Address:</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="universalCurrency" required placeholder="Your UniversalCurrency Wallet Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username"> Your Peercoin Wallet Address: </label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="peercoinAddress" required placeholder=" Your Peercoin Wallet Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username"> Your Reddcoin Wallet Address: </label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="reddcoinAddress" required placeholder=" Your Reddcoin Wallet Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your Potcoin Wallet Address:</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="potcoinAddress" required placeholder="Your Potcoin Wallet Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your Feathercoin Wallet Address: </label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="feathercoinAddress" required placeholder="Your Feathercoin Wallet Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username"> Your Vertcoin Wallet Address: </label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="vertcoinAddress" required placeholder="Your Vertcoin Wallet Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your MonetaryUnit Wallet Address:</label>
-                    <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="MonetaryUnitAddress" required placeholder="Your MonetaryUnit Wallet Address">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Verifying it's you: </label>
-                    <div class="col-sm-5">
-                        <input type="email" class="form-control" id="privateURL" name="email" required placeholder="Verifying it's you">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username"> </label>
-                    <div class="col-sm-5">
-                        <input type="submit" class="btn btn-info"  name="submit" value="Create Affiliated Data">
-                    </div>
-                </div>
+                </div> -->
+
+                <input type="hidden" name="boxId" value="<?= $boxid;?>">
+                <input type="hidden" name="monetiser_id" value="<?= $detail->monetiser_id;?>">
+                <input type="hidden" name="coinLabel" id="coinlabel" value="">
+                
             </div>
-            <br>
+            <div class="page-content-holder no-padding">
+                <div class="page-title"><button type="submit" name="submit" class="btn btn-info">Update Payment Url Online</button></div>
+            </div>
+        <?php endforeach; ?>
              </form>
              </div>
         </div>
@@ -154,6 +125,7 @@
 </div>
 
 </div>
+
 <script>
     function getCoinLabel(label)
     {

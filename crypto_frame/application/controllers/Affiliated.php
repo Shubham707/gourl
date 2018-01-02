@@ -34,34 +34,60 @@ class Affiliated extends CI_Controller
     }
     public function saveAffiliated()
     {
+        //print_r($_REQUEST); die();
         $data=array(
-            'privateURL'=>$this->input->post('privateURL'),
-            'privateText'=>$this->input->post('privateText'),
-            'publicTitle'=>$this->input->post('publicTitle'),
-            'coinRate'=>$this->input->post('coinRate'),
-            'affiUSD'=>$this->input->post('affiUSD'),
-            'walletAddress'=>$this->input->post('walletAddress'),
-            'expiryDate'=>$this->input->post('expiryDate'),
-            'boxId'=>$this->input->post('boxId'),
-            'coinLabel'=>$this->input->post('coinLabel'),
+            'title' => $this->input->post('title'), 
+            'affiPrivateKey' => $this->input->post('affiPrivateKey'),
+            'bitcoinAddress' => $this->input->post('bitcoinAddress'), 
+            'bitcoinCashAddress' => $this->input->post('bitcoinCashAddress'),
+            'litecoinAddress' => $this->input->post('litecoinAddress'),
+            'dashcoinAddress' => $this->input->post('dashcoinAddress'),
+            'dogecoinAddress' => $this->input->post('dogecoinAddress'),
+            'speedcoinAddress' => $this->input->post('speedcoinAddress'),
+            'universalCurrency' => $this->input->post('universalCurrency'),
+            'peercoinAddress' => $this->input->post('peercoinAddress'),
+            'reddcoinAddress' => $this->input->post('reddcoinAddress'),
+            'potcoinAddress' => $this->input->post('potcoinAddress'),
+            'feathercoinAddress' => $this->input->post('feathercoinAddress'),
+            'vertcoinAddress' => $this->input->post('vertcoinAddress'),
+            'MonetaryUnitAddress' => $this->input->post('MonetaryUnitAddress'),
+            'email' => $this->input->post('email'),
         );
         $return=$this->Account_model->affiliatedSave($data);
-        $this->affReturn($return);
+        redirect(base_url().'index.php/account/my_account','refresh');
         
     }
-    public function affReturn($value)
+    public function edit_data($id)
     {
-        if($value){
-            $msg['boxid']=$this->session->userdata('box_id');
-            $msg['coins']=$this->Coin_model->listing();
-            $msg['success']="Record Saved Successfull!";
-            $this->load->view('frontend/cryptocoin-affiliated',$msg);
-        } else {
-            $msg['boxid']=$this->session->userdata('box_id');
-            $msg['coins']=$this->Coin_model->listing();
-            $msg['success']="Record Not Saved!";
-            $this->load->view('frontend/cryptocoin-affiliated',$msg);
-        }
+        
+        $data['details']=$this->Account_model->affiliatedListEdit($id);
+  
+       $this->load->view('frontend/affiliated_update',$data);
+    }
+     public function updateAffiliated()
+    {
+        $id = $this->input->post('affiliated_id');
+        $data=array(
+            'title' => $this->input->post('title'), 
+            'affiPrivateKey' => $this->input->post('affiPrivateKey'),
+            'bitcoinAddress' => $this->input->post('bitcoinAddress'), 
+            'bitcoinCashAddress' => $this->input->post('bitcoinCashAddress'),
+            'litecoinAddress' => $this->input->post('litecoinAddress'),
+            'dashcoinAddress' => $this->input->post('dashcoinAddress'),
+            'dogecoinAddress' => $this->input->post('dogecoinAddress'),
+            'speedcoinAddress' => $this->input->post('speedcoinAddress'),
+            'universalCurrency' => $this->input->post('universalCurrency'),
+            'peercoinAddress' => $this->input->post('peercoinAddress'),
+            'reddcoinAddress' => $this->input->post('reddcoinAddress'),
+            'potcoinAddress' => $this->input->post('potcoinAddress'),
+            'feathercoinAddress' => $this->input->post('feathercoinAddress'),
+            'vertcoinAddress' => $this->input->post('vertcoinAddress'),
+            'MonetaryUnitAddress' => $this->input->post('MonetaryUnitAddress'),
+            'email' => $this->input->post('email'),
+        );
+        $this->Account_model->affiliatedUpdate($data,$id);
+        redirect(base_url().'index.php/account/my_account','refresh');
+        
     }
 
 

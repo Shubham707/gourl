@@ -29,7 +29,7 @@
                             Use our GoUrl Monetiser Online if you don't have your own website -
                             Monetise/sell your Files & Music & Texts & Images & Video online for cryptocoins - Bitcoin, Bitcoin Cash, Litecoin, Dash, etc. Create Your Free GoUrl Payment Urls below (it will protect your information from visitors directly proceeding and monetise it) and after share them on the web - twitter / forums / websites / etc. Make Cryptocoins Money/USD Online   <a href="">Read More</a>
                             </div>
-                    <div class="page-content-wrap bg-light">
+                    <div class=" bg-light">
                         <div class="page-content-holder no-padding">
                                     <table class="table datatable">
                                         <thead>
@@ -49,32 +49,33 @@
                                           </tr>
                                         </thead>
                                         <tbody>
-                                          
+                                          <?php $i=1; foreach($getMonitiger as $monList):?>
                                           <tr>
-                                            <td>Default</td>
-                                            <td>Defaultson</td>
-                                            <td>def@somemail.com</td>
-                                             <td>Default</td>
-                                            <td>Defaultson</td>
-                                            <td>def@somemail.com</td>
-                                             <td>Default</td>
-                                            <td>Defaultson</td>
-                                            <td>def@somemail.com</td>
-                                             <td>Default</td>
-                                            <td>Defaultson</td>
-                                            <td>def@somemail.com</td>
+                                            <td><?= $i++;?></td>
+                                            <td><?= $monList->privateURL;?></td>
+                                            <td><img src="<?= base_url();?>uploads/<?= $monList->coin_image;?>" width="60" height="60"></td>
+                                            <td><?= $monList->coinRate;?></td>
+                                            <td><?= $monList->monUSD;?></td>
+                                            <td><?= $monList->privateURL;?></td>
+                                            <td><?= $monList->expiryDate;?></td>
+                                            <td><?= $monList->monConfirmed;?></td>
+                                             <td><?= $monList->monConfirmedReceived;?></td>
+                                            <td><?= $monList->monUnconfirmed;?></td>
+                                             <td><?= $monList->monUnconfirmedReceived;?></td>
+                                            <td style="width: 20%"><!-- <a class="btn btn-info" href="<?php //echo base_url();?>index.php/monetiser/monEdit/<?php // echo $monList->monetiser_id;?>">Edit</a> -->&nbsp;<a class="btn btn-info" href="<?php echo base_url();?>index.php/monetiser/monEdit/<?php echo $monList->monetiser_id;?>">Delete</a></td>
                                           </tr>      
-                                     
+                                     <?php endforeach;?>
                                         </tbody>
                                     </table>
+                                    <div class="page-content-holder no-padding">
+                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/monetiser/my-monitiser-online">Create New Payment Url Online</a></div><br>
+                                </div>
                                 </div>
                              </div>
 
 
                               <!-- page content holder -->
-                                <div class="page-content-holder no-padding">
-                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/monetiser/my-monitiser-online">Create New Payment Url Online</a></div>
-                                </div>
+                                
                             </div>
                       
                 </div>
@@ -173,7 +174,7 @@
                             <div class="page-content-wrap bg-light">
                             <!-- page content holder -->
                                 <div class="page-content-holder no-padding">
-                                     <table class="table">
+                                     <table class="table" border="1">
                                             <thead>
                                               <tr>
                                                 <th>No</th>
@@ -183,8 +184,6 @@
                                                 <th>Earnings Litecoins</th>
                                                 <th>Earnings Dash</th>
                                                 <th>Earnings Dogecoins</th>
-                                                <th>Affiliate Title</th>
-                                                <th>Earnings Bitcoins</th>
                                                 <th>Earnings Reddcoins</th>
                                                 <th>Earnings Potcoins</th>
                                                 <th>Earnings Feathercoins</th>
@@ -192,36 +191,34 @@
                                                 <th>Earnings Peercoins</th>
                                                 <th>Earnings MonetaryUnits</th>
                                                 <th>Latest Affiliate Received, GMT Time</th>
-                                                <th>Edit</th>
+                                                <th>Action</th>
                                               </tr>
                                             </thead>
                                             <tbody>
+                                                <?php foreach($getaffiliated as $affiliate):?>
                                               <tr>
-                                                <td>Default</td>
-                                                <td>Defaultson</td>
-                                                <td>def@somemail.com</td>
-                                                <td>Default</td>
-                                                <td>Defaultson</td>
-                                                <td>def@somemail.com</td>
-                                                <td>Default</td>
-                                                <td>Defaultson</td>
-                                                <td>def@somemail.com</td>
-                                                <td>Default</td>
-                                                <td>Defaultson</td>
-                                                <td>def@somemail.com</td>
-                                                <td>Default</td>
-                                                <td>Defaultson</td>
-                                                <td>def@somemail.com</td>
-                                                <td>Default</td>
-                                                <td>Defaultson</td>
+                                                <td><?= $affiliate->title;?></td>
+                                                <td><?= $affiliate->affiPrivateKey?></td>
+                                                <td><?= $affiliate->bitcoinAddress?></td>
+                                                <td><?= $affiliate->bitcoinCashAddress?></td>
+                                                <td><?= $affiliate->litecoinAddress?></td>
+                                                <td><?= $affiliate->dashcoinAddress?></td>
+                                                <td><?= $affiliate->dogecoinAddress?></td>
+                                                <td><?= $affiliate->reddcoinAddress?></td>
+                                                <td><?= $affiliate->potcoinAddress?></td>
+                                                <td><?= $affiliate->feathercoinAddress?></td>
+                                                 <td><?= $affiliate->vertcoinAddress?></td>
+                                                 <td><?= $affiliate->peercoinAddress?></td>
+                                                <td><?= $affiliate->MonetaryUnitAddress?></td>
+                                                <td><?= $affiliate->key_created?></td>
+                                                <td><a  class="btn btn-info" href="<?= base_url();?>index.php/affiliated/edit_data/<?= $affiliate->affiliated_id;?>">EDIT</a> &nbsp;<a  class="btn btn-info" href="">Stats</a></td>
                                               </tr>      
-                                             
+                                             <?php endforeach;?>
                                             </tbody>
                                           </table>
+                                          <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/affiliated">Get New Additional Affilate Key</a></div><br>
                                     </div>
-                                    <div class="page-content-holder no-padding">
-                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/affiliated">Get New Additional Affilate Key</a></div>
-                                </div>
+                                   
                             <!-- ./page content holder -->
                              </div>
                         </div>

@@ -28,18 +28,18 @@ class Account extends CI_Controller
     }
     public function my_account()
     {
+        $email=$this->session->userdata('email');
         $boxid=$this->session->userdata('box_id');
         $keyValue['getKey']=$this->Account_model->view_account();
-    
-        $this->load->view('frontend/my-account',$keyValue);
-       
+        $keyValue['getMonitiger']=$this->Account_model->monetiserList($email);
+        $keyValue['getaffiliated']=$this->Account_model->affiliatedList($email);
+
+        $this->load->view('frontend/my-account',$keyValue); 
     }
     
     public function monitiser()
     {
-      
         $this->load->view('frontend/cryptocoin-monetiser');
-      
     }
     public function cryptocoin($value,$id)
     {

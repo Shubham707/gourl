@@ -29,9 +29,9 @@
     </div>
 </div>          
 <div class="page-content-wrap">                    
-<!-- id="hide" -->
+
     <div class="page-content-holder">
-        <div  style="color: green; text-align: center;"> <?php echo @$success;?></div>
+        <div id="hide" style="color: green; text-align: center;"> <?php echo @$success;?></div>
         <div class="block-heading block-heading-centralized this-animate" data-animate="fadeInDown">
             <h2 class="heading-underline">1. Gourl.io Monetiser Online</h2>
             <div class="block-heading-text">
@@ -40,7 +40,7 @@
             </div>
             <div class="page-content-wrap bg-light">
             <!-- page content holder -->
-            <form id="saveAffifiliated" class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>index.php/monetiser/add-monitiser">
+            <form id="saveAffifiliated" class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>index.php/monitiser/add-monitiser">
             <div class="page-content-holder no-padding">
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="username"> Select Currency:</label>
