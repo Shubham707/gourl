@@ -71,12 +71,7 @@ class Welcome extends CI_Controller
 		$this->load->view('frontend/portfolio-2column');
 
 	}
-	public function account()
-	{
 	
-		$this->load->view('frontend/account');
-	
-	}
 	public function pay_per_product()
 	{
 		$sql="select * from crypto_products";
@@ -85,5 +80,9 @@ class Welcome extends CI_Controller
         $this->load->view('frontend/pay-per-product',$get);
 
 	}
+	/*public function paid_user()
+	{
+        $this->load->view('frontend/user_paid');
+	}*/
 }
 

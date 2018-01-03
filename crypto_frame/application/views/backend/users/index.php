@@ -26,7 +26,7 @@
                         <div class="col-md-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">                                
-                                    <h3 class="panel-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/admin/coin/add_coin">Add Coin</a></h3>
+                                    <h3 class="panel-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/admin/user/add_user">Add User</a></h3>
                                     <div style="color:green;"><?php echo @$msg;?></div>
                                     <ul class="panel-controls">
                                         <li><a href="#" class="panel-collapse"><span class="fa fa-angle-down"></span></a></li>
@@ -39,22 +39,23 @@
                                         <thead>
                                             <tr>
                                                 <th>#</th>
-                                                <th>Title</th>
-                                                <th>Image</th>
-                                                <th>Date</th>
+                                                <th>Full Name</th>
+                                                <th>Email</th>
+                                                <th>Website</th>
                                                 <th>Action</th>
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <?php $i=1; foreach($getCoin as $coin){ ?>
+                                            <?php $i=1; foreach($listing as $list){ ?>
                                             <tr>
                                                 <td><?= $i++;?></td>
-                                                <td><?= $coin->coin_name;?></td>
-                                                <td><?= $coin->coin_image;?></td>
-                                                <td><?= $coin->coin_date;?></td>
+                                                <td><?= $list->title.'&nbsp'.$list->firstname.'&nbsp;'.$list->lastname;?></td>
+                                                <td><?= $list->email;?></td>
+                                                <td><?= $list->company_website;?></td>
                                                 <td>
-                                                    <a class="btn btn-info" href="coin/edit_coin/<?= $coin->coin_id;?>">Edit</a>
-                                                    <a href="<?= $coin->coin_id;?>" class="btn btn-danger">Delete</a>
+                                                    <a class="btn btn-info" href="user/edit_user/<?= $list->user_id;?>">Edit</a>
+                                                    <a href="<?= $list->user_id;?>" class="btn btn-danger">Delete</a>
+                                                    <a href="user/details/<?= $list->user_id;?>" class="btn btn-success">View</a>
                                                 </td>
                                             </tr>
                                             

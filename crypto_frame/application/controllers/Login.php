@@ -49,7 +49,7 @@ public function login_user()
 							'is_logged_in' => TRUE,
 							)); 
 						 }
-						redirect(base_url() . 'index.php/welcome/account');
+						redirect(base_url() . 'index.php/account/my_account_details');
 						
 				} else {
 						$msg = 'error';

@@ -51,7 +51,7 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username">Your Affiliate Key:</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" id="privateURL" name="affiPrivateKey" required placeholder="Affiliate Key" value="<?= $affiliated->affiPrivateKey?>">
+                        <input  type="text" class="form-control" id="privateURL" name="affiPrivateKey" required placeholder="Affiliate Key" value="<?= $affiliated->affiPrivateKey;?>" disabled>
                     </div>
                 </div>
                 <div class="form-group">

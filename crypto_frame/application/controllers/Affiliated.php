@@ -35,9 +35,11 @@ class Affiliated extends CI_Controller
     public function saveAffiliated()
     {
         //print_r($_REQUEST); die();
+        $str=substr('DEV'.hash('sha256', $this->input->post('email')), 0,30);
+        $affiPrivateKey=$str;
         $data=array(
             'title' => $this->input->post('title'), 
-            'affiPrivateKey' => $this->input->post('affiPrivateKey'),
+            'affiPrivateKey' => $affiPrivateKey,
             'bitcoinAddress' => $this->input->post('bitcoinAddress'), 
             'bitcoinCashAddress' => $this->input->post('bitcoinCashAddress'),
             'litecoinAddress' => $this->input->post('litecoinAddress'),

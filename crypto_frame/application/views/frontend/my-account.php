@@ -10,7 +10,7 @@
                 <div class="page-content-wrap bg-light">
                     <div class="page-content-holder no-padding">
                         <div class="page-title">                            
-                            <a class="btn btn-info" href="<?php echo base_url();?>index.php/welcome/account">Your Persional Details</a> 
+                            <a class="btn btn-info" href="<?php echo base_url();?>index.php/account/my-account-details">Your Persional Details</a> 
                             <ul class="breadcrumb">
                                 <li><a href="index.php">Image</a></li>
                                 
@@ -195,10 +195,10 @@
                                               </tr>
                                             </thead>
                                             <tbody>
-                                                <?php foreach($getaffiliated as $affiliate):?>
+                                                <?php $i=1; foreach($getaffiliated as $affiliate):?>
                                               <tr>
-                                                <td><?= $affiliate->title;?></td>
-                                                <td><?= $affiliate->affiPrivateKey?></td>
+                                                <td><?= $i++;?></td>
+                                                <td><?= $affiliate->title?></td>
                                                 <td><?= $affiliate->bitcoinAddress?></td>
                                                 <td><?= $affiliate->bitcoinCashAddress?></td>
                                                 <td><?= $affiliate->litecoinAddress?></td>

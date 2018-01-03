@@ -50,26 +50,32 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'welcome';
+
+$route['welcome/paid-user']='welcome/paid_user';
 $route['account/save-data-key'] = 'account/security_key';
 $route['account/update-security-coin'] = 'account/security_update';
 $route['account/my-account'] = 'account/my_account';
-$route['affiliated'] = 'affiliated';
-$route['account/my-monitiser-online'] = 'account/monitiser';
+$route['account/my-account-details']='account/my_account_details';
+
 $route['welcome/pay-product-online'] = 'welcome/pay_per_product';
 $route['product/add-product']='product/add_product';
 $route['product/add-per-product']='product/add_pay_product';
+
 $route['payment/add-payment']='payment';
 $route['payment/secret-key']='payment/secret_key';
 $route['payment/payment-successfull']='payment/payment_successfull';
 $route['payment/auto-payments-external-wallet']='payment/auto_payments_external_wallet';
 $route['payment/Unrecognised-Received-Payments']='payment/unrecognised_received_payments';
 
+$route['affiliated'] = 'affiliated';
 $route['affiliated/add-affiliated']='affiliated/saveAffiliated';
 $route['affiliated/edit-affiliated']='affiliated/updateAffiliated';
 
+$route['account/my-monitiser-online'] = 'account/monitiser';
 $route['monetiser/my-monitiser-online']='Monetiser';
 $route['monitiser/add-monitiser']='monetiser/saveMonetiser';
 
+$route['membership/pay-per-membership']='membership/pay_per_membership';
 
 
 

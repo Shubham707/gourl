@@ -70,11 +70,7 @@ class Account extends CI_Controller
                 'allData'=>$keyValue,
                 'security'=>$security,
             );
-            /*echo "<pre>";
-            print_r($data);die();
-            echo "</pre>";*/
-         
-     
+           
         $this->load->view('frontend/add-payment', $data);
         
     }
@@ -223,6 +219,13 @@ class Account extends CI_Controller
         $this->load->view('frontend/coinbox-payment',$data);
       
         
+    }
+    public function my_account_details()
+    {
+        $email=$this->session->userdata('email');
+        $data['getDetails']= $this->User_model->edit_user($email);
+        $this->load->view('frontend/account',$data);
+    
     }
 
 }

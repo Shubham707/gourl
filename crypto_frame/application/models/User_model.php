@@ -52,15 +52,22 @@ class User_model extends CI_Model {
 	public function listing()
 	{
 		$data= $this->db->query('select * from users')->result();
-		foreach ($data as $key => $row) {
+		foreach ($data as $key => $row) 
+		{
 			return $row->box_id;
 		}
-		
-
 	}
-	
-
-		
-
+	public function edit_user($value)
+	{
+		return $this->db->select('*')->where('user_id', $value)->get('users')->result();
+	}
+	public function updateUser($value)
+	{
+		return $this->db->update('users',$value);
+	}
+	public function user_listing()
+	{
+		return $this->db->select('*')->from('users')->get()->result();
+	}
 }
 
