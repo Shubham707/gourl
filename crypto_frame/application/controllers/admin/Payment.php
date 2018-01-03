@@ -1,9 +1,9 @@
 <?php 
-if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+if ( ! defined('BASEPATH')) exit ('No direct script access allowed');
 
-class Coin extends CI_Controller 
+class Payment extends CI_Controller 
 {   
-    public function Coin() 
+    public function Payment() 
     {
         parent::__construct();
         $this->load->model('Coin_model');
@@ -17,16 +17,16 @@ class Coin extends CI_Controller
        $this->load->view('backend/coin/index',$value);
     }
 
-    public function add_coin()
+    public function add_payment()
     {
       $this->load->view('backend/coin/add-coin');
     }
-    public function edit_coin($id)
+    public function edit_payment($id)
     {
         $data['editCoin']=$this->Coin_model->edit($id);
       $this->load->view('backend/coin/coin-edit', $data);
     }
-    public function insert_coin()
+    public function insert_payment()
     {
         
         $config['upload_path']          = 'uploads/';
@@ -57,7 +57,7 @@ class Coin extends CI_Controller
 
         }
     }
-    public function update_coin()
+    public function update_payment()
     {
             $id=$this->input->post('coin_id');
 
