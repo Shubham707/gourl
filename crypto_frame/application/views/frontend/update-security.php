@@ -12,7 +12,7 @@
         <div class="page-content-holder no-padding">
             <!-- page title -->
             <div class="page-title">                            
-                <a class="btn btn-info" href="<?php echo base_url();?>/index.php/account/public_key">Create Public and Private key</a>
+                <a class="btn btn-info" href="<?php echo base_url();?>account/public_key">Create Public and Private key</a>
                 
                 <!-- breadcrumbs -->
                               
@@ -43,7 +43,7 @@
                 <div class="block-heading-text">
                     <?php foreach($allKey as $value){ ?>
 
-                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>index.php/account/update-security-coin">
+                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>account/update-security-coin">
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username"> Box Id:</label>
                     <div class="col-sm-5">

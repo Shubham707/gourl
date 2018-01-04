@@ -184,7 +184,7 @@
                     <?php foreach ($coinList as $key => $value) { ?>
                      
                     <div class="col-sm-1">
-                        <a href="<?php echo base_url();?>index.php/membership/cryptocoin/<?= $value->coin_name;?>/<?= $this->session->userdata('box_id');?>">
+                        <a href="<?php echo base_url();?>membership/cryptocoin/<?= $value->coin_name;?>/<?= $this->session->userdata('box_id');?>">
                             <img src="<?php echo base_url();?>uploads/<?= $value->coin_image;?>" width="100" height="100">
                         </a>
                     </div>
@@ -213,7 +213,7 @@
                                         <b>end 0.00087383 BCH (in ONE payment) to:</b>
                                     </div>
                                 </div>
-                                <form action="<?php echo base_url();?>index.php/payment/key-secrat" method="post">
+                                <form action="<?php echo base_url();?>payment/key-secrat" method="post">
                                     <div align="center" > 
                                        <!--  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Copy</button> -->
                                       <a class="btn btn-info" onclick="myFunction('<?php echo @$newAddress;?>')">Copy</a>

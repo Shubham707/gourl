@@ -2,7 +2,7 @@
                 <div class="page-content-wrap bg-light">
                     <div class="page-content-holder no-padding">
                         <div class="page-title">                            
-                            <h2><a  href="<?php echo base_url();?>index.php/welcome/account">Your Account </a>» Unrecognised Received Payments Statistics </h2>
+                            <h2><a  href="<?php echo base_url();?>welcome/account">Your Account </a>» Unrecognised Received Payments Statistics </h2>
                                           
                         </div>
                     </div>

@@ -24,7 +24,7 @@
         <div class="block-heading this-animate" data-animate="fadeInDown">
             <h2>Payment Box</h2>
             <div class="block-heading-text">
-                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>index.php/product/add-per-product">
+                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>product/add-per-product">
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username"> Product Title:</label>
                     <div class="col-sm-5">

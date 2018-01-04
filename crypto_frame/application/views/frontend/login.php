@@ -35,7 +35,7 @@
                             <h2>Login User</h2>
                             <div align="center"><?php echo @$_REQUEST['message'];?></div>
                             <div class="block-heading-text">
-                            <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>index.php/login/login_user">
+                            <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>login/login_user">
                                      <div class="form-group">
                                 <label class="col-sm-4 control-label" for="username"> Email:</label>
                                 <div class="col-sm-5">

@@ -2,8 +2,7 @@
 
 include_once APPPATH.'third_party/jsonRPCClient.php';
 include_once APPPATH.'third_party/Client.php';
-include_once APPPATH.'third_party/cryptobox_config.php';
-include_once APPPATH.'third_party/cryptobox.php';
+
 
 
 class Membership extends CI_Controller 

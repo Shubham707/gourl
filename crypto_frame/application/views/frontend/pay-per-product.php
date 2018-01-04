@@ -17,7 +17,7 @@
         <div class="block-heading this-animate" data-animate="fadeInDown">
             <h2>Payment Box</h2>
             <div class="block-heading-text">
-                <a class="btn btn-info" href="<?php echo base_url();?>index.php/product/add-product">Add Product</a>
+                <a class="btn btn-info" href="<?php echo base_url();?>product/add-product">Add Product</a>
             </div>
         </div>
         <div class="row">

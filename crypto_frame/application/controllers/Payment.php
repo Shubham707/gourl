@@ -4,8 +4,7 @@ if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 include_once APPPATH.'third_party/jsonRPCClient.php';
 include_once APPPATH.'third_party/Client.php';
-include_once APPPATH.'third_party/cryptobox_config.php';
-include_once APPPATH.'third_party/cryptobox.php';
+
 
 class Payment extends CI_Controller 
 {
@@ -15,6 +14,7 @@ class Payment extends CI_Controller
         parent::__construct();
         $this->load->helper('form');
          $this->load->model('Account_model');
+         $this->load->model('Coin_model');
         $this->load->database();
         $this->load->library('session','Rpc');
         $this->load->model('Product_model');
@@ -50,6 +50,7 @@ class Payment extends CI_Controller
             'allData'=>$keyValue,
             'security'=>$security,
         );
+         $data['invoice']=$this->load->view('frontend/payment-invoice',$data,true);
         $this->load->view('frontend/add-payment', $data);
     }
 
@@ -58,12 +59,17 @@ class Payment extends CI_Controller
         $coin=$_REQUEST['multiCurrency'];
     }
 
-
-
-    /*function cryptobox_new_payment($paymentID = 0, $payment_details = array(), $box_status = "")
+    public function new_payment()
     {
-         
-    }*/
+         $coins=$this->Coin_model->listing();
+         $id=$this->session->userdata('box_id');
+
+         $data=array(
+            'boxid'=> $id,
+            'coins'=> $coins,
+            );
+         $this->load->view('frontend/payment-box',$data);
+    }
     public function secret_key()
     {
  
@@ -80,8 +86,6 @@ class Payment extends CI_Controller
     public function auto_payments_external_wallet()
     {
         $data['country']=$this->Product_model->country();
-       
- 
         $this->load->view('frontend/Payments_confirm',$data);
     
     }

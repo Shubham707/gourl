@@ -59,7 +59,14 @@ class User_model extends CI_Model {
 	}
 	public function edit_user($value)
 	{
-		return $this->db->select('*')->where('user_id', $value)->get('users')->result();
+		$query=$this->db->select('*')->where('user_id', $value)->get('users')->result();
+		print_r($query);
+		die();
+	}
+	public function details_user($value)
+	{
+		return $query=$this->db->select('*')->where('email', $value)->get('users')->result();
+		
 	}
 	public function updateUser($value)
 	{

@@ -12,10 +12,10 @@ class User extends CI_Controller
         $this->load->database();
         $this->load->helper(array('form', 'url','file'));           
         $this->load->library('upload');
-        if($this->session->userdata('user_id')=='')
+        /*if($this->session->userdata('user_id')=='')
         {
             redirect('user/login');
-        }
+        }*/
     }
     public function login()
 	{

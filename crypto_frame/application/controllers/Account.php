@@ -61,15 +61,50 @@ class Account extends CI_Controller
          $address=$client->getAddress($email);
          $newaddress=$client->getNewAddress($email);
          $keyValue=$this->Account_model->view_account();
+         $bitcoin=$this->Coin_model->listing();
+
+         $coin=$value?$value:'bitcoin';
             $data=array(
                 'address'=>$address,
                 'balance'=>$balance,
                 'email'=> $email,
                 'newAddress'=>$newaddress,
                 'coin'=> 'Bitcoin',
-                'allData'=>$keyValue,
+                'allData'=>$bitcoin,
                 'security'=>$security,
             );
+            $data['invoice']=$this->load->view('frontend/payment-invoice',$data,true);
+             $data['result']='<div class="panel panel-default">
+    <div class="panel-heading">Total: 0.00087383 BCH (BCC)
+        <div class="pull-right"><img style="margin-top: -10px;" src="'.base_url().'assets/images/payment.png" width="200" height="30">
+        </div>
+    </div>
+    <div class="panel-body">
+        <div class="col-sm-12">
+            <div class="col-sm-3">
+               <a href="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl="'.$newaddress.'">
+                <img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl="'.$newaddress.'" 
+                alt="QR Code" style="width:60px;border:0;">
+            </a>
+            </div>
+            <div class="col-sm-8">
+                 1. Get '.$coin.' at bittrex.com if you dont already have any<br>
+                2. <b>Send </b>'.$balance.''.$coin.'&nbsp;(dont include transaction fee in this amount!).
+                    If you send <b>any other bitcoincash amount</b>, payment system will <b>ignore it </b>!
+                <b>end 0.00087383 BCH (in ONE payment) to:</b>
+            </div>
+        </div>
+        <form action="'.base_url().'index.php/payment/key-secrat" method="post">
+            <div align="center" > 
+                <a onclick=copy("'.$newaddress.'"); class="btn btn-primary">Copy</a>
+                    <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="'.$newaddress.'">
+            </div>
+            <div align="center">
+                <a class="btn btn-success" href="'.base_url().'wallet">Open Wallet</a>
+            </div>
+            <div align="center"><input type="submit" style="margin-top: 20px; width:60%;" name="submit" value="Click Here if you have already sent '.$coin.'»">
+            </div>
+         </form>';
            
         $this->load->view('frontend/add-payment', $data);
         
@@ -223,7 +258,8 @@ class Account extends CI_Controller
     public function my_account_details()
     {
         $email=$this->session->userdata('email');
-        $data['getDetails']= $this->User_model->edit_user($email);
+        $data['getDetails']= $this->User_model->details_user($email);
+        //print_r($data['getDetails']); die();
         $this->load->view('frontend/account',$data);
     
     }

@@ -28,7 +28,7 @@
                         <div class="block-heading this-animate" data-animate="fadeIn">
                             <h2>Sign Up User</h2>
                             <div class="block-heading-text">
-                                 <form id="signupForm" method="post" class="form-horizontal" action="<?php echo base_url();?>index.php/user/user_save">
+                                 <form id="signupForm" method="post" class="form-horizontal" action="<?php echo base_url();?>user/user_save">
                           
                             <div class="form-group">
                                 <label class="col-sm-4 control-label" for="firstname">First name</label>

@@ -10,9 +10,9 @@
                 <div class="page-content-wrap bg-light">
                     <div class="page-content-holder no-padding">
                         <div class="page-title">                            
-                            <a class="btn btn-info" href="<?php echo base_url();?>index.php/account/my-account-details">Your Persional Details</a> 
+                            <a class="btn btn-info" href="<?php echo base_url();?>account/my-account-details">Your Persional Details</a> 
                             <ul class="breadcrumb">
-                                <li><a href="index.php">Image</a></li>
+                                <li><a href="#">Image</a></li>
                                 
                             </ul>               
                         </div>
@@ -62,13 +62,13 @@
                                              <td><?= $monList->monConfirmedReceived;?></td>
                                             <td><?= $monList->monUnconfirmed;?></td>
                                              <td><?= $monList->monUnconfirmedReceived;?></td>
-                                            <td style="width: 20%"><!-- <a class="btn btn-info" href="<?php //echo base_url();?>index.php/monetiser/monEdit/<?php // echo $monList->monetiser_id;?>">Edit</a> -->&nbsp;<a class="btn btn-info" href="<?php echo base_url();?>index.php/monetiser/monEdit/<?php echo $monList->monetiser_id;?>">Delete</a></td>
+                                            <td style="width: 20%"><!-- <a class="btn btn-info" href="<?php //echo base_url();?>monetiser/monEdit/<?php // echo $monList->monetiser_id;?>">Edit</a> -->&nbsp;<a class="btn btn-info" href="<?php echo base_url();?>monetiser/monEdit/<?php echo $monList->monetiser_id;?>">Delete</a></td>
                                           </tr>      
                                      <?php endforeach;?>
                                         </tbody>
                                     </table>
                                     <div class="page-content-holder no-padding">
-                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/monetiser/my-monitiser-online">Create New Payment Url Online</a></div><br>
+                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>monetiser/my-monitiser-online">Create New Payment Url Online</a></div><br>
                                 </div>
                                 </div>
                              </div>
@@ -130,8 +130,8 @@
                                             <td><?= $bitcoin->unrecognised;?></td>
                                             <td><?= $bitcoin->processed;?></td>
                                            
-                                            <td width="200"><a class="btn btn-info" href="<?php echo base_url();?>index.php/account/coinbox/<?= $bitcoin->multicurrencyID.'/'.$bitcoin->boxID;?>">Edit</a> 
-                                              <a class="btn btn-info" href="<?php echo base_url();?>index.php/account/coin_boxes/<?= $this->session->userdata('box_id');?>/<?= $bitcoin->boxName;?>">Start</a></td>
+                                            <td width="200"><a class="btn btn-info" href="<?php echo base_url();?>account/coinbox/<?= $bitcoin->multicurrencyID.'/'.$bitcoin->boxID;?>">Edit</a> 
+                                              <a class="btn btn-info" href="<?php echo base_url();?>account/coin_boxes/<?= $this->session->userdata('box_id');?>/<?= $bitcoin->boxName;?>">Start</a></td>
                                           </tr>      
                                          <?php }?>     
                                          
@@ -139,16 +139,16 @@
                                       </table>
                                 </div>
                                   <div class="page-content-holder no-padding">
-                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/account/public_key">Create New Payment Box fro Your Website</a></div>
+                                    <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>account/public_key">Create New Payment Box fro Your Website</a></div>
                                 </div>
                                 <div class="page-content-holder">
                                     <div class="pull-left">
                                       <h1>Common Statistics for All Your Payment Boxes</h1>
                                     </div>
                                     <div class="col-sm-12">
-                                        <a class="btn btn-info" href="<?php echo base_url();?>index.php/payment/payment-successfull">Payments Successfully Received & Processed</a>
-                                        <a class="btn btn-info" href="<?php echo base_url();?>index.php/payment/Unrecognised-Received-Payments">Unrecognised Received Payments</a>
-                                        <a class="btn btn-info" href="<?php echo base_url();?>index.php/payment/auto-payments-external-wallet">Auto Payments to Your Wallet</a>
+                                        <a class="btn btn-info" href="<?php echo base_url();?>payment/payment-successfull">Payments Successfully Received & Processed</a>
+                                        <a class="btn btn-info" href="<?php echo base_url();?>payment/Unrecognised-Received-Payments">Unrecognised Received Payments</a>
+                                        <a class="btn btn-info" href="<?php echo base_url();?>payment/auto-payments-external-wallet">Auto Payments to Your Wallet</a>
                                     </div>
                                 </div>
                              
@@ -211,12 +211,12 @@
                                                  <td><?= $affiliate->peercoinAddress?></td>
                                                 <td><?= $affiliate->MonetaryUnitAddress?></td>
                                                 <td><?= $affiliate->key_created?></td>
-                                                <td><a  class="btn btn-info" href="<?= base_url();?>index.php/affiliated/edit_data/<?= $affiliate->affiliated_id;?>">EDIT</a> &nbsp;<a  class="btn btn-info" href="">Stats</a></td>
+                                                <td><a  class="btn btn-info" href="<?= base_url();?>affiliated/edit_data/<?= $affiliate->affiliated_id;?>">EDIT</a> &nbsp;<a  class="btn btn-info" href="">Stats</a></td>
                                               </tr>      
                                              <?php endforeach;?>
                                             </tbody>
                                           </table>
-                                          <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>index.php/affiliated">Get New Additional Affilate Key</a></div><br>
+                                          <div class="page-title"><a class="btn btn-info" href="<?php echo base_url();?>affiliated">Get New Additional Affilate Key</a></div><br>
                                     </div>
                                    
                             <!-- ./page content holder -->
