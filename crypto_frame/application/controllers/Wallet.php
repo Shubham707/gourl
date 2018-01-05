@@ -1,4 +1,8 @@
-<?php if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+<?php 
+if ( ! defined('BASEPATH')) exit('No direct script access allowed');
+
+include_once APPPATH.'third_party/jsonRPCClient.php';
+include_once APPPATH.'third_party/Client.php';
 
 class Wallet extends CI_Controller 
 {
@@ -6,74 +10,113 @@ class Wallet extends CI_Controller
     {
         parent::__construct();
         $this->load->helper('form');
-        $this->load->library('cart');
-        $this->load->model('Cart_model');
         $this->load->database();
-        $this->load->library('session','Rpc');
+        $this->load->library('Rpc');
     }
 	
     public function index()
-    {
-        if (!$this->cart->contents()){
-            $arr['message'] = '<p>Your cart is empty!</p>';
-        }else{
-            $arr['message'] = $this->session->flashdata('message');
-        }
+    { 
 
-        $this->load->view('frontend/cart_view', $arr);
-    }
-    public function add()
-    {
-         
-            $rand=rand(0,6);
-            $insert_room = array(
+       $rpc_host = "104.219.251.147";
+        $rpc_user="EBTC147";
+        $rpc_pass="33Mj169rVg9d55Ef1QPt";
+        $rpc_port="8116";
+
+        $email=$this->input->post('email');
+
+        $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+        $balance=$client->getBalance($email); 
+        $address=$client->getAddress($email);
+        $newaddress=$client->getNewAddress($email);
+
+        $rand='#inv-'.rand(99999,10000);
+
+        $getArray= array(
             'id' => $rand,
-            'privateURL' => htmlspecialchars($this->input->get_post('privateURL')),
-            'privateText' => $this->input->get_post('privateText'),
-            'publicTitle' => $this->input->get_post('publicTitle'),
-            'walletAddress' => $this->input->get_post('walletAddress'),
-            'expiryDate' => $this->input->get_post('expiryDate'),
-            'boxId' => $this->input->get_post('boxId'),
-            'coinLabel'=> $this->input->get_post('coinLabel'),
-        );      
-        $arr['']=$this->cart->insert($insert_room);
-         $this->load->view('frontend/cart_view', $arr);
+            'privateURL' =>$this->input->post('privateURL'),
+            'privateText' => $this->input->post('privateText'),
+            'publicTitle' => $this->input->post('publicTitle'),
+            'walletAddress' => $this->input->post('walletAddress'),
+            'expiryDate' => $this->input->post('expiryDate'),
+            'boxId' => $this->input->post('boxId'),
+            'coinLabel'=> $this->input->post('coinLabel'),
+            'coinRate'=> $this->input->post('coinRate'),
+            'affiUSD'=> $this->input->post('affiUSD'),
+            'balance'=> $balance,
+            'address'=> $address,
+            'newaddress'=> $newaddress,
+        ); 
+       $this->load->view('frontend/create-button',$getArray);
     }
-    public function remove($rowid) 
+    public function withdraw()
     {
-        if ($rowid=="all"){
-            $this->cart->destroy();
-        }else{
-            $data = array(
-                'rowid'   => $rowid,
-                'qty'     => 0
-            );
-            $this->cart->update($data);
-        }
-        $this->session->unset_userdata('voucher_code');
-        $this->session->unset_userdata('voucher_discount');
-        $this->session->unset_userdata('voucher_status');
-                
-        redirect('cart');
+       $rpc_host = "104.219.251.147";
+        $rpc_user="EBTC147";
+        $rpc_pass="33Mj169rVg9d55Ef1QPt";
+        $rpc_port="8116";
+
+        $email=$this->input->post('email');
+
+        $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+        $balance=$client->getBalance($email); 
+        $address=$client->getAddress($email);
+        $newaddress=$client->getNewAddress($email);
+
+        $rand='#inv-'.rand(99999,10000);
+
+        $getArray= array(
+            'id' => $rand,
+            'privateURL' =>$this->input->post('privateURL'),
+            'privateText' => $this->input->post('privateText'),
+            'publicTitle' => $this->input->post('publicTitle'),
+            'walletAddress' => $this->input->post('walletAddress'),
+            'expiryDate' => $this->input->post('expiryDate'),
+            'boxId' => $this->input->post('boxId'),
+            'coinLabel'=> $this->input->post('coinLabel'),
+            'coinRate'=> $this->input->post('coinRate'),
+            'affiUSD'=> $this->input->post('affiUSD'),
+            'balance'=> $balance,
+            'address'=> $address,
+            'newaddress'=> $newaddress,
+        );
+        //print_r($getArray); die();
+       $this->load->view('frontend/cart_view',$getArray);
     }
-    public function update_cart()
+    public function withdrawBitcoin()
     {
+        $rpc_host = "104.219.251.147";
+        $rpc_user="EBTC147";
+        $rpc_pass="33Mj169rVg9d55Ef1QPt";
+        $rpc_port="8116";
+
+        $email=$this->input->post('email');
+
+        $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+        $balance=$client->getBalance($email); 
+        $address=$client->getAddress($email);
+        $newaddress=$client->getNewAddress($email);
+
+        $rand='#inv-'.rand(99999,10000);
+
+        $getArray= array(
+            'id' => $rand,
+            'privateURL' =>$this->input->post('privateURL'),
+            'privateText' => $this->input->post('privateText'),
+            'publicTitle' => $this->input->post('publicTitle'),
+            'walletAddress' => $this->input->post('walletAddress'),
+            'expiryDate' => $this->input->post('expiryDate'),
+            'boxId' => $this->input->post('boxId'),
+            'coinLabel'=> $this->input->post('coinLabel'),
+            'coinRate'=> $this->input->post('coinRate'),
+            'affiUSD'=> $this->input->post('affiUSD'),
+            'balance'=> $balance,
+            'address'=> $address,
+            'newaddress'=> $newaddress,
+        );
         
-        $row_ids = $this->input->get_post('row_id');
-        $qty = $this->input->get_post('cart_qty');
-        $price = $this->input->get_post('price');
-        
-        for($i=0;$i<count($row_ids);$i++){
-            $data = array(
-                    'rowid'   => $row_ids[$i],
-                    'qty'     => $qty[$i],
-                    'price' => $qty[$i]*$price[$i]
-            );
+        print_r($getArray); die();
+    }
     
-            $this->cart->update($data);
-        }
-        
-        redirect('cart');
-    }
+    
 }
 

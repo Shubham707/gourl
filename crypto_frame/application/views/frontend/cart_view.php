@@ -1,165 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <!-- META SECTION -->
+        <title>Atlant - Front-End Template</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <!-- END META SECTION -->
+        
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/frontend/css/revolution-slider/extralayers.css" media="screen" />
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/frontend/css/revolution-slider/settings.css" media="screen" />
+        
+        <link rel="stylesheet" type="text/css" href="<?php echo base_url();?>/assets/frontend/css/styles.css" media="screen" />                  
+        
+    </head>
+    <body>
+ <div class="page-container">
+            <div class="page-header">
+                <div class="page-header-holder">
+                    <div class="page-content">
+                    <div class="col-sm-3"></div>
+                      <div class="panel panel-default col-sm-6" style="margin-top: 50px;">
+                        <div class="panel-heading">Total: <?php echo $balance; ?> BCH (BCC)
+                            <div class="pull-right"><img style="margin-top: -10px;" src="<?= base_url();?>;assets/images/payment.png" width="200" height="30">
+                            </div>
+                        </div>
+                        <div class="panel-body">
+                            <div class="col-sm-12 pull-lg-6">
+                                
+                                   <a href="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?= $newaddress?>">
+                                    <p class="text-center"><img src="http://chart.apis.google.com/chart?cht=qr&chs=300x300&chl=<?= $newaddress?>" 
+                                    alt="QR Code" style="width:160px;border:0;"></p>
+                                </a>
+                               
+                                
+                            </div>
+                            <form action="<?= base_url()?>wallet/add-payment-wallet-data-withdraw" method="post">
+                                <div align="center" > 
 
-<html>
-<head>
-<title>Codeigniter cart class</title>
-<link href='http://fonts.googleapis.com/css?family=Raleway:500,600,700' rel='stylesheet' type='text/css'>
-<link rel="stylesheet" type="text/css" href="<?php echo base_url(); ?>css/style.css">
+                                    <a onclick=copy("<?= $newaddress?>"); class="btn btn-primary">Copy</a>
+                                        <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?= $newaddress?>">
+                                </div>
+                                <div align="center" > 
+                                    <label>Email:</label>
+                                        <input type="email" style="margin-top: 20px; width:60%;" name="email" value="">
+                                </div>
+                                <input type="hidden" name="id" value="<?= $id?>">
+                                <input type="hidden" name="privateURL" value="<?= $privateURL?>">
+                                <input type="hidden" name="privateText" value="<?= $privateText?>">
+                                <input type="hidden" name="publicTitle" value="<?= $publicTitle?>">
+                                <input type="hidden" name="walletAddress" value="<?= $walletAddress?>">
+                                <input type="hidden" name="expiryDate" value="<?= $expiryDate?>">
+                                <input type="hidden" name="boxId" value="<?= $boxId?>">
+                                <input type="hidden" name="coinLabel" value="<?= $coinLabel?>">
+                                <input type="hidden" name="" value="<?= $newaddress?>">
+                                
+                                <div align="center">
+                                    <input class="btn btn-info" type="submit" style="margin-top: 20px; width:60%;" name="submit" value="Click Here if you have already sent <?= $coinLabel?>»">
+                                </div>
+                             </form>
+                         </div>
+                     </div>
+                    <script>
+                      
+                      function copy($addr)
+                      {
+                        confirm($addr);
+                      }
+                    </script>
+    
+                    </div>
+                    <!-- ./page footer holder -->
+                </div>
+                <!-- ./page footer wrap -->
+                
+            </div>
+            <!-- ./page footer -->
+            
+        </div>        
+        <!-- ./page container -->
+        
+        <!-- page scripts -->
+        <script type="text/javascript" src="<?php echo base_url();?>/assets/frontend/js/plugins/jquery/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>/assets/frontend/js/plugins/bootstrap/bootstrap.min.js"></script>
+        
+        <script type="text/javascript" src="<?php echo base_url();?>/assets/frontend/js/plugins/mixitup/jquery.mixitup.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>/assets/frontend/js/plugins/appear/jquery.appear.js"></script>
+        
+        <script type="text/javascript" src="<?php echo base_url();?>/assets/frontend/js/plugins/revolution-slider/jquery.themepunch.tools.min.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>/assets/frontend/js/plugins/revolution-slider/jquery.themepunch.revolution.min.js"></script>
+        
+        <script type="text/javascript" src="<?php echo base_url();?>/assets/frontend/js/actions.js"></script>
+        <script type="text/javascript" src="<?php echo base_url();?>/assets/frontend/js/slider.js"></script>
+        <!-- ./page scripts -->
 
-<script type="text/javascript">
-// To conform clear all data in cart.
-function clear_cart() {
-var result = confirm('Are you sure want to clear all bookings?');
-
-if (result) {
-window.location = "<?php echo base_url(); ?>index.php/shopping/remove/all";
-} else {
-return false; // cancel button
-}
-}
-</script>
-</head>
-<body>
-<div id='content'>
-<div id='tag'>
-<!-- Formget Fugo logo image -->
-<img src="<?php echo base_url(); ?>images/head_cart.jpg"/>
-</div>
-<div id="cart" >
-<div id = "heading">
-<h2 align="center">Products on Your Shopping Cart</h2>
-</div>
-
-<div id="text">
-<?php $cart_check = $this->cart->contents();
-
-// If cart is empty, this will show below message.
-if(empty($cart_check)) {
-echo 'To add products to your shopping cart click on "Add to Cart" Button';
-} ?> </div>
-
-<table id="table" border="0" cellpadding="5px" cellspacing="1px">
-<?php
-// All values of cart store in "$cart".
-if ($cart = $this->cart->contents()): ?>
-<tr id= "main_heading">
-<td>Serial</td>
-<td>Name</td>
-<td>Price</td>
-<td>Qty</td>
-<td>Amount</td>
-<td>Cancel Product</td>
-</tr>
-<?php
-// Create form and send all values in "shopping/update_cart" function.
-echo form_open('shopping/update_cart');
-$grand_total = 0;
-$i = 1;
-
-foreach ($cart as $item):
-// echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
-// Will produce the following output.
-// <input type="hidden" name="cart[1][id]" value="1" />
-
-echo form_hidden('cart[' . $item['id'] . '][id]', $item['id']);
-echo form_hidden('cart[' . $item['id'] . '][rowid]', $item['rowid']);
-echo form_hidden('cart[' . $item['id'] . '][name]', $item['name']);
-echo form_hidden('cart[' . $item['id'] . '][price]', $item['price']);
-echo form_hidden('cart[' . $item['id'] . '][qty]', $item['qty']);
-?>
-<tr>
-<td>
-<?php echo $i++; ?>
-</td>
-<td>
-<?php echo $item['name']; ?>
-</td>
-<td>
-$ <?php echo number_format($item['price'], 2); ?>
-</td>
-<td>
-<?php echo form_input('cart[' . $item['id'] . '][qty]', $item['qty'], 'maxlength="3" size="1" style="text-align: right"'); ?>
-</td>
-<?php $grand_total = $grand_total + $item['subtotal']; ?>
-<td>
-$ <?php echo number_format($item['subtotal'], 2) ?>
-</td>
-<td>
-
-<?php
-// cancle image.
-$path = "<img src='http://localhost/codeigniter_cart/images/cart_cross.jpg' width='25px' height='20px'>";
-echo anchor('shopping/remove/' . $item['rowid'], $path); ?>
-</td>
-<?php endforeach; ?>
-</tr>
-<tr>
-<td><b>Order Total: $<?php
-
-//Grand Total.
-echo number_format($grand_total, 2); ?></b></td>
-
-<?php // "clear cart" button call javascript confirmation message ?>
-<td colspan="5" align="right"><input  class ='fg-button teal' type="button" value="Clear Cart" onclick="clear_cart()">
-
-<?php //submit button. ?>
-<input class ='fg-button teal'  type="submit" value="Update Cart">
-<?php echo form_close(); ?>
-
-<!-- "Place order button" on click send "billing" controller -->
-<input class ='fg-button teal' type="button" value="Place Order" onclick="window.location = 'shopping/billing_view'"></td>
-</tr>
-<?php endif; ?>
-</table>
-</div>
-<div id="products_e" align="center">
-
-<h2 id="head" align="center">Products</h2>
-<?php
-
-// "$products" send from "shopping" controller,its stores all product which available in database.
-foreach ($products as $product) {
-$id = $product['serial'];
-$name = $product['name'];
-$description = $product['description'];
-$price = $product['price'];
-?>
-
-<div id='product_div'>
-<div id='image_div'>
-<img src="<?php echo base_url() . $product['picture'] ?>"/>
-</div>
-<div id='info_product'>
-<div id='name'><?php echo $name; ?></div>
-<div id='desc'> <?php echo $description; ?></div>
-<div id='rs'><b>Price</b>:<big>
-$<?php echo $price; ?></big></div>
-<?php
-
-// Create form and send values in 'shopping/add' function.
-echo form_open('shopping/add');
-echo form_hidden('id', $id);
-echo form_hidden('name', $name);
-echo form_hidden('price', $price);
-?> </div>
-<div id='add_button'>
-<?php
-$btn = array(
-'class' => 'fg-button teal',
-'value' => 'Add to Cart',
-'name' => 'action'
-);
-
-// Submit Button.
-echo form_submit($btn);
-echo form_close();
-?>
-</div>
-</div>
-
-<?php } ?>
-
-</div>
-</div>
-</body>
+    <script type="text/javascript" src="<?php echo base_url();?>/assets/validation/dist/jquery.validate.js"></script>
+    <script type="text/javascript" src="<?php echo base_url();?>/assets/frontend/js/cryptobox.js"></script>
+     <script type="text/javascript" src="<?php echo base_url();?>/assets/frontend/js/cryptobox.min.js"></script>
+       <script type="text/javascript" src="<?php echo base_url();?>/assets/country.js"></script>
+       
+        
+    </body>
 </html>
+
+
+
+
+
 

@@ -79,7 +79,7 @@
                         </div>
                         <div class="col-sm-2" id="or" style="margin-top: 25px;"></div>
                         <div class="col-sm-5">
-                        OR <input  id="affiUSD" name="affiUSD" required placeholder="USD" onkeyup="checkDec(this);">
+                        OR <input  id="affiUSD" name="coinRate" required placeholder="USD" onkeyup="checkDec(this);">
                         </div> 
                         
                     </div>

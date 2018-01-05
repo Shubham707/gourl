@@ -77,7 +77,8 @@ $route['monitiser/add-monitiser']='monetiser/saveMonetiser';
 
 $route['membership/pay-per-membership']='membership/pay_per_membership';
 
-
+$route['wallet/add-payment-wallet-data-withdraw-all-value']='wallet/withdraw';
+$route['wallet/add-payment-wallet-data-withdraw']='wallet/withdrawBitcoin';
 
 /* admin Create Controller */
 

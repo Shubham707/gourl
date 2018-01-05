@@ -40,7 +40,7 @@
             </div>
             <div class="page-content-wrap bg-light">
             <!-- page content holder -->
-            <form id="saveAffifiliated" class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>wallet/add">
+            <form id="saveAffifiliated" class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>wallet">
             <div class="page-content-holder no-padding">
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="username"> Select Currency:</label>
@@ -105,9 +105,15 @@
                         
                     </div>
                 </div> -->
-
+                <div class="form-group">
+                     <label class="col-sm-4 control-label" for="username">Coin Label:</label>
+                    <div class="col-sm-5">
+                        <input type="text" class="form-control" name="coinLabel" id="coinlabel" value="" required><br>
+                        
+                    </div>
+                </div>
                 <input type="hidden" name="boxId" value="<?= $boxid;?>">
-                <input type="hidden" name="coinLabel" id="coinlabel" value="">
+                <input type="hidden" name="email" value="<?= $this->session->userdata('email');?>">
                 
             </div>
             <div class="page-content-holder no-padding">
