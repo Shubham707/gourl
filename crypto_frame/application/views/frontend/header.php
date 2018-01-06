@@ -55,7 +55,7 @@
                                 <li><a href="<?php echo site_url();?>account/public_key">Account Key</a></li>
                                 <li><a href="<?php echo site_url();?>account/my-account">My account</a></li>
                                 <li><a href="<?php echo site_url();?>payment/add-payment">Payment</a></li>
-                                <li><a href="<?php echo site_url();?>welcome/pay_multi_post">Pay Multi Post</a></li>
+                                <li><a href="<?php echo site_url();?>payment/multi-payment-post-coin">Pay Multi Post</a></li>
                            
                             </ul>
                         </li>

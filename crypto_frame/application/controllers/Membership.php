@@ -48,7 +48,7 @@ class Membership extends CI_Controller
             'allData'=>$keyValue,
             'security'=>$security,
         );
-	
+	      // print_r($data); die();
 		$this->load->view('frontend/pay-per-membership',$data);
 
 	}
@@ -79,7 +79,7 @@ class Membership extends CI_Controller
                 'newAddress' =>$newaddress,
                 'coin' => 'Bitcoin',
                 'coinList' =>$coinList,
-                'allData' =>$keyValue,
+                'allData' =>$coinList,
                 'security' =>$security,
             );
            

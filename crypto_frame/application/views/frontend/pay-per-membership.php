@@ -181,7 +181,7 @@
                         </div>
                             <div class="row">
                 <div class="col-sm-12">
-                    <?php foreach ($coinList as $key => $value) { ?>
+                    <?php foreach ($allData as $key => $value) { ?>
                      
                     <div class="col-sm-1">
                         <a href="<?php echo base_url();?>membership/cryptocoin/<?= $value->coin_name;?>/<?= $this->session->userdata('box_id');?>">
@@ -207,7 +207,7 @@
                                     </a>
                                     </div>
                                     <div class="col-sm-8">
-                                         1. Get <?php echo $coin;?> at bittrex.com if you don't already have any.<br>
+                                         1. Get <?php echo $     ;?> at bittrex.com if you don't already have any.<br>
                                         2. <b>Send </b><?php echo $balance.' '.$coin;?> (don't include transaction fee in this amount!).
                                             If you send <b>any other bitcoincash amount</b>, payment system will <b>ignore it </b>!
                                         <b>end 0.00087383 BCH (in ONE payment) to:</b>

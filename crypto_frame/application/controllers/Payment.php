@@ -96,6 +96,17 @@ class Payment extends CI_Controller
         $this->load->view('frontend/Payments_Successfully',$data);
       
     }
+    public function multi_pay_post()
+    {
+        $coins=$this->Coin_model->listing();
+         $id=$this->session->userdata('box_id');
+
+         $data=array(
+            'boxid'=> $id,
+            'coins'=> $coins,
+            );
+        $this->load->view('frontend/multi-payment-post',$data);
+    }
 
 
 }

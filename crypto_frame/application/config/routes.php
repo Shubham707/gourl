@@ -66,6 +66,7 @@ $route['payment/secret-key']='payment/secret_key';
 $route['payment/payment-successfull']='payment/payment_successfull';
 $route['payment/auto-payments-external-wallet']='payment/auto_payments_external_wallet';
 $route['payment/Unrecognised-Received-Payments']='payment/unrecognised_received_payments';
+$route['payment/multi-payment-post-coin']='payment/multi_pay_post';
 
 $route['affiliated'] = 'affiliated';
 $route['affiliated/add-affiliated']='affiliated/saveAffiliated';
@@ -79,6 +80,7 @@ $route['membership/pay-per-membership']='membership/pay_per_membership';
 
 $route['wallet/add-payment-wallet-data-withdraw-all-value']='wallet/withdraw';
 $route['wallet/add-payment-wallet-data-withdraw']='wallet/withdrawBitcoin';
+$route['wallet/multi-wallet-payment']='wallet/multi_wallet_payment';
 
 /* admin Create Controller */
 
