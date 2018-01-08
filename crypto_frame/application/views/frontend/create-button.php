@@ -7,6 +7,7 @@
     </div>
     <div class="panel-body">
         <form action="<?= base_url()?>wallet/add-payment-wallet-data-withdraw-all-value" method="post">
+            <div style=""><?php echo $flashSuccess;?></div>
             <div align="center"> 
                 <a onclick=copy("<?= $newaddress?>"); class="btn btn-primary">Copy</a>
                     <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?= $newaddress?>">
@@ -20,7 +21,8 @@
             <input type="hidden" name="expiryDate" value="<?= $expiryDate?>">
             <input type="hidden" name="boxId" value="<?= $boxId?>">
             <input type="hidden" name="coinLabel" value="<?= $coinLabel?>">
-            <input type="hidden" name="" value="<?= $newaddress?>">
+            <input type="hidden" name="address" value="<?= $newaddress?>">
+            <input type="hidden" name="email" value="shubhamsahu707@gmail.com">
            
             
             <div align="center">
@@ -41,6 +43,7 @@
                         <input type="hidden" name="boxId" value="<?= $boxId?>">
                         <input type="hidden" name="coinLabel" value="<?= $coinLabel?>">
                         <input type="hidden" name="newaddress" value="<?= $newaddress?>">
+                        <input type="hidden" name="email" value="shubhamsahu707@gmail.com">
                         <div align="center">
                         <input type="image" name="submit" src="<?= base_url();?>assets/images/images1.jpeg" height="100" width="130" border="0" alt="Submit" />
                     </div>

@@ -8,8 +8,7 @@
                             <h1>User Account Update<?php //echo $user_id;?></h1>
                             <!-- breadcrumbs -->
                             <ul class="breadcrumb">
-                                <li><a href="index.html">Home</a></li>
-                                <li class="active"><a href="#">Update</a></li>
+                                <li><a class="btn btn-primary" style="color: white;" href="<?= base_url();?>excel">Download Payment All Record</a></li>
                                
                             </ul>               
                             <!-- ./breadcrumbs -->

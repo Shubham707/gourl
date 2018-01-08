@@ -53,8 +53,8 @@
                                 <input type="hidden" name="expiryDate" value="<?= $expiryDate?>">
                                 <input type="hidden" name="boxId" value="<?= $boxId?>">
                                 <input type="hidden" name="coinLabel" value="<?= $coinLabel?>">
-                                <input type="hidden" name="" value="<?= $newaddress?>">
-                                
+                                <input type="hidden" name="address" value="<?= $newaddress?>">
+                                <input type="hidden" name="email" value="<?php echo $this->session->userdata('email');?>">
                                 <div align="center">
                                     <input class="btn btn-info" type="submit" style="margin-top: 20px; width:60%;" name="submit" value="Click Here if you have already sent <?= $coinLabel?>»">
                                 </div>
