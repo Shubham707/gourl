@@ -87,12 +87,10 @@ class Payment extends CI_Controller
     {
         $data['country']=$this->Product_model->country();
         $this->load->view('frontend/Payments_confirm',$data);
-    
     }
     public function payment_successfull()
     {
         $data['country']=$this->Product_model->country();
-      
         $this->load->view('frontend/Payments_Successfully',$data);
       
     }

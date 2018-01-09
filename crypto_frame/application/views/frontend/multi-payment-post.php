@@ -52,9 +52,12 @@ img{ margin-top: 30px; }
 <div class="page-content-wrap bg-light">
     <div class="page-content-holder no-padding">
         <div class="page-title">                            
-            <a class="btn btn-info" href="<?php echo base_url();?>index.php/welcome/account">Your Persional Detail</a> 
-                         
+            <a class="btn btn-info" href="<?php echo base_url();?>welcome/account">Your Persional Detail</a> 
+                <a class="pull-right btn btn-info" href="<?php echo base_url();?>multicurrency">Add Payment Cart</a>          
         </div>
+
+            
+
     </div>
 </div>          
 <div class="page-content-wrap">                    
@@ -69,7 +72,9 @@ img{ margin-top: 30px; }
             </div>
             <div class="page-content-wrap bg-light">
             <!-- page content holder -->
-            <form id="saveAffifiliated" class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>wallet/multi_wallet_payment">
+            <!-- <form id="saveAffifiliated" class="cmxform" id="commentForm" method="post" action="<?php //echo base_url();?>wallet/multi_wallet_payment"> -->
+                <form id="saveAffifiliated" class="cmxform" id="commentForm" method="post" >
+                    <!-- action="<?php //echo base_url();?>multicurrency/add" -->
             <div class="page-content-holder no-padding">
                 <div class="form-group">
                     <label class="col-sm-3 control-label" for="username"> Select Currency:</label>
@@ -112,7 +117,7 @@ img{ margin-top: 30px; }
                         </div>
                         <div class="col-sm-2" id="or" style="margin-top: 25px;"></div>
                         <div class="col-sm-5">
-                        OR <input  class="myField2" id="affiUSD" name="affiUSD" required placeholder="USD" onkeyup="checkDec(this);">
+                        OR <input  class="myField2" id="coinRate" name="coinRate" required placeholder="USD" onkeyup="checkDec(this);">
                         </div> 
                         
                     </div>
@@ -123,30 +128,35 @@ img{ margin-top: 30px; }
                         <input id="walletAddress" class="form-control" name="walletAddress" required placeholder="Wallet Address">
                     </div><br>
                 </div>
-                
-                <div class="form-group">
+                 
+                <!-- <div class="form-group">
                      <label class="col-sm-4 control-label" for="username">Url Expiry Date (GMT):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" name="expiryDate" id="expiryDate" data-select="datepicker" data-toggle="datepicker" data-locked="25/12/2014;1/1/2015" placeholder="Date" required><br>
+                        <input type="text" class="form-control" name="expiryDate" id="expiryDate" data-select="datepicker" data-toggle="datepicker" placeholder="Date" required><br>
                         
                     </div>
-                </div>
-                 <!-- <div class="form-group">
-                     <label class="col-sm-4 control-label" for="username">Captcha:</label>
+                </div> -->
+              <!--   <div class="form-group">
+                     <label class="col-sm-4 control-label" for="username">Date:</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" name="expiryDate" id="expiryDate" data-select="datepicker" data-toggle="datepicker" data-locked="25/12/2014;1/1/2015" required><br>
+                        <input type="text" class="form-control" name="expiryDate" id="expiryDate" data-select="datepicker" data-toggle="datepicker"  required><br>
                         
                     </div>
                 </div> -->
                 
-                <input type="hidden" name="boxId" value="<?= $boxid;?>">
-                <input type="hidden" name="email" value="<?= $this->session->userdata('email');?>">
+                <input type="hidden" id="boxId" name="boxId" value="<?= $boxid;?>">
+                <br>
                 
-            </div>
+                
+            </div><br>
             <div class="page-content-holder no-padding">
-                <div class="page-title"><button type="submit" name="submit" class="btn btn-info">Payment</button></div>
+                <div class="page-title">
+                    <button type="button" id="insert" name="button" class="btn btn-info">Payment</button></div>
             </div>
-             </form>
+             </form><br>
+             <div class="page-content-holder no-padding">
+                <div id="details"></div>
+            </div>
              </div>
         </div>
         
@@ -156,7 +166,7 @@ img{ margin-top: 30px; }
 
 </div>
 <script type="text/javascript">
-    
+
 function myFunction(coin) {
     document.getElementById(coin).style.opacity = ".5";
 }
@@ -265,5 +275,22 @@ $(function() {
         $( this ).addClass( 'active' );
     });
 });
+   $('#insert').click(function() {
+        var private_id= $('#privateURL').val();
+        var privateText= $('#privateText').val();
+        var publicTitle= $('#publicTitle').val();
+        var coinRate= $('#coinRate').val();
+        var boxId= $('#boxId').val();
+        $.ajax({
+            url:"<?php echo base_url();?>multicurrency/add",
+            data:{ private_id:private_id, privateText:privateText, publicTitle:publicTitle,coinRate:coinRate, boxId:boxId },
+            success:function(data)
+            {
+                alert("Insert Product!");
+                $('#details').html($data);
+            }
+        });
+        
+    });
 </script>
-<?php $this->load->view('frontend/footer');?>  
+<?php $this->load->view('frontend/footer');?>
