@@ -84,8 +84,7 @@ $route['wallet/multi-wallet-payment']='wallet/multi_wallet_payment';
 
 /* admin Create Controller */
 
-$route['admin']='admin/dashboard';
-
+$route['admin']='admin/login';
 
 
 

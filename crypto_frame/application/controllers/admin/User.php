@@ -9,6 +9,10 @@ class User extends CI_Controller
         $this->load->model('User_model');
 		$this->load->helper(array('form', 'url','file'));
 		$this->load->library('upload','session');
+         if($this->session->userdata('admin_is_logged_in')==false)
+        {
+            redirect(base_url().'admin/login','refresh');
+        }
 
     }
    public function index()

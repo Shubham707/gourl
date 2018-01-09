@@ -1,4 +1,6 @@
+  
   <div class="page-sidebar">
+
                 <!-- START X-NAVIGATION -->
                 <ul class="x-navigation">
                     <li class="xn-logo">
@@ -24,6 +26,7 @@
                         </div>                                                                        
                     </li>
                     <li class="xn-title">Navigation</li>
+                    <?php ?>
                     <li class="active">
                         <a href="<?php echo base_url('index.php/admin/dashboard');?>"><span class="fa fa-desktop"></span> <span class="xn-text">Dashboard</span></a>                        
                     </li>  

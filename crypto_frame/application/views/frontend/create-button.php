@@ -7,7 +7,7 @@
     </div>
     <div class="panel-body">
         <form action="<?= base_url()?>wallet/add-payment-wallet-data-withdraw-all-value" method="post">
-            <div style=""><?php echo $flashSuccess;?></div>
+            
             <div align="center"> 
                 <a onclick=copy("<?= $newaddress?>"); class="btn btn-primary">Copy</a>
                     <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?= $newaddress?>">

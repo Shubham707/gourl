@@ -26,9 +26,9 @@ public function login_user()
             $this->form_validation->set_rules('password', 'Password', 'required');
 
             if ($this->form_validation->run() == FALSE) {
-                $this->load->view('frontend/header');
+             
 		        $this->load->view('frontend/login');
-		        $this->load->view('frontend/footer');
+		     
             } 
             else 
             {
