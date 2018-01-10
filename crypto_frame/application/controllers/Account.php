@@ -32,7 +32,6 @@ class Account extends CI_Controller
         $keyValue['getKey']=$this->Account_model->view_account();
         $keyValue['getMonitiger']=$this->Account_model->monetiserList($email);
         $keyValue['getaffiliated']=$this->Account_model->affiliatedList($email);
-
         $this->load->view('frontend/my-account',$keyValue); 
     }
     
@@ -235,10 +234,10 @@ class Account extends CI_Controller
         $this->load->view('frontend/update-security',$data);
    
     }
-    public function coinbox($multiId, $boxid)
+    public function coinbox($multiId, $boxid, $name)
     {
-        $query['allKey']=$this->Account_model->multicurrency($multiId, $boxid);
-   
+        $query['allKey']=$this->Account_model->multicurrency($multiId, $boxid,$name);
+        //print_r($query['allKey']); die();
         $this->load->view('frontend/update-security',$query);
      
     }

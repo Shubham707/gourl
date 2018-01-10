@@ -83,51 +83,27 @@ img{ margin-top: 30px; }
                         <?php foreach ($coins as $value) { ?>
                         <li>
                             <img id="DIV3" onclick="myFunction(<?= $value->coin_name;?>);" src="<?php echo base_url();?>uploads/<?= $value->coin_image;?>" width="95" height="100">
-                            <input id="DIV2" type="checkbox" name="bitcoin[]" value="<?= $value->coin_name;?>"> 
+                            <input id="DIV2" type="checkbox" name="bitcoin" value="<?= $value->coin_name;?>"> 
                             
                         </li>
                          <?php } ?>
                     </ul>
                     </div>
                 </div>
-                       
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username"> Private URL:</label>
-                    <div class="col-sm-5">
-                        <input class="form-control" id="privateURL" name="privateURL" required placeholder="Private URL">
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="password">Private Text (optional)</label>
-                    <div class="col-sm-5">
-                      <textarea class="form-control" id="privateText" name="privateText" required placeholder="Private Text (optional)"></textarea>
-                    </div><br>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">Your Public Title:</label>
-                    <div class="col-sm-5">
-                        <input id="publicTitle" class="form-control" name="publicTitle" required placeholder="Title">
-                    </div>
-                </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username">Amount in Box:</label>
                     <div class="col-sm-5">
                         <div class="col-sm-5">
-                            <input class="myField1" id="coinRate" name="coinRate" required placeholder="Price" onkeyup="checkDec(this);">
+                            <input class="myField1" id="coinRate" name="price" required placeholder="Price" onkeyup="checkDec(this);">
                         </div>
-                        <div class="col-sm-2" id="or" style="margin-top: 25px;"></div>
-                        <div class="col-sm-5">
-                        OR <input  class="myField2" id="coinRate" name="coinRate" required placeholder="USD" onkeyup="checkDec(this);">
-                        </div> 
-                        
                     </div>
                 </div>
-                <div class="form-group">
+               <!--  <div class="form-group">
                     <label class="col-sm-4 control-label" for="username">Your Wallet Address:</label>
                     <div class="col-sm-5">
                         <input id="walletAddress" class="form-control" name="walletAddress" required placeholder="Wallet Address">
                     </div><br>
-                </div>
+                </div> -->
                  
                 <!-- <div class="form-group">
                      <label class="col-sm-4 control-label" for="username">Url Expiry Date (GMT):</label>
@@ -269,24 +245,23 @@ $("#hide").hide(3000);
                 }
             } );
         });
-$(function() {
-    $( 'ul.nav li' ).on( 'click', function() {
-        $( this ).parent().find( 'li.active' ).removeClass( 'active' );
-        $( this ).addClass( 'active' );
+    $(function() {
+        $( 'ul.nav li' ).on( 'click', function() {
+            $( this ).parent().find( 'li.active' ).removeClass( 'active' );
+            $( this ).addClass( 'active' );
+        });
     });
-});
    $('#insert').click(function() {
-        var private_id= $('#privateURL').val();
-        var privateText= $('#privateText').val();
-        var publicTitle= $('#publicTitle').val();
+        var DIV2= $('#DIV2').val();
         var coinRate= $('#coinRate').val();
         var boxId= $('#boxId').val();
+        //alert(DIV2+''+coinRate+''+boxId);
         $.ajax({
             url:"<?php echo base_url();?>multicurrency/add",
-            data:{ private_id:private_id, privateText:privateText, publicTitle:publicTitle,coinRate:coinRate, boxId:boxId },
+            data:{  name:DIV2, price:coinRate, box_id:boxId },
             success:function(data)
             {
-                alert("Insert Product!");
+                alert("Add BitCoin to cart");
                 $('#details').html($data);
             }
         });

@@ -29,9 +29,9 @@ class Account_model extends CI_Model
 		return $value= $this->db->query($sql)->result();
 		 
 	}
-	public function multicurrency($mutiid,$boxid)
+	public function multicurrency($mutiid,$boxid, $name)
 	{
-		 $sql = "SELECT * FROM security_key WHERE multicurrencyID = '$mutiid' AND boxID ='$boxid'";
+		 $sql = "SELECT * FROM security_key WHERE multicurrencyID = '$mutiid' AND boxID ='$boxid' AND boxName ='$name'";
            return $this->db->query($sql)->result();
 	}
 	public function coinboxs_payment($value,$id)

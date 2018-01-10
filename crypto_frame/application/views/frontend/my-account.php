@@ -130,7 +130,8 @@
                                             <td><?= $bitcoin->unrecognised;?></td>
                                             <td><?= $bitcoin->processed;?></td>
                                            
-                                            <td width="200"><a class="btn btn-info" href="<?php echo base_url();?>account/coinbox/<?= $bitcoin->multicurrencyID.'/'.$bitcoin->boxID;?>">Edit</a> 
+                                            <td width="200">
+                                                <a class="btn btn-info" href="<?php echo base_url();?>account/coinbox/<?= $bitcoin->multicurrencyID.'/'.$this->session->userdata('box_id').'/'.$bitcoin->boxName;?>">Edit</a> 
                                               <a class="btn btn-info" href="<?php echo base_url();?>account/coin_boxes/<?= $this->session->userdata('box_id');?>/<?= $bitcoin->boxName;?>">Start</a></td>
                                           </tr>      
                                          <?php }?>     

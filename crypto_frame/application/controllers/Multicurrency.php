@@ -11,6 +11,7 @@ class Multicurrency extends CI_Controller
         parent::__construct();
         $this->load->helper('form');
         $this->load->model('Wallet_model');
+        $this->load->model('Coin_model');
         $this->load->library('cart','session');
         $this->load->database();
         $this->load->library('Rpc');
@@ -18,6 +19,7 @@ class Multicurrency extends CI_Controller
 	
     public function index()
     { 
+        $arr['coin']=$this->Coin_model->listing();
         if (!$this->cart->contents()){
            $arr['message']='<p>Your cart is empty!</p>';
         }else{
@@ -32,16 +34,16 @@ class Multicurrency extends CI_Controller
     public function add()
     {
         
-        $rand="#smu-".rand(99999,10000);
-       $insert_data= array(
-            'invoiceid' => $rand,
-            'privateURL' =>$this->input->get_post('privateURL'),
-            'boxId' => $this->input->get_post('boxId'),
-            'coinLabel'=> $this->input->get_post('coinLabel'),
-            'coinRate'=> $this->input->get_post('coinRate'),
-            'qty'=> '1',
+       $data = array(
+        'id'      => 'sku_123ABC',
+        'qty'     => 1,
+        'price'   => $this->input->get_post('price'),
+        'name'    => $this->input->get_post('name'),
+        'coupon'         => 'XMAS-50OFF'
         );
-       $this->cart->insert($insert_data);
+
+       $this->cart->insert($data);
+       //$this->cart->insert($insert_data);
     }
     public function update()
     {
@@ -56,18 +58,11 @@ class Multicurrency extends CI_Controller
         $this->cart->update($getArray);
          redirect(base_url().'payment/multi-payment-post-coin','refresh');
     }
-    public function remove($value)
+    public function remove()
     {
-        if ($rowid==="all")
-        {
+       
             $this->cart->destroy();
-        }else{
-            $data = array(
-            'rowid' => $rowid,
-            'qty' => 0
-            );
-            $this->cart->update($data);
-        }
+       
 
        redirect(base_url().'payment/multi-payment-post-coin','refresh');
      

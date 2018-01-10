@@ -11,10 +11,10 @@ class Cart_model extends CI_Model
 	{
 		parent::__construct();
 	}
-	public function get_all()
+	public function retrieve_products()
 	{
-	$query = $this->db->get('products');
-	return $query->result_array();
+	$query = $this->db->get('coin');
+	return $query->result();
 	}
 
 	public function insert_customer($data)

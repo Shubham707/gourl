@@ -18,7 +18,7 @@ class Wallet extends CI_Controller
     public function index()
     { 
 
-       $rpc_host = "104.219.251.147";
+        $rpc_host = "104.219.251.147";
         $rpc_user="EBTC147";
         $rpc_pass="33Mj169rVg9d55Ef1QPt";
         $rpc_port="8116";
