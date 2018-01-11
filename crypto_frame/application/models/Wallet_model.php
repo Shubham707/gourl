@@ -9,10 +9,10 @@ class Wallet_model extends CI_Model {
 		parent::__construct();
 	}
 
-	public function getDetails($boxId, $email, $boxname)
+	public function getDetails($publicId, $email, $boxname)
 	{
 
-		 $sql="SELECT * FROM `security_key` WHERE boxID='$boxId' AND email='$email' AND `boxName`='$boxname'";
+		 $sql="SELECT * FROM `security_key` WHERE publicKey='$publicId' AND email='$email' AND `boxName`='$boxname'";
 		return $query=$this->db->query($sql)->result();
 		
 	}

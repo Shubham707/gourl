@@ -94,7 +94,10 @@ img{ margin-top: 30px; }
                     <label class="col-sm-4 control-label" for="username">Amount in Box:</label>
                     <div class="col-sm-5">
                         <div class="col-sm-5">
-                            <input class="myField1" id="coinRate" name="price" required placeholder="Price" onkeyup="checkDec(this);">
+                            <input class="myField1" id="coinRate" name="inr" required placeholder="Price" onkeyup="checkDec(this);">
+                        </div>
+                        <div class="col-sm-5">
+                            <input class="myField2" id="coinRate" name="usd" required placeholder="USD" onkeyup="checkDec(this);">
                         </div>
                     </div>
                 </div>

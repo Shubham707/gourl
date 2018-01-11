@@ -17,23 +17,7 @@ class Cart_model extends CI_Model
 	return $query->result();
 	}
 
-	public function insert_customer($data)
-	{
-	$this->db->insert('customers', $data);
-	$id = $this->db->insert_id();
-	return (isset($id)) ? $id : FALSE;
-	}
-	public function insert_order($data)
-	{
-	$this->db->insert('orders', $data);
-	$id = $this->db->insert_id();
-	return (isset($id)) ? $id : FALSE;
-	}
-
-	public function insert_order_detail($data)
-	{
-	$this->db->insert('order_detail', $data);
-	}
+	
 
 	
 }

@@ -51,12 +51,14 @@ class Wallet extends CI_Controller
     }
     public function withdraw()
     {
+
        $rpc_host = "104.219.251.147";
         $rpc_user="EBTC147";
         $rpc_pass="33Mj169rVg9d55Ef1QPt";
         $rpc_port="8116";
-
+        $public=$this->input->post('publicURL');
         $email=$this->input->post('email');
+        $boxname=$this->input->post('coinLabel');
 
         $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
         $balance=$client->getBalance($email); 
@@ -64,47 +66,54 @@ class Wallet extends CI_Controller
         $newaddress=$client->getNewAddress($email);
 
         $rand='#inv-'.rand(99999,10000);
-
-        $boxId=$this->input->post('boxId');
-        $boxname=$this->input->post('coinLabel');
+        $usd=$this->input->post('usd');
+        $inr=$this->input->post('inr');
+        if($usd){
+            $url = "https://bitpay.com/api/rates";
+            $json= $this->get_data($url);
+            $dataarr = json_decode($json, TRUE);
+            $onebtcrate = $dataarr[1]["rate"]; 
+           $data1= $usd/$onebtcrate;
+          $getdata= round($data1,2);
+            
+        }
+        else if($inr){
+            $url = "https://bitpay.com/api/rates";
+            $json= $this->get_data($url);
+            $dataarr = json_decode($json, TRUE);
+            $onebtcrate = $dataarr[66]["rate"]; 
+            $dataVal=$inr/$onebtcrate;
+        }
         
-        $getDetail=$this->Wallet_model->getDetails($boxId,$email,$boxname);
-        //print_r( $getDetail[0]->boxID); die();
-        if ($getDetail[0]->publicKey==$this->input->post('privateURL')) 
+        $getDetail=$this->Wallet_model->getDetails($public,$email,$boxname);
+         
+        if($getDetail[0]->publicKey == $this->input->post('publicURL')) 
         {
-                $getArray= array(
-                    'id' => $rand,
-                    'privateURL' =>$this->input->post('privateURL'),
-                    'privateText' => $this->input->post('privateText'),
-                    'publicTitle' => $this->input->post('publicTitle'),
-                    'walletAddress' => $this->input->post('walletAddress'),
-                    'expiryDate' => $this->input->post('expiryDate'),
-                    'boxId' => $this->input->post('boxId'),
-                    'coinLabel'=> $this->input->post('coinLabel'),
-                    'coinRate'=> $this->input->post('coinRate'),
-                    'affiUSD'=> $this->input->post('affiUSD'),
-                    'balance'=> $balance,
-                    'address'=> $address,
-                    'newaddress'=> $newaddress,
-                );
-                //print_r($getArray); die();
-                $this->load->view('frontend/cart_view',$getArray);
+            $data= $dataVal ? $dataVal : $getdata;
+            $getArray= array(
+                'id' => $rand,
+                'walletAddress' => $this->input->post('walletAddress'),
+                'boxId' => $this->input->post('boxId'),
+                'coinRate'=> $this->input->post('coinRate'),
+                'address'=> $address,
+                'coinLabel'=> $getDetail[0]->boxName,
+                'newaddress'=> $newaddress,
+                'balance'=> $balance,
+                'rate'=>$data,
+            );
+            print_r($getArray); die();
+            $this->load->view('frontend/cart_view',$getArray);
         }
         else{
              $getArray= array(
                     'id' => $rand,
-                    'privateURL' =>$this->input->post('privateURL'),
-                    'privateText' => $this->input->post('privateText'),
-                    'publicTitle' => $this->input->post('publicTitle'),
                     'walletAddress' => $this->input->post('walletAddress'),
-                    'expiryDate' => $this->input->post('expiryDate'),
                     'boxId' => $this->input->post('boxId'),
-                    'coinLabel'=> $this->input->post('coinLabel'),
                     'coinRate'=> $this->input->post('coinRate'),
-                    'affiUSD'=> $this->input->post('affiUSD'),
                     'balance'=> $balance,
                     'address'=> $address,
                     'newaddress'=> $newaddress,
+                    'rate'=>$data,
                 );
             $getArray['message']="Your public key id is wrong!";
             $getArray=$this->session->set_flashdata('flashSuccess', 'This is a success message.');
@@ -216,6 +225,19 @@ class Wallet extends CI_Controller
         }
         //print_r($getArray); die();
        $this->load->view('frontend/cart_view',$getArray);
+    }
+    public function get_data($url)
+    { 
+        $ch = curl_init();
+        curl_setopt($ch, CURLOPT_URL,$url);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, Array("User-Agent: Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.15) Gecko/20080623 Firefox/2.0.0.15") ); 
+        curl_setopt($ch, CURLOPT_FOLLOWLOCATION, true);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYHOST, false);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        $result= curl_exec ($ch);
+        curl_close ($ch); 
+        return $result; 
     }
     
     

@@ -12,6 +12,7 @@ class Multicurrency extends CI_Controller
         $this->load->helper('form');
         $this->load->model('Wallet_model');
         $this->load->model('Coin_model');
+        $this->load->model('Cart_model');
         $this->load->library('cart','session');
         $this->load->database();
         $this->load->library('Rpc');
@@ -19,7 +20,8 @@ class Multicurrency extends CI_Controller
 	
     public function index()
     { 
-        $arr['coin']=$this->Coin_model->listing();
+        $arr['coin']=$this->Cart_model->retrieve_products();
+
         if (!$this->cart->contents()){
            $arr['message']='<p>Your cart is empty!</p>';
         }else{
@@ -33,7 +35,6 @@ class Multicurrency extends CI_Controller
     }
     public function add()
     {
-        
        $data = array(
         'id'      => 'sku_123ABC',
         'qty'     => 1,
@@ -55,15 +56,12 @@ class Multicurrency extends CI_Controller
             'coinRate'=> $this->input->get_post('coinRate'),
             'qty'=> '1',
         );
-        $this->cart->update($getArray);
+        $this->cart->update($insert_data);
          redirect(base_url().'payment/multi-payment-post-coin','refresh');
     }
     public function remove()
     {
-       
-            $this->cart->destroy();
-       
-
+        $this->cart->destroy();
        redirect(base_url().'payment/multi-payment-post-coin','refresh');
      
     }

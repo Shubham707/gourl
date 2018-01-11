@@ -21,7 +21,7 @@
                     <div class="page-content">
                     <div class="col-sm-3"></div>
                       <div class="panel panel-default col-sm-6" style="margin-top: 50px;">
-                        <div class="panel-heading">Total: <?php echo $balance; ?> BCH (BCC)
+                        <div class="panel-heading">Total: <?php echo $rate; ?> BTC
                             <div class="pull-right"><img style="margin-top: -10px;" src="<?= base_url();?>;assets/images/payment.png" width="200" height="30">
                             </div>
                         </div>
@@ -45,15 +45,7 @@
                                     <label>Email:</label>
                                         <input type="email" style="margin-top: 20px; width:60%;" name="email" value="">
                                 </div>
-                                <input type="hidden" name="id" value="<?= $id?>">
-                                <input type="hidden" name="privateURL" value="<?= $privateURL?>">
-                                <input type="hidden" name="privateText" value="<?= $privateText?>">
-                                <input type="hidden" name="publicTitle" value="<?= $publicTitle?>">
-                                <input type="hidden" name="walletAddress" value="<?= $walletAddress?>">
-                                <input type="hidden" name="expiryDate" value="<?= $expiryDate?>">
-                                <input type="hidden" name="boxId" value="<?= $boxId?>">
-                                <input type="hidden" name="coinLabel" value="<?= $coinLabel?>">
-                                <input type="hidden" name="address" value="<?= $newaddress?>">
+                               
                                 <input type="hidden" name="email" value="<?php echo $this->session->userdata('email');?>">
                                 <div align="center">
                                     <input class="btn btn-info" type="submit" style="margin-top: 20px; width:60%;" name="submit" value="Click Here if you have already sent <?= $coinLabel?>»">
