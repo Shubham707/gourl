@@ -73,8 +73,7 @@ class Wallet extends CI_Controller
             $json= $this->get_data($url);
             $dataarr = json_decode($json, TRUE);
             $onebtcrate = $dataarr[1]["rate"]; 
-           $data1= $usd/$onebtcrate;
-          $getdata= round($data1,2);
+           $data= round($usd,2)/round($onebtcrate,2);
             
         }
         else if($inr){
@@ -82,14 +81,14 @@ class Wallet extends CI_Controller
             $json= $this->get_data($url);
             $dataarr = json_decode($json, TRUE);
             $onebtcrate = $dataarr[66]["rate"]; 
-            $dataVal=$inr/$onebtcrate;
+            $data=$inr/$onebtcrate;
         }
-        
+      
         $getDetail=$this->Wallet_model->getDetails($public,$email,$boxname);
          
         if($getDetail[0]->publicKey == $this->input->post('publicURL')) 
         {
-            $data= $dataVal ? $dataVal : $getdata;
+            
             $getArray= array(
                 'id' => $rand,
                 'walletAddress' => $this->input->post('walletAddress'),
@@ -100,8 +99,9 @@ class Wallet extends CI_Controller
                 'newaddress'=> $newaddress,
                 'balance'=> $balance,
                 'rate'=>$data,
+                'boxname'=>$boxname,
             );
-            print_r($getArray); die();
+           // print_r($getArray); die();
             $this->load->view('frontend/cart_view',$getArray);
         }
         else{
@@ -114,6 +114,7 @@ class Wallet extends CI_Controller
                     'address'=> $address,
                     'newaddress'=> $newaddress,
                     'rate'=>$data,
+                    'boxname'=>$boxname,
                 );
             $getArray['message']="Your public key id is wrong!";
             $getArray=$this->session->set_flashdata('flashSuccess', 'This is a success message.');
@@ -142,7 +143,7 @@ class Wallet extends CI_Controller
         $email=$this->input->post('email');
         $boxname=$this->input->post('boxname');
         $getDetail=$this->Wallet_model->getDetails($boxId,$email,$boxname);
-        print_r($getDetail['boxID']); die();
+        //print_r($getDetail['boxID']); die();
 
         $getArray= array(
             'id' => $rand,
@@ -238,6 +239,27 @@ class Wallet extends CI_Controller
         $result= curl_exec ($ch);
         curl_close ($ch); 
         return $result; 
+    }
+    public function withdraw_value()
+    {
+        $rpc_host = "104.219.251.147";
+        $rpc_user="EBTC147";
+        $rpc_pass="33Mj169rVg9d55Ef1QPt";
+        $rpc_port="8116";
+         $email=$this->input->post('email');
+         $address=$this->input->post('address');
+         $amount=$this->input->post('rate');
+         $bitcoin=$this->input->post('bitcoin');
+        $getData=$this->Wallet_model->withdraw_final($email,$bitcoin);
+        //print_r($getData);die();
+        $comment="Transection withdraw Address Based";
+         $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+        $balance=$client->getBalance($email);
+        if($email){
+            $this->withdraw($email, $address, $amount, $comment);
+        }
+        redirect($getData[0]->callbackUrl,'refresh');
+
     }
     
     

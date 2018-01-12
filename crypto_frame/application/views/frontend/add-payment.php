@@ -1,4 +1,4 @@
-<?php $this->load->view('frontend/header');?>  
+<?php $this->load->view('frontend/headerfront');?>  
 <style type="text/css">
     img{ margin-top: 20px; margin-left: 3px;}
     .panel{ margin-top: 30px; }

@@ -1,4 +1,4 @@
-<?php $this->load->view('frontend/header');?>  
+<?php $this->load->view('frontend/headerfront');?>  
 <div class="page-content-wrap bg-light">
     <div class="page-content-holder no-padding">
         <div class="page-title">                            

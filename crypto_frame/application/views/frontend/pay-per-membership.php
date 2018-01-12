@@ -1,4 +1,4 @@
-<?php $this->load->view('frontend/header');?> 
+<?php $this->load->view('frontend/headerfront');?> 
 
                 <style type="text/css">
         .web_dialog_overlay

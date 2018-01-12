@@ -16,6 +16,12 @@ class Wallet_model extends CI_Model {
 		return $query=$this->db->query($sql)->result();
 		
 	}
+	public function withdraw_final($email,$bitcoin)
+	{
+		$sql="select * from security_key where boxName='bitcoin' AND email='shubhamsahu707@gmail.com'";	
+		 return $return=$this->db->query($sql)->result();
+		// print_r($return); die();
+	}
 }
 ?>
 

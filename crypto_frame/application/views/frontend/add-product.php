@@ -1,4 +1,4 @@
-<?php $this->load->view('frontend/header');?>  
+<?php $this->load->view('frontend/headerfront');?>  
 <style type="text/css"> 
     label{ margin-top: 20px; }
     select{ width: 80% !important; margin-top: 20px; } 

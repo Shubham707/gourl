@@ -35,36 +35,23 @@
                                 <li><a href="<?php echo site_url();?>welcome/about_us">About Us</a></li>
                                 <li><a href="<?php echo site_url();?>welcome/contacts">Contacts</a></li>
                                 <li><a href="<?php echo site_url();?>welcome/pricing">Pricing</a></li>
-                                <li><a href="<?php echo site_url();?>welcome/paid-user">Paid User</a></li>
-                                <li><a href="<?php echo site_url();?>payment/new_payment"> New Payment</a></li>
+                               <!--  <li><a href="<?php //echo site_url();?>welcome/paid-user">Paid User</a></li> -->
+                                <!-- <li><a href="<?php //echo site_url();?>payment/new_payment"> New Payment</a></li> -->
                             </ul>
                         </li>
                         <li>
                             <a href="#">Blog</a>
                             <ul>
-                                <li><a href="<?php echo site_url();?>welcome/blog_grid">Blog Grid</a></li>
+                                
                                 <li><a href="<?php echo site_url();?>welcome/blog_post">Blog Post</a></li>                                
                             </ul>
                         </li>
-                        <li>
-                            <a href="#">Multi Currency</a>
-                            <ul>
-                                <li><a href="<?php echo site_url();?>welcome/pay_per_post">Pay Per Post</a></li>
-                                <li><a href="<?php echo site_url();?>welcome/pay-product-online">Pay Per Product</a></li>
-                                <li><a href="<?php echo site_url();?>membership/pay-per-membership">Pay per Membership</a></li>
-                                <li><a href="<?php echo site_url();?>account/public_key">Account Key</a></li>
-                                <li><a href="<?php echo site_url();?>account/my-account">My account</a></li>
-                                <li><a href="<?php echo site_url();?>payment/add-payment">Payment</a></li>
-                                <li><a href="<?php echo site_url();?>payment/multi-payment-post-coin">Pay Multi Post</a></li>
-                           
-                            </ul>
-                        </li>
+                        
                         <li><a href="<?php echo site_url();?>user/login">Login</a>
                         </li>
                         <li><a href="<?php echo site_url();?>user/signup">Signup</a>
                         </li>
-                         <li><a href="<?php echo site_url();?>login/logout">Logout</a>
-                        </li>
+                         
                     </ul>
                 </div>
             </div>

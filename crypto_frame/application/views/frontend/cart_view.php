@@ -1,6 +1,11 @@
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
+        <?php 
+        include_once APPPATH.'third_party/jsonRPCClient.php';
+        include_once APPPATH.'third_party/Client.php';
+        ?>
         <!-- META SECTION -->
         <title>Atlant - Front-End Template</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -19,12 +24,22 @@
             <div class="page-header">
                 <div class="page-header-holder">
                     <div class="page-content">
-                    <div class="col-sm-3"></div>
+                    <div class="col-sm-3">
+                        <?php
+                            $rpc_host = "104.219.251.147";
+                            $rpc_user="EBTC147";
+                            $rpc_pass="33Mj169rVg9d55Ef1QPt";
+                            $rpc_port="8116";
+                            echo $email=$this->session->userdata('email');
+                            $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+                            ?>
+                    </div>
                       <div class="panel panel-default col-sm-6" style="margin-top: 50px;">
-                        <div class="panel-heading">Total: <?php echo $rate; ?> BTC
+                        <div class="panel-heading">Total: <?php echo $balance; ?> BTC
                             <div class="pull-right"><img style="margin-top: -10px;" src="<?= base_url();?>;assets/images/payment.png" width="200" height="30">
                             </div>
                         </div>
+
                         <div class="panel-body">
                             <div class="col-sm-12 pull-lg-6">
                                 
@@ -35,7 +50,8 @@
                                
                                 
                             </div>
-                            <form action="<?= base_url()?>wallet/add-payment-wallet-data-withdraw" method="post">
+                            
+                            <form action="<?= base_url()?>wallet/withdraw_value" method="post">
                                 <div align="center" > 
 
                                     <a onclick=copy("<?= $newaddress?>"); class="btn btn-primary">Copy</a>
@@ -43,7 +59,10 @@
                                 </div>
                                 <div align="center" > 
                                     <label>Email:</label>
-                                        <input type="email" style="margin-top: 20px; width:60%;" name="email" value="">
+                                        <input type="email" style="margin-top: 20px; width:60%;" name="email">
+                                        <input type="hidden" name="rate" value="<?php echo $rate; ?>">
+                                        <input type="hidden" name="address" value="<?php echo $newaddress; ?>">
+                                        <input type="hidden" name="bitcoin" value="<?php echo $boxname; ?>">
                                 </div>
                                
                                 <input type="hidden" name="email" value="<?php echo $this->session->userdata('email');?>">
