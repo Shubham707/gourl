@@ -1,4 +1,4 @@
-                    
+ <?php $this->load->view('frontend/header');?>                    
                 <!-- page content wrapper -->
                 <div class="page-content-wrap bg-img-2 light-elements">
                     <!-- page content holder -->
@@ -184,3 +184,4 @@
 
 
 
+ <?php $this->load->view('frontend/footer');?>

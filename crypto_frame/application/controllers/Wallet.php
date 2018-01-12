@@ -13,6 +13,7 @@ class Wallet extends CI_Controller
         $this->load->model('Wallet_model');
         $this->load->database();
         $this->load->library('Rpc');
+        $this->load->library('email');
     }
 	
     public function index()
@@ -52,9 +53,9 @@ class Wallet extends CI_Controller
     public function withdraw()
     {
 
-       $rpc_host = "104.219.251.147";
+       $rpc_host = "162.213.252.66";
         $rpc_user="EBTC147";
-        $rpc_pass="33Mj169rVg9d55Ef1QPt";
+        $rpc_pass="u4EcwB4j85kbuMLgmM93";
         $rpc_port="8116";
         $public=$this->input->post('publicURL');
         $email=$this->input->post('email');
@@ -258,6 +259,16 @@ class Wallet extends CI_Controller
         if($email){
             $this->withdraw($email, $address, $amount, $comment);
         }
+        $htmlContent = '<h1>Gourl Registration</h1>';
+        $htmlContent=$this->load->view('frontend/invoice-temp');   
+        $config['mailtype'] = 'html';
+        $this->email->initialize($config);
+        $this->email->to('shubhamsahu707@gmail.com');
+        $this->email->from($this->input->post('email'),'Gourl');
+        $this->email->subject('Ragistration Gourl Successfull');
+        $this->email->message($htmlContent);
+        $this->email->send();
+
         redirect($getData[0]->callbackUrl,'refresh');
 
     }

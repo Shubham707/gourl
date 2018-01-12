@@ -12,6 +12,7 @@ class User extends CI_Controller
         $this->load->database();
         $this->load->helper(array('form', 'url','file'));           
         $this->load->library('upload');
+        $this->load->library('email');
         /*if($this->session->userdata('user_id')=='')
         {
             redirect('user/login');
@@ -45,6 +46,15 @@ class User extends CI_Controller
             'ipAddress'=>    $ip,
             'password'=>    hash('sha256', strtolower($this->input->post('password'))),
     	);
+        $htmlContent = '<h1>Gourl Registration</h1>';
+            
+        $config['mailtype'] = 'html';
+        $this->email->initialize($config);
+        $this->email->to('shubhamsahu707@gmail.com');
+        $this->email->from($this->input->post('email'),'Gourl');
+        $this->email->subject('Ragistration Gourl Successfull');
+        $this->email->message($htmlContent);
+        $this->email->send();
     	
     	$this->User_model->dataSave($data);
         $value['message']="Registration Successfull!";
