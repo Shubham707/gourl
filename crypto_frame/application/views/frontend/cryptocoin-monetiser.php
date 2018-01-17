@@ -33,10 +33,10 @@
     <div class="page-content-holder">
         <div id="hide" style="color: green; text-align: center;"> <?php echo @$success;?></div>
         <div class="block-heading block-heading-centralized this-animate" data-animate="fadeInDown">
-            <h2 class="heading-underline">1. Gourl.io Monetiser Online</h2>
+            <h2 class="heading-underline">1. Paycrypt.io Monetiser Online</h2>
             <div class="block-heading-text">
-            Use our GoUrl Monetiser Online if you don't have your own website -
-            Monetise/sell your Files & Music & Texts & Images & Video online for cryptocoins - Bitcoin, Bitcoin Cash, Litecoin, Dash, etc. Create Your Free GoUrl Payment Urls below (it will protect your information from visitors directly proceeding and monetise it) and after share them on the web - twitter / forums / websites / etc. Make Cryptocoins Money/USD Online   
+            Use our Paycrypt Monetiser Online if you don't have your own website -
+            Monetise/sell your Files & Music & Texts & Images & Video online for cryptocoins - Bitcoin, Bitcoin Cash, Litecoin, Dash, etc. Create Your Free Paycrypt Payment Urls below (it will protect your information from visitors directly proceeding and monetise it) and after share them on the web - twitter / forums / websites / etc. Make Cryptocoins Money/USD Online   
             </div>
             <div class="page-content-wrap bg-light">
             <!-- page content holder -->

@@ -1,35 +1,21 @@
           <?php $this->load->view('frontend/header');?>
-                <!-- page content wrapper -->
                 <div class="page-content-wrap bg-light">
-                    <!-- page content holder -->
                     <div class="page-content-holder no-padding">
-                        <!-- page title -->
                         <div class="page-title">                            
                             <h1>Contacts Us</h1>
-                            <!-- breadcrumbs -->
                             <ul class="breadcrumb">
                                 <li><a href="index.html">Home</a></li>
                                 <li><a href="#">Pages</a></li>
                                 <li class="active">Contacts</li>
-                            </ul>               
-                            <!-- ./breadcrumbs -->
+                            </ul>
                         </div>
-                        <!-- ./page title -->
                     </div>
-                    <!-- ./page content holder -->
                 </div>
-                <!-- ./page content wrapper -->
-                
-                               
-                <!-- page content wrapper -->
                 <div class="page-content-wrap">                    
                     
                     <div id="google-map" style="width: 100%; height: 300px;"></div>
                     
                 </div>
-                <!-- ./page content wrapper -->
-                
-                <!-- page content wrapper -->
                 <div class="page-content-wrap">                    
                     
                     <div class="divider"><div class="box"><span class="fa fa-angle-down"></span></div></div>                    

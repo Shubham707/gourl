@@ -19,10 +19,10 @@ class Wallet extends CI_Controller
     public function index()
     { 
 
-        $rpc_host = "104.219.251.147";
-        $rpc_user="EBTC147";
-        $rpc_pass="33Mj169rVg9d55Ef1QPt";
-        $rpc_port="8116";
+         $rpc_host = "162.213.252.66";
+$rpc_port = "18336";
+$rpc_user = "test";
+$rpc_pass = "test123";
 
         $email=$this->input->post('email');
 
@@ -54,9 +54,9 @@ class Wallet extends CI_Controller
     {
 
        $rpc_host = "162.213.252.66";
-        $rpc_user="EBTC147";
-        $rpc_pass="u4EcwB4j85kbuMLgmM93";
-        $rpc_port="8116";
+$rpc_port = "18336";
+$rpc_user = "test";
+$rpc_pass = "test123";
         $public=$this->input->post('publicURL');
         $email=$this->input->post('email');
         $boxname=$this->input->post('coinLabel');
@@ -119,17 +119,18 @@ class Wallet extends CI_Controller
                 );
             $getArray['message']="Your public key id is wrong!";
             $getArray=$this->session->set_flashdata('flashSuccess', 'This is a success message.');
-            $this->load->view('frontend/create-button',$getArray);
+            $this->load->view('frontend/create-button', $getArray);
         }
         //print_r($getArray); die();
        
     }
+
     public function withdrawBitcoin()
     {
-        $rpc_host = "104.219.251.147";
-        $rpc_user="EBTC147";
-        $rpc_pass="33Mj169rVg9d55Ef1QPt";
-        $rpc_port="8116";
+        $rpc_host = "162.213.252.66";
+$rpc_port = "18336";
+$rpc_user = "test";
+$rpc_pass = "test123";
 
         
 
@@ -181,10 +182,10 @@ class Wallet extends CI_Controller
         $address=$client->getAddress($email);
         $newaddress=$client->getNewAddress($email);
         $this->load->view('frontend/multiinvoice');*/
-        $rpc_host = "104.219.251.147";
-        $rpc_user="EBTC147";
-        $rpc_pass="33Mj169rVg9d55Ef1QPt";
-        $rpc_port="8116";
+         $rpc_host = "162.213.252.66";
+$rpc_port = "18336";
+$rpc_user = "test";
+$rpc_pass = "test123";
 
         $email=$this->input->post('email');
 
@@ -243,10 +244,10 @@ class Wallet extends CI_Controller
     }
     public function withdraw_value()
     {
-        $rpc_host = "104.219.251.147";
-        $rpc_user="EBTC147";
-        $rpc_pass="33Mj169rVg9d55Ef1QPt";
-        $rpc_port="8116";
+         $rpc_host = "162.213.252.66";
+$rpc_port = "18336";
+$rpc_user = "test";
+$rpc_pass = "test123";
          $email=$this->input->post('email');
          $address=$this->input->post('address');
          $amount=$this->input->post('rate');
@@ -254,12 +255,12 @@ class Wallet extends CI_Controller
         $getData=$this->Wallet_model->withdraw_final($email,$bitcoin);
         //print_r($getData);die();
         $comment="Transection withdraw Address Based";
-         $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+        $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
         $balance=$client->getBalance($email);
         if($email){
             $this->withdraw($email, $address, $amount, $comment);
         }
-        $htmlContent = '<h1>Gourl Registration</h1>';
+        $htmlContent = '<h1>Gourl</h1>';
         $htmlContent=$this->load->view('frontend/invoice-temp');   
         $config['mailtype'] = 'html';
         $this->email->initialize($config);

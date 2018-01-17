@@ -35,8 +35,8 @@
         <div class="block-heading block-heading-centralized this-animate" data-animate="fadeInDown">
             <h2 class="heading-underline">Payment Url</h2>
             <div class="block-heading-text">
-            Use our GoUrl Monetiser Online if you don't have your own website -
-            Monetise/sell your Files & Music & Texts & Images & Video online for cryptocoins - Bitcoin, Bitcoin Cash, Litecoin, Dash, etc. Create Your Free GoUrl Payment Urls below (it will protect your information from visitors directly proceeding and monetise it) and after share them on the web - twitter / forums / websites / etc. Make Cryptocoins Money/USD Online   
+            Use our Paycrypt Monetiser Online if you don't have your own website -
+            Monetise/sell your Files & Music & Texts & Images & Video online for cryptocoins - Bitcoin, Bitcoin Cash, Litecoin, Dash, etc. Create Your Free Paycrypt Payment Urls below (it will protect your information from visitors directly proceeding and monetise it) and after share them on the web - twitter / forums / websites / etc. Make Cryptocoins Money/USD Online   
             </div>
             <div class="page-content-wrap bg-light">
             <!-- page content holder -->
@@ -75,11 +75,11 @@
                     <label class="col-sm-4 control-label" for="username">Amount in Box:</label>
                     <div class="col-sm-5">
                         <div class="col-sm-5">
-                            <input class="myField1" id="coinRate" name="coinRate" required placeholder="Price" onkeyup="checkDec(this);">
+                            <input type="number" class="myField1" id="coinRate" name="coinRate" required placeholder="Price" onkeyup="checkDec(this);">
                         </div>
                         <div class="col-sm-2" id="or" style="margin-top: 25px;"></div>
                         <div class="col-sm-5">
-                        OR <input  class="myField2" id="affiUSD" name="affiUSD" required placeholder="USD" onkeyup="checkDec(this);">
+                        OR <input type="number" class="myField2" id="affiUSD" name="affiUSD" required placeholder="USD" onkeyup="checkDec(this);">
                         </div> 
                         
                     </div>
@@ -94,7 +94,8 @@
                 <div class="form-group">
                      <label class="col-sm-4 control-label" for="username">Url Expiry Date (GMT):</label>
                     <div class="col-sm-5">
-                        <input type="text" class="form-control" name="expiryDate" id="expiryDate" data-select="datepicker" data-toggle="datepicker" data-locked="25/12/2014;1/1/2015" required><br>
+                        
+                        <input type="date" id="bday" name="expiryDate" required pattern="[0-9]{4}-[0-9]{2}-[0-9]{2}"><br>
                         
                     </div>
                 </div>

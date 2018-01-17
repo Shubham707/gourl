@@ -17,7 +17,7 @@
         </div>
         <div class="row">
           <div class="navbar-header">
-            <a class="navbar-brand" href="#">GoURL</a><br><br>
+            <a class="navbar-brand" href="#">Paycrypt</a><br><br>
           </div>
         </div>
           <div class="row">

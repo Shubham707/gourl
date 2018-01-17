@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <!-- META SECTION -->
-        <title>Atlant - Front-End Template</title>
+        <title>Paycrypt</title>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -19,7 +19,7 @@
             <div class="page-header">
                 <div class="page-header-holder">
                     <div class="logo" style="">
-                        <a href="<?php echo site_url();?>/welcome">Gourl.io</a>
+                        <a href="<?php echo site_url();?>/welcome">Paycrypt.io</a>
                     </div>
                     <div class="navigation-toggle">
                         <div class="navigation-toggle-button"><span class="fa fa-bars"></span></div>

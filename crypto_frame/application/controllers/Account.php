@@ -43,9 +43,9 @@ class Account extends CI_Controller
     {
         $getData=$this->Account_model->coinboxs_payment($value,$id);
         $rpc_host = "162.213.252.66";
-        $rpc_user="EBTC147";
-        $rpc_pass="u4EcwB4j85kbuMLgmM93";
-        $rpc_port="8116";
+        $rpc_port = "18336";
+        $rpc_user = "test";
+        $rpc_pass = "test123";
        /* $getData=$this->Account_model->invoice($coin);*/
         $email=$this->session->userdata('email');
         $id=$this->session->userdata('user_id');

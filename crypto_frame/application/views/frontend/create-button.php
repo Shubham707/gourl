@@ -13,7 +13,7 @@
                     <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?= $newaddress?>">
             </div>
             
-            <form action="http://localhost/gourl/crypto_frame/wallet/add-payment-wallet-data-withdraw-all-value" method="post">
+            <form action="http://localhost/paycrypt/crypto_frame/wallet/add-payment-wallet-data-withdraw-all-value" method="post">
             Public Key:<input type="text" name="publicURL" value="bznhYLC5kBlitecoinca43762f0f6f1c6d0e48bd703978ac28"><br>
             Price:<input type="text" name="coinRate" value="324"><br>
             Email:<input type="text" name="email" value="shubhamsahu707@gmail.com"><br>
