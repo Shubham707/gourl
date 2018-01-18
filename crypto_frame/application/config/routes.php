@@ -62,8 +62,9 @@ $route['product/add-product']='product/add_product';
 $route['product/add-per-product']='product/add_pay_product';
 $route['product/all-product-show']='product/product_detail';
 $route['product/product-description/(:any)/(:any)/(:any)']='product/description/$1/$2/$3';
-$route['product/product-edit']='product/edit';
-$route['product/product-delete']='product/delete';
+$route['product/product-edit/(:any)']='product/edit/$1';
+$route['product/product-delete/(:any)']='product/delete/$1';
+$route['product/update-per-product']='product/update';
 
 
 $route['payment/add-payment']='payment';
@@ -72,6 +73,7 @@ $route['payment/payment-successfull']='payment/payment_successfull';
 $route['payment/auto-payments-external-wallet']='payment/auto_payments_external_wallet';
 $route['payment/Unrecognised-Received-Payments']='payment/unrecognised_received_payments';
 $route['payment/multi-payment-post-coin']='payment/multi_pay_post';
+
 
 $route['affiliated'] = 'affiliated';
 $route['affiliated/add-affiliated']='affiliated/saveAffiliated';

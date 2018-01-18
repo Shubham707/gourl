@@ -110,6 +110,37 @@ class Product extends CI_Controller
         $data['getProduct']=$this->Product_model->description_details($label,$order);
         $this->load->view('frontend/description-product-details',$data);
     }
+    public function edit($value)
+    {
+        $data['details']=$this->Product_model->edit_data($value);
+        $this->load->view('frontend/edit-product',$data);
+    }
+    public function update()
+    {
+        $productID=$this->input->post('productID');
+        $data=array(
+            'productID'=>$this->input->post('productID'),
+            "productTitle" => $this->input->post('gourlproductTitle'),
+            "priceUSD" => $this->input->post('gourlpriceUSD'),
+            "priceLabel" => $this->input->post('gourlpriceLabel'),
+            "email" => $this->session->userdata('email'),
+            'image'=> $_FILES['userfile']['name'],
+            "purchases" => $this->input->post('gourlpurchases'),
+            "expiryPeriod" => $this->input->post('gourlexpiryPeriod'),
+            "lang" => $this->input->post('gourllang'),
+            "defShow" => $this->input->post('gourldefShow'),
+            "emailUserFrom" => $this->input->post('gourlemailUserFrom'),
+            "emailUserTitle" => $this->input->post('gourlemailUserTitle'),
+            "emailUserBody" => $this->input->post('gourlemailUserBody'),
+            "emailAdmin" => $this->input->post('gourlemailAdmin'),
+            "emailAdminFrom" => $this->input->post('gourlemailAdminFrom'),
+            "emailAdminBody" => $this->input->post('gourlemailAdminBody'),
+            "emailAdminTo" => $this->input->post('gourlemailAdminTo'),
+            "ak_action" => $this->input->post('ak_action'),
+            );
+            $this->Product_model->product_update($productID,$data);
+            redirect('','refresh')
+    }
    
     
 

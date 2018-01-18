@@ -24,29 +24,25 @@
         <div class="block-heading this-animate" data-animate="fadeInDown">
             <h2>Payment Box</h2>
             <div class="block-heading-text">
-                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>product/add-per-product" enctype="multipart/form-data">
+                <?php foreach($details as $detail){ ?>
+                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>product/update-per-product" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username"> Product Title:</label>
                     <div class="col-sm-5">
-                        <input id="gourlproductTitle" name="gourlproductTitle"  type="text" required placeholder="Product Title"><br>
+                        <input id="gourlproductTitle" name="gourlproductTitle"  type="text" required placeholder="Product Title" value="<?= $detail->productTitle;?>"><br>
                     </div>
                 </div>
-                
-
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username"> Price:</label>
                     <div class="col-sm-8">
                         <div class="col-sm-3">
-                            <input id="gourlpriceUSD" name="gourlpriceUSD"  type="text" required placeholder="Price USD">
+                            <input id="gourlpriceUSD" name="gourlpriceUSD"  type="text" required placeholder="Price USD" value="<?= $detail->priceUSD;?>">
                         </div>
-                        <div class="col-sm-1" style="margin-top: 20px;">
-                            OR
-                        </div>
-                        <div class="col-sm-3">
-                            <input id="gourlpriceUSD" name="gourlpriceUSD"  type="text" required placeholder="Price USD">
-                        </div>
+                        
+                        
                         <div class="col-sm-8">
                            <select style="width : 20% !important;" id="gourlpriceLabel" name="gourlpriceLabel" placeholder="Coin Price Label" required>
+                                   <option><?= $detail->priceLabel;?></option>
                                     <option  value='bitcoin'> bitcoin</option>
                                     <option  value='bitcoincash'> bitcoincash</option>
                                     <option  value='litecoin'> litecoin</option>
@@ -67,7 +63,7 @@
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="public">Purchase Limit:</label>
                     <div class="col-sm-5">
-                       <input id="gourlpurchases" type="text" name="gourlpurchases" placeholder="Purchases Limit" required>
+                       <input id="gourlpurchases" type="text" name="gourlpurchases" placeholder="Purchases Limit" value="<?= $detail->purchases;?>">
                     </div><br>
                 </div>
 
@@ -75,7 +71,8 @@
                     <label class="col-sm-4 control-label" for="private">Expiry Period:</label>
                     <div class="col-sm-5">
                        <select name="gourlexpiryPeriod" id="gourlexpiryPeriod">
-                        <option value="NO EXPIRY" selected="selected">NO EXPIRY</option>
+                        <option><?= $detail->expiryPeriod;?></option>
+                        <option value="NO EXPIRY">NO EXPIRY</option>
                         <option value="10 MINUTES">10 MINUTES</option>
                         <option value="20 MINUTES">20 MINUTES</option>
                         <option value="30 MINUTES">30 MINUTES</option>
@@ -106,8 +103,9 @@
                     <label class="col-sm-4 control-label" for="coin">PaymentBox Language:</label>
                     <div class="col-sm-5">
                        <select id="gourllang" name="gourllang" placeholder="Language" required>
-                        <option value=''> - Select One - </option>
-                            <option value="en" selected="selected">English</option>
+                            <option><?= $detail->lang;?></option>
+                            <option value=''> - Select One - </option>
+                            <option value="en">English</option>
                             <option value="es">Spanish</option>
                             <option value="fr">French</option>
                             <option value="de">German</option>
@@ -128,58 +126,55 @@
                        </select>
                     </div><br>
                 </div>
-                <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username">A. Product Description:</label>
-                    <div class="col-sm-5">
-                        <textarea id="gourldefShow" name="gourldefShow"  required placeholder="Product Description"></textarea><br>
-                    </div>
-                </div> 
+                
                  <div class="form-group">
-                    <label class="col-sm-4 control-label" for="username"> B. Product Description:</label>
+                    <label class="col-sm-4 control-label" for="username">Product Description:</label>
                     <div class="col-sm-5">
-                        <textarea id="gourldefShow" name="gourldefShow"  required placeholder="Product Description"></textarea><br>
+                        <textarea id="gourldefShow" name="gourldefShow"  required placeholder="Product Description">
+                            <?= $detail->productText;?>
+                            </textarea><br>
                     </div>
                 </div> 
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username">Purchase Email - From:</label>
                     <div class="col-sm-5">
-                        <input id="gourlemailUserFrom" name="gourlemailUserFrom"  type="text" required placeholder="Product Title"><br>
+                        <input id="gourlemailUserFrom" name="gourlemailUserFrom"  type="text" required placeholder="Product Email User Form" value="<?= $detail->emailUserFrom;?>"><br>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username">Purchase Email - Subject:</label>
                     <div class="col-sm-5">
-                        <input id="gourlemailUserTitle" name="gourlemailUserTitle"  type="text" required placeholder="Product Title"><br>
+                        <input id="gourlemailUserTitle" name="gourlemailUserTitle"  type="text" required placeholder="User Title" value="<?= $detail->emailUserTitle;?>"><br>
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-4 control-label" for="username">Purchase Email - Body:</label>
                     <div class="col-sm-5">
-                        <textarea id="gourlemailUserBody" name="gourlemailUserBody"  required placeholder="Product Description"></textarea><br>
+                        <textarea id="gourlemailUserBody" name="gourlemailUserBody"  required placeholder="Product Description"><?= $detail->emailUserBody;?></textarea><br>
                     </div>
                 </div> 
                  <div class="form-group">
                     <label class="col-sm-4 control-label" for="username">Email to Seller/Admin ?:</label>
                     <div class="col-sm-5">
-                        <input id="gourlemailAdmin" name="gourlemailAdmin"  type="text" required placeholder="Product Title"><br>
+                        <input id="gourlemailAdmin" name="gourlemailAdmin"  type="text" required placeholder="Product Title" value="<?php echo $detail->emailAdminTo; ?>"><br>
                     </div>
                 </div>
                  <div class="form-group">
                     <label class="col-sm-4 control-label" for="username">Sale Notification - From:</label>
                     <div class="col-sm-5">
-                        <input id="gourlemailAdminFrom" name="gourlemailAdminFrom"  type="text" required placeholder="Product Title"><br>
+                        <input id="gourlemailAdminFrom" name="gourlemailAdminFrom"  type="text" required placeholder="Product Title" value="<?php echo $detail->emailAdminFrom; ?>"><br>
                     </div>
                 </div>
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username">Sale Notification - Body:</label>
                     <div class="col-sm-5">
-                        <textarea id="gourlemailAdminBody" name="gourlemailAdminBody"  required placeholder="Product Description"></textarea><br>
+                        <textarea id="gourlemailAdminBody" name="gourlemailAdminBody"  required placeholder="Product Description"><?php echo $detail->emailAdminBody; ?></textarea><br>
                     </div>
                 </div> 
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username">Sale Notification - To:</label>
                     <div class="col-sm-5">
-                        <textarea id="gourlemailAdminTo" name="gourlemailAdminTo"  required placeholder="Product Description"></textarea><br>
+                        <textarea id="gourlemailAdminTo" name="gourlemailAdminTo"  required placeholder="Product Description"><?php echo $detail->emailAdminTo; ?></textarea><br>
                     </div>
                 </div>
                  <div class="form-group">
@@ -188,8 +183,8 @@
                        <input id="images" type="file" name="userfile" required>
                     </div><br>
                 </div>
-              
-               <input name="ak_action" value="gourlsave_product" type="hidden">
+              <input type="hidden" name="productID" value="<?php echo $detail->productID; ?>">
+               <input name="ak_action" type="hidden">
                 <div class="form-group">
                     <div class="col-sm-3 col-sm-offset-1">
                        <input class="btn btn-info" type="submit" value="Submit">
@@ -197,7 +192,7 @@
                 </div>
                 
               </form>
-                
+                <?php }?>
             </div>
         </div>
         <!-- <div class="row">

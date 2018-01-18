@@ -39,6 +39,16 @@ class Product_model extends CI_Model
 		return $query =  $this->db->get_where('crypto_products', $option)->result();
 		
 	}
+	public function edit_data($value)
+	{
+		$sql="SELECT * FROM crypto_products where productID='$value'";
+		return $this->db->query($sql)->result();
+	}
+	public function product_update($productID,$data)
+	{
+		$this->db->where('productID',$productID);
+		return $this->db->update('crypto_products',$data);
+	}
 
 }
 
