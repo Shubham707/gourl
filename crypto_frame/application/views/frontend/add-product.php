@@ -24,7 +24,7 @@
         <div class="block-heading this-animate" data-animate="fadeInDown">
             <h2>Payment Box</h2>
             <div class="block-heading-text">
-                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>product/add-per-product">
+                <form class="cmxform" id="commentForm" method="post" action="<?php echo base_url();?>product/add-per-product" enctype="multipart/form-data">
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="username"> Product Title:</label>
                     <div class="col-sm-5">
@@ -64,8 +64,6 @@
                         <br>
                     </div>
                 </div>
-
-
                 <div class="form-group">
                     <label class="col-sm-4 control-label" for="public">Purchase Limit:</label>
                     <div class="col-sm-5">
@@ -194,6 +192,12 @@
                         <textarea id="gourlemailAdminTo" name="gourlemailAdminTo"  required placeholder="Product Description"></textarea><br>
                     </div>
                 </div>
+                 <div class="form-group">
+                    <label class="col-sm-4 control-label" for="public">Image:</label>
+                    <div class="col-sm-5">
+                       <input id="images" type="file" name="userfile" required>
+                    </div><br>
+                </div>
               
                <input name="ak_action" value="gourlsave_product" type="hidden">
                 <div class="form-group">
@@ -211,4 +215,4 @@
         </div> -->
     </div>
 </div>
-            <?php $this->load->view('frontend/footer');?>  
+<?php $this->load->view('frontend/footer');?>  

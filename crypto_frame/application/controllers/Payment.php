@@ -26,9 +26,9 @@ class Payment extends CI_Controller
     public function index()
     {
         $rpc_host = "162.213.252.66";
-$rpc_port = "18336";
-$rpc_user = "test";
-$rpc_pass = "test123";
+        $rpc_port = "18336";
+        $rpc_user = "test";
+        $rpc_pass = "test123";
         $email=$this->session->userdata('email');
         $id=$this->session->userdata('user_id');
         $boxid=$this->session->userdata('box_id');
@@ -51,6 +51,7 @@ $rpc_pass = "test123";
             'security'=>$security,
         );
          $data['invoice']=$this->load->view('frontend/payment-invoice',$data,true);
+
         $this->load->view('frontend/add-payment', $data);
     }
 
@@ -104,6 +105,20 @@ $rpc_pass = "test123";
             'coins'=> $coins,
             );
         $this->load->view('frontend/multi-payment-post',$data);
+    }
+    public function payment_go_url()
+    {
+        $rpc_host = "162.213.252.66";
+        $rpc_port = "18336";
+        $rpc_user = "test";
+        $rpc_pass = "test123";
+        $email=$this->session->userdata('email');
+         $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+         $data['balance']=$client->getBalance($email); 
+         $data['newaddress']=$client->getNewAddress($email);
+         $data['address']=$client->getAddress($email);
+         $this->load->view('frontend/payment-wallet-data');
+        
     }
 
 

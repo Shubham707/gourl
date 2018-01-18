@@ -1,13 +1,13 @@
 <?php $this->load->view('frontend/headerfront');?>  
+
 <div class="page-content-wrap bg-light">
     <div class="page-content-holder no-padding">
         <div class="page-title">
             <h1>Pay Per Product</h1>
             <ul class="breadcrumb">
-                <li><a href="#">Home</a>
+                <li><a style="color: black;" class="btn btn-success" href="<?php echo base_url();?>product/all-product-show">All Product Show</a>
                 </li>
-                <li class="active"><a href="#">Pay Per Product</a>
-                </li>
+               
             </ul>
         </div>
     </div>
@@ -21,7 +21,7 @@
             </div>
         </div>
         <div class="row">
-            <table class="table">
+           <table class="table datatable">
                 <thead>
                     <tr>
                         <th>ID</th>
@@ -61,7 +61,9 @@
                         <td><?= $value->defCoin; ?></td>
                         <td><?= $value->lang;?></td>
                         <td><?= $value->purchases; ?></td>
-                        <td>Edit</td>
+                        <td>
+                            <a class="btn btn-info" href="<?= base_url();?>product/product-edit/<?= $value->productID;?>"> Edit </a><a class="btn btn-info" style="margin-top: 5px;" href="<?= base_url();?>product/product-delete/<?= $value->productID;?>"> Delete </a>
+                            </td>
                     </tr>
                     <?php }?>
                 </tbody>

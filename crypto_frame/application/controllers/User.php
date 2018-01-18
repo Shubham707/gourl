@@ -46,17 +46,27 @@ class User extends CI_Controller
             'ipAddress'=>    $ip,
             'password'=>    hash('sha256', strtolower($this->input->post('password'))),
     	);
-        $htmlContent = '<h1>Gourl Registration</h1>';
-            
-        $config['mailtype'] = 'html';
-        $this->email->initialize($config);
-        $this->email->to('shubhamsahu707@gmail.com');
-        $this->email->from($this->input->post('email'),'Gourl');
-        $this->email->subject('Ragistration Gourl Successfull');
-        $this->email->message($htmlContent);
-        $this->email->send();
+        
     	
     	$this->User_model->dataSave($data);
+        $message = '<h1>Registration Successfull</h1>';
+         $config['protocol'] = 'smtp';
+        $config['smtp_host'] = 'ssl://smtp.gmail.com'; 
+        $config['smtp_port'] = '465';
+        $config['smtp_timeout'] = '7';
+        $config['smtp_user'] = sending_mail();
+        $config['smtp_pass'] = sending_mail_pass();
+        $config['charset'] = 'utf-8'; 
+        $config['newline'] = "\r\n";
+        $config['mailtype'] = 'text';
+        $config['validation'] = TRUE;
+        $this->load->library('email',$config);
+        $this->email->from(sending_mail(),project_name());
+        $this->email->to($tomail);
+        $this->email->subject($subject); 
+        $this->email->message($message); 
+        $this->email->set_header('MIME-Version', '1.0; charset=utf-8'); $this->email->set_header('Content-type', 'text/html');
+        $this->email->send();
         $value['message']="Registration Successfull!";
         $this->load->view('frontend/login', $value);
 

@@ -72,14 +72,6 @@ class Welcome extends CI_Controller
 
 	}
 	
-	public function pay_per_product()
-	{
-		$sql="select * from crypto_products";
-    	$get['getProduct']=$this->db->query($sql)->result();
-
-        $this->load->view('frontend/pay-per-product',$get);
-
-	}
 	/*public function paid_user()
 	{
         $this->load->view('frontend/user_paid');

@@ -19,10 +19,10 @@ class Wallet extends CI_Controller
     public function index()
     { 
 
-         $rpc_host = "162.213.252.66";
-$rpc_port = "18336";
-$rpc_user = "test";
-$rpc_pass = "test123";
+        $rpc_host = "162.213.252.66";
+        $rpc_port = "18336";
+        $rpc_user = "test";
+        $rpc_pass = "test123";
 
         $email=$this->input->post('email');
 
@@ -54,9 +54,9 @@ $rpc_pass = "test123";
     {
 
        $rpc_host = "162.213.252.66";
-$rpc_port = "18336";
-$rpc_user = "test";
-$rpc_pass = "test123";
+        $rpc_port = "18336";
+        $rpc_user = "test";
+        $rpc_pass = "test123";
         $public=$this->input->post('publicURL');
         $email=$this->input->post('email');
         $boxname=$this->input->post('coinLabel');
@@ -128,9 +128,9 @@ $rpc_pass = "test123";
     public function withdrawBitcoin()
     {
         $rpc_host = "162.213.252.66";
-$rpc_port = "18336";
-$rpc_user = "test";
-$rpc_pass = "test123";
+        $rpc_port = "18336";
+        $rpc_user = "test";
+        $rpc_pass = "test123";
 
         
 
@@ -183,9 +183,9 @@ $rpc_pass = "test123";
         $newaddress=$client->getNewAddress($email);
         $this->load->view('frontend/multiinvoice');*/
          $rpc_host = "162.213.252.66";
-$rpc_port = "18336";
-$rpc_user = "test";
-$rpc_pass = "test123";
+            $rpc_port = "18336";
+            $rpc_user = "test";
+            $rpc_pass = "test123";
 
         $email=$this->input->post('email');
 
@@ -245,9 +245,9 @@ $rpc_pass = "test123";
     public function withdraw_value()
     {
          $rpc_host = "162.213.252.66";
-$rpc_port = "18336";
-$rpc_user = "test";
-$rpc_pass = "test123";
+            $rpc_port = "18336";
+            $rpc_user = "test";
+            $rpc_pass = "test123";
          $email=$this->input->post('email');
          $address=$this->input->post('address');
          $amount=$this->input->post('rate');

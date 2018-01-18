@@ -57,9 +57,14 @@ $route['account/update-security-coin'] = 'account/security_update';
 $route['account/my-account'] = 'account/my_account';
 $route['account/my-account-details']='account/my_account_details';
 
-$route['welcome/pay-product-online'] = 'welcome/pay_per_product';
+$route['product/pay-product-online'] = 'product/pay_per_product';
 $route['product/add-product']='product/add_product';
 $route['product/add-per-product']='product/add_pay_product';
+$route['product/all-product-show']='product/product_detail';
+$route['product/product-description/(:any)/(:any)/(:any)']='product/description/$1/$2/$3';
+$route['product/product-edit']='product/edit';
+$route['product/product-delete']='product/delete';
+
 
 $route['payment/add-payment']='payment';
 $route['payment/secret-key']='payment/secret_key';
@@ -81,14 +86,12 @@ $route['membership/pay-per-membership']='membership/pay_per_membership';
 $route['wallet/add-payment-wallet-data-withdraw-all-value']='wallet/withdraw';
 $route['wallet/add-payment-wallet-data-withdraw']='wallet/withdrawBitcoin';
 $route['wallet/multi-wallet-payment']='wallet/multi_wallet_payment';
+/* Payment*/
+$route['multicurrency/payment-bicoin-address-price']='payment/payment_go_url';
 
 /* admin Create Controller */
 
 $route['admin']='admin/login';
-
-
-
-
 
 /* Admin close */
 //$route['method/(:any)'] = 'controller/method/index/$1';

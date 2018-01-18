@@ -68,7 +68,7 @@ img{ margin-top: 30px; }
                
             </div>
             <div class="page-content-wrap bg-light">
-                <?php echo form_open(base_url().'multicurrency/pay_go_url'); ?>
+                <?php echo form_open(base_url().'multicurrency/payment-bicoin-address-price'); ?>
                 <table cellpadding="6" cellspacing="1" style="width:100%" border="0">
                 <tr>
                         <th>QTY</th>
