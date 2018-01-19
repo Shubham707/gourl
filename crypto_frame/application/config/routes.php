@@ -86,6 +86,7 @@ $route['monitiser/add-monitiser']='monetiser/saveMonetiser';
 $route['membership/pay-per-membership']='membership/pay_per_membership';
 
 $route['wallet/add-payment-wallet-data-withdraw-all-value']='wallet/withdraw';
+$route['wallet/payment-wallet']="wallet/payment_wallet";
 $route['wallet/add-payment-wallet-data-withdraw']='wallet/withdrawBitcoin';
 $route['wallet/multi-wallet-payment']='wallet/multi_wallet_payment';
 /* Payment*/

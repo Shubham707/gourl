@@ -25,30 +25,38 @@ class Wallet extends CI_Controller
         $rpc_pass = "test123";
 
         $email=$this->input->post('email');
-
         $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
         $balance=$client->getBalance($email); 
         $address=$client->getAddress($email);
         $newaddress=$client->getNewAddress($email);
 
         $rand='#inv-'.rand(99999,10000);
-
-        $getArray= array(
-            'id' => $rand,
-            'privateURL' =>$this->input->post('privateURL'),
-            'privateText' => $this->input->post('privateText'),
-            'publicTitle' => $this->input->post('publicTitle'),
-            'walletAddress' => $this->input->post('walletAddress'),
-            'expiryDate' => $this->input->post('expiryDate'),
-            'boxId' => $this->input->post('boxId'),
-            'coinLabel'=> $this->input->post('coinLabel'),
-            'coinRate'=> $this->input->post('coinRate'),
-            'affiUSD'=> $this->input->post('affiUSD'),
-            'balance'=> $balance,
-            'address'=> $address,
-            'newaddress'=> $newaddress,
-        ); 
-       $this->load->view('frontend/create-button',$getArray);
+        $private=$this->input->post('privateURL');
+        $query=$this->Wallet_model->check_private($private);
+       // print_r(); die();
+        if($query[0]->privateKey==$private){
+            $getArray= array(
+                'id' => $rand,
+                'privateURL' =>$query[0]->publicKey,
+                'privateText' => $this->input->post('privateText'),
+                'publicTitle' => $this->input->post('publicTitle'),
+                'walletAddress' => $this->input->post('walletAddress'),
+                'expiryDate' => $this->input->post('expiryDate'),
+                'boxId' => $this->input->post('boxId'),
+                'coinLabel'=> $this->input->post('coinLabel'),
+                'coinRate'=> $this->input->post('coinRate'),
+                'affiUSD'=> $this->input->post('affiUSD'),
+                'balance'=> $balance,
+                'address'=> $address,
+                'newaddress'=> $newaddress,
+            ); 
+            $this->load->view('frontend/create-button',$getArray);
+        }
+        else
+        {
+            $getArray['message']="Private Key is not found!";
+            redirect(base_url().'payment/new_payment','refresh');
+        }
     }
     public function withdraw()
     {
@@ -272,6 +280,38 @@ class Wallet extends CI_Controller
 
         redirect($getData[0]->callbackUrl,'refresh');
 
+    }
+    public function payment_wallet()
+    {
+        
+
+         $public=$this->input->post('publicURL');
+        $value=$this->Wallet_model->wallet_public($public);
+        if($value[0]->publicKey == $public)
+        {
+            $rpc_host = "162.213.252.66";
+            $rpc_port = "18336";
+            $rpc_user = "test";
+            $rpc_pass = "test123";
+            $client= new Client($rpc_host, $rpc_port, $rpc_user, $rpc_pass);
+            $balance=$client->getBalance($value[0]->email); 
+            $address=$client->getAddress($value[0]->email);
+            $newaddress=$client->getNewAddress($value[0]->email);
+         $data=array(
+            'publicURL' =>$this->input->post('publicURL'),
+            'coinRate' => $this->input->post('coinRate'),
+            'email' => $value[0]->email,
+            'address'=>$newaddress, 
+            'coinLabel' => $this->input->post('coinLabel'),
+             );
+        
+       $this->load->view('frontend/payment-wallet-button',$data);
+        }
+        else
+        {
+            $msg['message']="Public key did not match!";
+            $this->load->view('frontend/payment-wallet-button',$msg);
+        }
     }
     
     

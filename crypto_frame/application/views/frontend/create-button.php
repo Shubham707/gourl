@@ -6,18 +6,15 @@
         </div>
     </div>
     <div class="panel-body">
-        <form action="<?= base_url()?>wallet/add-payment-wallet-data-withdraw-all-value" method="post">
+        <form action="<?php echo base_url();?>wallet/payment-wallet" method="post">
             
             <div align="center"> 
                 <a onclick=copy("<?= $newaddress?>"); class="btn btn-primary">Copy</a>
                     <input type="text" style="margin-top: 20px; width:60%;" name="copy" disabled value="<?= $newaddress?>">
             </div>
-            
-            <form action="http://localhost/paycrypt/crypto_frame/wallet/add-payment-wallet-data-withdraw-all-value" method="post">
-            Public Key:<input type="text" name="publicURL" value="bznhYLC5kBlitecoinca43762f0f6f1c6d0e48bd703978ac28"><br>
-            Price:<input type="text" name="coinRate" value="324"><br>
-            Email:<input type="text" name="email" value="shubhamsahu707@gmail.com"><br>
-            Coin Name:<input type="hidden" name="coinLabel" value="BitCoin"><br>
+            Public Key:<input type="text" name="publicURL" value="<?php echo $privateURL;?>"><br>
+            Price:<input type="text" name="coinRate" value="<?php echo $coinRate;?>"><br>
+            Coin Name:<input type="hidden" name="coinLabel" value="<?php echo $coinLabel;?>"><br>
 
            
             
@@ -28,12 +25,11 @@
          </form>
           <div align="center">
                 <textarea class="form-control" rows="10" cols="40">
-                    <form action="<?= base_url()?>wallet/add-payment-wallet-data-withdraw-all-value" method="post">
+                    <form action="<?= base_url();?>wallet/payment-wallet" method="post">
                         <input type="hidden" name="id" value="<?= $id?>">
                         <input type="hidden" name="publicURL" value="<?= $privateURL?>">
                         <input type="hidden" name="coinRate" value="<?php echo $coinRate;?>">
                         <input type="hidden" name="coinLabel" value="<?= $coinLabel?>">
-                        <input type="hidden" name="email" value="shubhamsahu707@gmail.com">
                         <div align="center">
                         <input type="image" name="submit" src="<?= base_url();?>assets/images/images1.jpeg" height="100" width="130" border="0" alt="Submit" />
                     </div>

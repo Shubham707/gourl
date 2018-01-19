@@ -139,7 +139,7 @@ class Product extends CI_Controller
             "ak_action" => $this->input->post('ak_action'),
             );
             $this->Product_model->product_update($productID,$data);
-            redirect('','refresh')
+            redirect('','refresh');
     }
    
     

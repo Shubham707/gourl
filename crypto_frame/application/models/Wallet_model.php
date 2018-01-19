@@ -20,7 +20,16 @@ class Wallet_model extends CI_Model {
 	{
 		$sql="select * from security_key where boxName='bitcoin' AND email='shubhamsahu707@gmail.com'";	
 		 return $return=$this->db->query($sql)->result();
-		// print_r($return); die();
+	}
+	public function check_private($private)
+	{
+		 $sql="select * from security_key where privateKey='$private'";
+		return   $query= $this->db->query($sql)->result();
+	}
+	public function wallet_public($public)
+	{
+		$sql="select * from security_key where publicKey='$public'";
+		return   $query= $this->db->query($sql)->result();
 	}
 }
 ?>
